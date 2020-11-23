@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :quests, foreign_key: 'creator_id'
+  has_many :guilds, foreign_key: 'creator_id'
 end
