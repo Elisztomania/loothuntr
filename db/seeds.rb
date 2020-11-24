@@ -21,6 +21,11 @@ tresor_LyonVaise = Quest.create(title:"Trésor de Lyon-Vaise", description:"Le t
 tresor_LyonVaise.creator = user_admin
 tresor_LyonVaise.save!
 
+tresor_mandrin = Quest.create(title:"Trésor de Mandrin", description:"On raconte que Mandrin aurait pris l’habitude de cacher ses butins dans des endroits qu’il nommait ses coffres-forts. Plusieurs d’entre eux auraient été localisés !
+Ainsi, une cassette serait encore enterrée dans le jardin de sa maison natale à Saint-Etienne-de Saint-Geoirs (Isère). A Verel-de-Montbel (Savoie), il fera une cache dans les hautes roches qui entoure le village et y glissa une bourse remplie de pierres précieuses. Il enterra 25 000 livres en or en pleine forêt du Vercors là où Mandrin aimait à prendre ses quartiers.", location: "Carterie - Gadgeterie, 63600 Ambert", resolved:false)
+tresor_mandrin.creator = user_admin
+tresor_mandrin.save!
+
 puts 'Creating guild...'
 hunters_de_loot = Guild.create(name:"Hunters de Loot", description:"On est des chasseurs de trésors !")
 hunters_de_loot.creator = user_admin

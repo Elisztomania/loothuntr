@@ -1,1 +1,18 @@
+<div class="container">
 
+  <h1 class="text-center pt-16">Créez votre guild</h1>
+
+  <div class="md:grid md:grid-cols-3 md:gap-6">
+
+  <%= render 'form', guild: @guild %>
+
+  <%= simple_form_for @guild do |f| %>
+    <%= f.input :name, label: 'Nom de la guilde'  %>
+    <%= f.input :description, label: 'Description'  %>
+    <!-- Ajouter un champ photo <%= f.input :photo, as: :file %> -->
+    <%= f.button :submit, 'Créer ma guilde', class: 'btn-form'  %>
+  <% end %>
+
+  </div>
+
+</div>
