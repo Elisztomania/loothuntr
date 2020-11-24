@@ -5,6 +5,7 @@
 
       <%= f.input :title, label: 'Nom de la quête'  %>
       <%= f.input :description, label: 'Description'  %>
+      <%= f.input :location, label: 'Adresse' %>
 
         <% if @quest.new_record? %>
       <%= f.button :submit, 'Créer ma super quête', class: 'btn-form'  %>

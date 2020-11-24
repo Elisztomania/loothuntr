@@ -27,6 +27,5 @@ class GuildsController < ApplicationController
   end
 
   def guild_params
-
   end
 end

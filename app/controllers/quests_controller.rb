@@ -11,13 +11,12 @@ class QuestsController < ApplicationController
   end
 
   def show
-    # @favorite = @mushroom.favorites.find_by(user: current_user)
   end
 
   def create
     @quest = Quest.new(quest_params)
     @quest.creator = current_user
-    if @quest.save
+    if @quest.save!
       redirect_to @quest
     else
       render :new
