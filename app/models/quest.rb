@@ -1,5 +1,6 @@
 class Quest < ApplicationRecord
   belongs_to :creator, class_name: 'User'
+  has_one :guild
 
   validates :title, presence: true, uniqueness: true
   validates :description, presence: true # , length: { minimun: 30 }
