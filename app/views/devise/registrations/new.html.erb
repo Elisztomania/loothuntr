@@ -9,26 +9,31 @@
     <%= f.input :username,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "Votre pseudo" }%>
+                  input_html: { autocomplete: "Votre pseudo" },
+                  label: "Votre meilleur pseudo" %>
     <%= f.input :bio,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "Présentez-vous" }%>
+                  input_html: { autocomplete: "Présentez-vous" },
+                  label: "Présentez-vous sous votre meilleur jour" %>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "Votre email" }%>
+                input_html: { autocomplete: "Votre email" },
+                label: "Votre meilleure adresse email" %>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "Votre mot de passe" } %>
+                input_html: { autocomplete: "Votre mot de passe" },
+                label: "Votre meilleur mot de passe" %>
     <%= f.input :password_confirmation,
                 required: true,
-                input_html: { autocomplete: "Confirmez votre mot de passe" } %>
+                input_html: { autocomplete: "Confirmez votre mot de passe" },
+                label: "Confirmez votre meilleur mot de passe" %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Créer son compte" %>
+    <%= f.button :submit, "Créer son compte (à pimper)" %>
   </div>
 <% end %>
 
