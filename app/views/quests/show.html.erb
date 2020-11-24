@@ -15,13 +15,17 @@
     <h3><strong>Créateur de la quête</strong></h3>
     <%= @quest.creator_id %>
 
-<br>
 <hr>
 <br>
-  <%= link_to 'Créer une guilde', new_quest_guild_path(@quest), class: "" %>
+  <% if @quest.guild != nil %>
+    <%= @quest.guild.name %>
+  <% elsif @quest.creator == current_user %>
+    <%= link_to 'Créer une guilde', new_quest_guild_path(@quest), class: "" %>
+  <% else %>
+    <%= link_to "Postuler pour rejoindre la guilde #{quest.guild.name}", new_quest_guild_path(@quest), class: "" %>
+  <% end %>
 <br>
 
-
-  <%= link_to 'Retour', quests_path, class: "" %>
+  <%= link_to 'Retour', quests_path, class: "btn btn-primary" %>
 
 </div>
