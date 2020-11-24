@@ -18,11 +18,11 @@
 <hr>
 <br>
   <% if @quest.guild != nil %>
-    <%= @quest.guild.name %>
+    <p>Guilde active sur la quête : <%= @quest.guild.name %></p>
+    <%= link_to "Postuler pour les rejoindre", new_quest_guild_path(@quest), class: "btn btn-success" %>
   <% elsif @quest.creator == current_user %>
     <%= link_to 'Créer une guilde', new_quest_guild_path(@quest), class: "" %>
   <% else %>
-    <%= link_to "Postuler pour rejoindre la guilde #{quest.guild.name}", new_quest_guild_path(@quest), class: "" %>
   <% end %>
 <br>
 

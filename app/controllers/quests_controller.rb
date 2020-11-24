@@ -11,8 +11,6 @@ class QuestsController < ApplicationController
   end
 
   def show
-    # @guild = Guild.find(guild_id == @quest_id)
-    # @guild.quest_id = params[:quest_id]
   end
 
   def create

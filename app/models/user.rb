@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :quests, foreign_key: 'creator_id', dependent: :destroy
   has_many :guilds, foreign_key: 'creator_id', dependent: :destroy
 
-  validates :username, presence: true, uniqueness: true
-  validates :bio, presence: true
+  # validates :username, presence: true, uniqueness: true
+  # validates :bio, presence: true
 end
