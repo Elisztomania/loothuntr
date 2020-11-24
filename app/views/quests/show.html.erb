@@ -1,1 +1,25 @@
+<div class="container">
+    <div class="edit-icon">
+      <% if current_user != nil && current_user == @quest.creator %>
+        <%= link_to edit_quest_path(@quest.id) do %>
+          <i class="fas fa-pencil-alt"></i>
+        <% end %>
+      <% end %>
+    </div>
 
+    <div class="details-quest">
+      <h2><strong><%= @quest.title %></strong>
+        <div class="container">
+          <%= @quest.title %>
+          <%= @quest.description %>
+          <%= @quest.location %>
+          <%= @quest.resolved %>
+          <%= @quest.creator_id %>
+        </div>
+    </div>
+
+  <div class="center-btn">
+    <%= link_to 'Retour', quests_path, class: "btn-ghost-margtop" %>
+  </div>
+
+</div>
