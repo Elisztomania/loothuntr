@@ -1,10 +1,10 @@
 <ul class="my-8 sm:my-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
 
-    <li class="group transition-transform duration-200 transform sm:hover:-translate-y-1">
+    <% @quests.each do |quest| %>
 
+    <li class="group transition-transform duration-200 transform sm:hover:-translate-y-1">
+      <%= link_to quest do %>
       <a href="#">
-        <% @quests.each do |quest| %>
-        <%= link_to quest do %>
 
         <div class="relative flex-shrink-0">
 
