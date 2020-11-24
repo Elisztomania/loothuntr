@@ -1,4 +1,13 @@
 
+      <div class="edit-icon">
+              <% if current_user != nil && current_user == @quest.creator %>
+                <%= link_to edit_quest_path(@quest.id) do %>
+                    <i class="fas fa-pencil-alt"></i>
+                <% end %>
+              <% end %>
+      </div>
+
+
 
       <div class="details-quest">
 

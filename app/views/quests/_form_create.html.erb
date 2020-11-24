@@ -1,11 +1,13 @@
 
 <div class="form-inputs">
 
+
   <%= simple_form_for @quest do |f| %>
 
     <%= f.input :title, label: 'Nom de la quête'  %>
-    <%= f.input :descriotion, label: 'Description'  %>
-    <%= f.input :location, collection: Quest::LOCATIONS, label: 'Localisation'  %>
+    <%= f.input :description, label: 'Description'  %>
+
+    <%= if current_user %>
     <%= f.button :submit, 'Créer ma super quête', class: 'btn-form'  %>
 
     <% end %>
