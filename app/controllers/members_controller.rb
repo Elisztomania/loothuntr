@@ -4,17 +4,15 @@ class MembersController < ApplicationController
 
   def new
     @guild = Guild.find(params[:guild_id])
-    @user = current_user
     @member = Member.new
   end
 
   def create
-    @user = current_user
     @member = Member.new(member_params)
+    @member.user = current_user
     @member.guild = @guild
-    @member.user = @user
     if @member.save
-      redirect_to quest_path(@member.guild.quest)
+      redirect_to quest_path(@guild.quest)
     else
       render :new
     end
