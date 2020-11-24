@@ -7,8 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Cleaning database...'
 User.destroy_all
-Guild.destroy_all
 Quest.destroy_all
+Guild.destroy_all
+
 
 puts 'Creating user...'
 
@@ -16,8 +17,14 @@ user_admin = User.create(username:"LootHuntr", email:"admin@loothuntr.co", passw
 
 puts 'Creating quest...'
 
-tresor_LyonVaise = Quest.create(title:"Tésor de Lyon-Vaise", description:"Le trésor de Lyon-Vaise est un ensemble d’objets précieux du IIIe siècle de l’Empire romain, trouvés à Lyon en 1992 et exposés au musée gallo-romain de Fourvière. Plus précisément daté d’après les monnaies qu’il comporte, ce trésor aurait été enseveli après 258 dans la crainte des raids barbares, peut-être lors du raid de 259.", location: "20-28 Rue Masaryk, 69009 Lyon", resolved:false)
+tresor_LyonVaise = Quest.create(title:"Trésor de Lyon-Vaise", description:"Le trésor de Lyon-Vaise est un ensemble d’objets précieux du IIIe siècle de l’Empire romain, trouvés à Lyon en 1992 et exposés au musée gallo-romain de Fourvière. Plus précisément daté d’après les monnaies qu’il comporte, ce trésor aurait été enseveli après 258 dans la crainte des raids barbares, peut-être lors du raid de 259.", location: "20-28 Rue Masaryk, 69009 Lyon", resolved:false)
 tresor_LyonVaise.creator = user_admin
 tresor_LyonVaise.save!
+
+puts 'Creating guild...'
+hunters_de_loot = Guild.create(name:"Hunters de Loot", description:"On est des chasseurs de trésors !")
+hunters_de_loot.creator = user_admin
+hunters_de_loot.quest = tresor_LyonVaise
+hunters_de_loot.save!
 
 puts 'Finished!'
