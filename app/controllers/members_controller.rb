@@ -12,7 +12,7 @@ class MembersController < ApplicationController
     @member.user = current_user
     @member.guild = @guild
     if @member.save
-      redirect_to quest_path(@guild.quest)
+      redirect_to quest_path(@guild.quest), notice: 'Votre candidature est bien envoyée ✌️'
     else
       render :new
     end

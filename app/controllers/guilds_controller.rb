@@ -14,20 +14,19 @@ class GuildsController < ApplicationController
     @guild = Guild.new(guild_params)
     @guild.creator = current_user
     @guild.quest_id = params[:quest_id]
-    if @guild.save!
-      redirect_to quest_guild_path(@guild, @quest)
+    if @guild.save
+      redirect_to guild_path(@guild)
     else
       render :new
     end
   end
 
   def edit
-    @quest = Quest.find(params[:quest_id])
   end
 
   def update
     if @guild.update(guild_params)
-      redirect_to quest_guild_path(@guild), notice: 'Votre quête est bien modifiée ✌️'
+      redirect_to guild_path(@guild), notice: 'Votre quête est bien modifiée ✌️'
     else
       render :edit
     end
