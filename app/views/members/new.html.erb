@@ -1,1 +1,9 @@
 
+<h2>Postuler pour entre dans la guilde <%= @guild.name %></h2>
+
+<%= simple_form_for [@guild, @member] do |f| %>
+    <%= f.input :cover_letter %>
+      <%= f.button :submit, "Postuler" %>
+<% end %>
+
+<%= link_to 'Retour', _path, class: 'btn btn-menu' %>
