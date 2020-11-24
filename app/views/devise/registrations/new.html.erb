@@ -1,24 +1,32 @@
-<h2>Sign up</h2>
+<h2>Créer son compte</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :username,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "Votre pseudo" }%>
+    <%= f.input :bio,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "Présentez-vous" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" }%>
+                input_html: { autocomplete: "Votre email" }%>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "Votre mot de passe" } %>
     <%= f.input :password_confirmation,
                 required: true,
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "Confirmez votre mot de passe" } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Créer son compte" %>
   </div>
 <% end %>
 
