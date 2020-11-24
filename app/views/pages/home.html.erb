@@ -1,2 +1,13 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+  <%= @quest.title %>
+  <%= @quest.id %>
+
+  <%= @guild.name %>
+  <%= @guild.id %>
+
+  <%= @current_user.username %>
+
+  <%= link_to "Voir toutes les quêtes", quests_path %>
+

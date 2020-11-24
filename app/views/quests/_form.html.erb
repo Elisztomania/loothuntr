@@ -1,1 +1,23 @@
 
+<div class="form-inputs">
+
+    <%= simple_form_for @quest do |f| %>
+
+      <%= f.input :title, label: 'Nom de la quête'  %>
+      <%= f.input :description, label: 'Description'  %>
+      <%= f.input :location, label: 'Adresse' %>
+
+        <% if @quest.new_record? %>
+      <%= f.button :submit, 'Créer ma super quête', class: 'btn-form'  %>
+        <% else %>
+      <%= f.button :submit, 'Mettre à jour ma super quête', class: 'btn-form'  %>
+        <% end %>
+
+    <% end %>
+
+      <div class="center-btn">
+        <%= link_to 'Retour', quests_path, class: "btn-ghost-margtop" %>
+      </div>
+</div>
+
+

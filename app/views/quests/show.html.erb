@@ -1,1 +1,20 @@
+<div class="container">
+    <% if current_user != nil && current_user == @quest.creator %>
+      <%= link_to edit_quest_path(@quest.id) do %>
+        <i class="fas fa-pencil-alt"></i>
+      <% end %>
+    <% end %>
 
+  <h1><strong><%= @quest.title %></strong></h1>
+      <h3><strong>Histoire de la quête</strong></h3>
+        <%= @quest.description %>
+      <h3><strong>Lieu de recherche</strong></h3>
+      <%= @quest.location %>
+      <h3><strong>Statut de la quête</strong></h3>
+        <%= @quest.resolved ? "Résolue" : "Non résolue" %>
+      <h3><strong>Créateur de la quête</strong></h3>
+      <%= @quest.creator_id %>
+
+  <%= link_to 'Retour', quests_path, class: "btn-ghost-margtop" %>
+
+</div>
