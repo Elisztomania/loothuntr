@@ -6,14 +6,16 @@ class GuildsController < ApplicationController
   end
 
   def new
+    @quest = Quest.find(params[:quest_id])
     @guild = Guild.new
   end
 
   def create
     @guild = Guild.new(guild_params)
     @guild.creator = current_user
+    @guild.quest_id = params[:quest_id]
     if @guild.save
-      redirect_to @guild
+      redirect_to guild_path(@guild)
     else
       render :new
     end

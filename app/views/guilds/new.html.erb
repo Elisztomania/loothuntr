@@ -6,13 +6,6 @@
 
   <%= render 'form', guild: @guild %>
 
-  <%= simple_form_for @guild do |f| %>
-    <%= f.input :name, label: 'Nom de la guilde'  %>
-    <%= f.input :description, label: 'Description'  %>
-    <!-- Ajouter un champ photo <%= f.input :photo, as: :file %> -->
-    <%= f.button :submit, 'Créer ma guilde', class: 'btn-form'  %>
-  <% end %>
-
   </div>
 
 </div>
