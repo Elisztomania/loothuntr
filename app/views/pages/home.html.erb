@@ -1,5 +1,13 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
+  <%= @quest.title %>
+  <%= @quest.id %>
 
-<%= link_to "Postuler",  new_quest_guild_member_path(@guild) %>
+  <%= @guild.name %>
+  <%= @guild.id %>
+
+  <%= @current_user.username %>
+
+  <%= link_to "Postuler", new_quest_guild_member_path(@guild, @user) %>
+

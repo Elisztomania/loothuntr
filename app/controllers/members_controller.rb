@@ -3,6 +3,8 @@ class MembersController < ApplicationController
   before_action :set_member, only: [:accepted, :refused]
 
   def new
+    @guild = Guild.find(params[:guild_id])
+    @user = current_user
     @member = Member.new
   end
 
