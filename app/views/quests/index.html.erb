@@ -7,17 +7,8 @@
   </div>
 
 
-  <ul class="card-list">
+  <%= render 'shared_huyvu/card_quest' %>
 
-    <% @quests.each do |quest| %>
-      <%= link_to quest do %>
-      <div class="card ">
-        <%= quest.title %>
-        <%= quest.description %>
-        <%= quest.location %>
-      </div>
-       <% end %>
-    <% end %>
 
-  </ul>
+
 </div>
