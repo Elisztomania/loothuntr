@@ -14,8 +14,8 @@ class GuildsController < ApplicationController
     @guild = Guild.new(guild_params)
     @guild.creator = current_user
     @guild.quest_id = params[:quest_id]
-    if @guild.save
-      redirect_to quest_guild_path(@guild)
+    if @guild.save!
+      redirect_to quest_guild_path(@guild, @quest)
     else
       render :new
     end
