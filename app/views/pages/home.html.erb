@@ -1,13 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <h1>Pages#home</h1>
+  <p>Find me in app/views/pages/home.html.erb</p>
 
-  <%= @quest.title %>
-  <%= @quest.id %>
+  <% @quests.each do |quest| %>
+    <%= quest.title %>
+    <%= quest.id %>
+  <% end %>
 
   <%= @guild.name %>
   <%= @guild.id %>
 
-  <%= @current_user.username %>
+  <%= current_user != nil ? @current_user.username : "" %>
 
   <%= link_to "Voir toutes les quêtes", quests_path %>
-
+</div>
