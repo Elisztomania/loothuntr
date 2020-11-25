@@ -17,7 +17,7 @@
 
 <hr>
 <br>
-  <% if @quest.guild != nil && @quest.creator == current_user %>
+  <% if @quest.guild != nil && @quest.creator == current_user || current_user == @members %>
     <p>Guilde active sur la quête : <%= @quest.guild.name %></p>
     dashboard de guilde
     <% @quest.guild.members.each do |member| %>

@@ -14,8 +14,6 @@ class GuildsController < ApplicationController
   def create
     @guild = Guild.new(guild_params)
     @guild.creator = current_user
-    @member = Member.new(guild_id: @guild.id, user_id: current_user, accepted: true, cover_letter: "c'est moi qui l'ait fait")
-    @member.save
     @guild.quest_id = params[:quest_id]
     if @guild.save
       redirect_to guild_path(@guild)
