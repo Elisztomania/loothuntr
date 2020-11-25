@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  before_action :set_guild, only: [:new, :create, :accepted]
+  before_action :set_guild, only: [:new, :create, :accepted, :refused]
   before_action :set_member, only: [:accepted, :refused]
 
   def new
@@ -20,16 +20,15 @@ class MembersController < ApplicationController
 
   def accepted
     @member.accepted = true
-    @guild.member = @member.user
     @member.save
     @guild.save
-    redirect_to quest_guild_path(@guild)
+    redirect_to guild_path(@guild), notice: 'Vous avez bien accepté la candidature 🥰'
   end
 
   def refused
-    @member.accepted = false
+    @member.delete
     @member.save
-    redirect_to quest_guild_path(@guild)
+    redirect_to guild_path(@guild), notice: 'Vous avez bien refusé la candidature 😭'
   end
 
   private
