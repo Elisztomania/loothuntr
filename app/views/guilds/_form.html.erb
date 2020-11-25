@@ -1,1 +1,10 @@
-_form.html.erb
+<%= simple_form_for [@quest, @guild] do |f| %>
+    <%= f.input :name, label: 'Nom de la guilde'  %>
+    <%= f.input :description, label: 'Description'  %>
+    <!-- Ajouter un champ photo <%= f.input :photo, as: :file %> -->
+    <% if @guild.new_record? %>
+      <%= f.button :submit, 'Créer ma guilde', class: 'btn-form'  %>
+    <% else %>
+      <%= f.button :submit, 'Mettre à jour ma super quête', class: 'btn-form'  %>
+    <% end %>
+<% end %>

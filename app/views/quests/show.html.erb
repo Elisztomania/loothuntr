@@ -6,15 +6,26 @@
     <% end %>
 
   <h1><strong><%= @quest.title %></strong></h1>
-      <h3><strong>Histoire de la quête</strong></h3>
-        <%= @quest.description %>
-      <h3><strong>Lieu de recherche</strong></h3>
-      <%= @quest.location %>
-      <h3><strong>Statut de la quête</strong></h3>
-        <%= @quest.resolved ? "Résolue" : "Non résolue" %>
-      <h3><strong>Créateur de la quête</strong></h3>
-      <%= @quest.creator_id %>
+    <h3><strong>Histoire de la quête</strong></h3>
+      <%= @quest.description %>
+    <h3><strong>Lieu de recherche</strong></h3>
+    <%= @quest.location %>
+    <h3><strong>Statut de la quête</strong></h3>
+      <%= @quest.resolved ? "Résolue" : "Non résolue" %>
+    <h3><strong>Créateur de la quête</strong></h3>
+    <%= @quest.creator_id %>
 
-  <%= link_to 'Retour', quests_path, class: "btn-ghost-margtop" %>
+<hr>
+<br>
+  <% if @quest.guild != nil %>
+    <p>Guilde active sur la quête : <%= @quest.guild.name %></p>
+    <%= link_to "Postuler pour les rejoindre", new_guild_member_path(@quest.guild), class: "btn btn-success" %>
+  <% elsif @quest.creator == current_user %>
+    <%= link_to 'Créer une guilde', new_quest_guild_path(@quest), class: "" %>
+  <% else %>
+  <% end %>
+<br>
+
+  <%= link_to 'Retour', quests_path, class: "btn btn-primary" %>
 
 </div>

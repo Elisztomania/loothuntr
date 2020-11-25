@@ -5,19 +5,7 @@
     <br>
     <%= link_to 'Créer une quête', new_quest_path(@quest), class: "btn btn-form" %>
   </div>
-
-
-  <ul class="card-list">
-
-    <% @quests.each do |quest| %>
-      <%= link_to quest do %>
-      <div class="card ">
-        <%= quest.title %>
-        <%= quest.description %>
-        <%= quest.location %>
-      </div>
-       <% end %>
-    <% end %>
-
-  </ul>
+  <%= render 'shared_huyvu/text_section_index_quest' %>
+  <%= render 'shared_huyvu/card_quest' %>
 </div>
+  <%= render 'shared_huyvu/footer' %>
