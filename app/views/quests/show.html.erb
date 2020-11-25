@@ -13,19 +13,26 @@
     <h3><strong>Statut de la quête</strong></h3>
       <%= @quest.resolved ? "Résolue" : "Non résolue" %>
     <h3><strong>Créateur de la quête</strong></h3>
-    <%= @quest.creator_id %>
+    <%= @quest.creator.username %>
 
 <hr>
 <br>
-  <% if @quest.guild != nil %>
-    <p>Guilde active sur la quête : <%= @quest.guild.name %></p>
+<% if @quest.guild.present? %>
+  <p>Guilde active sur la quête : <%= @quest.guild.name %></p>
+  <% if current_user != nil && current_user.is_member_of?(@quest.guild) %>
+    <%= link_to "Tableau de bord de guilde", guild_path(@quest.guild), class: "btn btn-warning" %>
+  <% elsif current_user != nil && !current_user.has_apply_to?(@quest.guild) %>
     <%= link_to "Postuler pour les rejoindre", new_guild_member_path(@quest.guild), class: "btn btn-success" %>
-  <% elsif @quest.creator == current_user %>
-    <%= link_to 'Créer une guilde', new_quest_guild_path(@quest), class: "" %>
-  <% else %>
   <% end %>
+<% elsif @quest.creator == current_user %>
+    <%= link_to 'Créer une guilde', new_quest_guild_path(@quest), class: "" %>
+
+<% else %>
+    <p>Pas de guilde active sur la quête</p>
+<% end %>
+
 <br>
 
-  <%= link_to 'Retour', quests_path, class: "btn btn-primary" %>
+  <%= link_to 'Retour', quests_path, class: "btn btn-primary mt-2" %>
 
 </div>
