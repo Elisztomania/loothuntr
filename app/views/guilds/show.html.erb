@@ -11,11 +11,24 @@
     <% if member.accepted == false %>
       <strong><h3><%= member.user.username %></h3></strong>
       <p ><%= member.cover_letter %></p>
-      <%= link_to "", root_path, class: "fas fa-check-circle", style: "color: green; font-size: 20px;" %>
-      <%= link_to "", root_path, class: "fas fa-times-circle", style: "color: red; font-size: 20px;"%>
+      <%= link_to "", guild_member_accepted_path(@guild, member), class: "fas fa-check-circle", style: "color: green; font-size: 20px;" %>
+      <%= link_to "", guild_member_refused_path(@guild, member), class: "fas fa-times-circle", style: "color: red; font-size: 20px;"%>
+
     <br>
     <% end %>
   <% end %>
+  <br>
+  <hr>
+
+  <br>
+  <h2>Voici les membres de votre guilde</h2>
+  <% @guild.members.each do |member| %>
+    <% if member.accepted == true %>
+      <strong><h3><%= member.user.username %></h3></strong>
+    <% end %>
+  <% end %>
+
+  <br>
   <hr>
   <br>
   <%= link_to 'Modifier ma guilde', edit_guild_path(@guild), class: "btn-ghost-margtop" %>
