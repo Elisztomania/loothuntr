@@ -4,13 +4,12 @@
     <h1 class="text-center pt-16">Dashbord: <%= @guild.name %></h1>
 
     <br>
-    <hr>
 
     <% if @guild.creator == current_user %>
-      <h2>Des personnes veulent entrer dans votre guilde</h2>
-      <br>
       <% @guild.members.each do |member| %>
         <% if member.accepted == false %>
+          <h2>Des personnes veulent entrer dans votre guilde</h2>
+          <br>
           <strong><h3><%= member.user.username %></h3></strong>
           <p ><%= member.cover_letter %></p>
           <%= link_to "", guild_member_accepted_path(@guild, member), class: "fas fa-check-circle", style: "color: green; font-size: 20px;" %>
@@ -39,4 +38,6 @@
   <% else %>
   <h2>Désolé, vous n'êtes pas member de cette guilde 😉</h2>
   <% end %>
+
+  <%= link_to 'Voir la quête', quest_path(@guild.quest), class: "btn btn-primary" %>
 </div>

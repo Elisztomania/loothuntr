@@ -19,22 +19,19 @@
 <br>
   <% if @quest.guild != nil && @quest.creator == current_user || current_user == @members %>
     <p>Guilde active sur la quête : <%= @quest.guild.name %></p>
-    dashboard de guilde
-    <% @quest.guild.members.each do |member| %>
-      <%= member.user.username %>
-      <% end %>
+    <%= link_to "Tableau de bord de guilde", guild_path(@quest.guild), class: "btn btn-warning" %>
   <% elsif @quest.guild != nil && current_user != @members %>
     <p>Guilde active sur la quête : <%= @quest.guild.name %></p>
     <%= link_to "Postuler pour les rejoindre", new_guild_member_path(@quest.guild), class: "btn btn-success" %>
-
   <% elsif @quest.creator == current_user %>
     <%= link_to 'Créer une guilde', new_quest_guild_path(@quest), class: "" %>
 
   <% else %>
     <p>Pas de guilde active sur la quête</p>
   <% end %>
+
 <br>
 
-  <%= link_to 'Retour', quests_path, class: "btn btn-primary" %>
+  <%= link_to 'Retour', quests_path, class: "btn btn-primary mt-2" %>
 
 </div>
