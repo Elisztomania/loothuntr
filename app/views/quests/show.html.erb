@@ -21,7 +21,7 @@
     <p>Guilde active sur la quête : <%= @quest.guild.name %></p>
     dashboard de guilde
     <% @quest.guild.members.each do |member| %>
-      <%= member.id %>
+      <%= member.user.username %>
       <% end %>
   <% elsif @quest.guild != nil && current_user != @members %>
     <p>Guilde active sur la quête : <%= @quest.guild.name %></p>

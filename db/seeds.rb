@@ -1,7 +1,8 @@
 puts 'Cleaning database...'
-User.destroy_all
-Quest.destroy_all
+Member.destroy_all
 Guild.destroy_all
+Quest.destroy_all
+User.destroy_all
 
 
 puts 'Creating user...'
