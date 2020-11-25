@@ -10,12 +10,14 @@
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
      <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
-    <%= render 'shared/flashes' %>
 
-    <%= yield %>
+    
+    <%= render 'shared_huyvu/navbar_home'%>
 
+     <%= yield %> 
   </body>
 </html>
