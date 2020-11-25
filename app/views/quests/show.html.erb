@@ -18,11 +18,10 @@
 <hr>
 <br>
 <% if @quest.guild.present? %>
-  <% if current_user.is_member_of?(@quest.guild) %>
-    <p>Guilde active sur la quête : <%= @quest.guild.name %></p>
+  <p>Guilde active sur la quête : <%= @quest.guild.name %></p>
+  <% if current_user != nil && current_user.is_member_of?(@quest.guild) %>
     <%= link_to "Tableau de bord de guilde", guild_path(@quest.guild), class: "btn btn-warning" %>
-  <% elsif !current_user.has_apply_to?(@quest.guild) %>
-    <p>Guilde active sur la quête : <%= @quest.guild.name %></p>
+  <% elsif current_user != nil && !current_user.has_apply_to?(@quest.guild) %>
     <%= link_to "Postuler pour les rejoindre", new_guild_member_path(@quest.guild), class: "btn btn-success" %>
   <% end %>
 <% elsif @quest.creator == current_user %>
