@@ -10,12 +10,17 @@
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
      <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
 
-    <%= yield %>
+    <%= render 'shared_bastien/navbar' %>
+    <%= render 'shared_bastien/banner' %>
+
+    <%# <%= render 'shared/navbar' %>
+    <%# <%= render 'shared/flashes' %>
+
+    <%# <%= yield %> 
   </body>
 </html>
