@@ -13,16 +13,25 @@
     <h3><strong>Statut de la quête</strong></h3>
       <%= @quest.resolved ? "Résolue" : "Non résolue" %>
     <h3><strong>Créateur de la quête</strong></h3>
-    <%= @quest.creator_id %>
+    <%= @quest.creator.username %>
 
 <hr>
 <br>
-  <% if @quest.guild != nil %>
+  <% if @quest.guild != nil && @quest.creator == current_user %>
+    <p>Guilde active sur la quête : <%= @quest.guild.name %></p>
+    dashboard de guilde
+    <% @quest.guild.members.each do |member| %>
+      <%= member.id %>
+      <% end %>
+  <% elsif @quest.guild != nil && current_user != @members %>
     <p>Guilde active sur la quête : <%= @quest.guild.name %></p>
     <%= link_to "Postuler pour les rejoindre", new_guild_member_path(@quest.guild), class: "btn btn-success" %>
+
   <% elsif @quest.creator == current_user %>
     <%= link_to 'Créer une guilde', new_quest_guild_path(@quest), class: "" %>
+
   <% else %>
+    <p>Pas de guilde active sur la quête</p>
   <% end %>
 <br>
 
