@@ -12,6 +12,31 @@
 @import "components/index";
 @import "pages/index";
 
-#navbar-index-quest {
-  background-color: #FFDCC8;
+h1 {
+ font-family: 'Incosolata', monospace;
+ font-size: 25px !important;
+}
+
+h2 {
+  font-family: 'Incosolata', monospace;
+  font-size: 25px !important;
+}
+
+h3 {
+  font-family: 'Incosolata', monospace;
+  font-size: 25px !important;
+}
+
+h4 {
+  font-family: 'Incosolata', monospace;
+  font-size: 25px !important;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px !important;
+}
+
+a {
+  text-decoration: none !important;
 }
