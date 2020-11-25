@@ -2,6 +2,7 @@ class Guild < ApplicationRecord
   belongs_to :quest
   belongs_to :creator, class_name: 'User'
   has_many :members
+  has_many :posts
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true

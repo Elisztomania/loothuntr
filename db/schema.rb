@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_165405) do
+ActiveRecord::Schema.define(version: 2020_11_25_154715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,18 @@ ActiveRecord::Schema.define(version: 2020_11_23_165405) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["guild_id"], name: "index_members_on_guild_id"
     t.index ["user_id"], name: "index_members_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.boolean "public", default: true
+    t.bigint "user_id", null: false
+    t.bigint "guild_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["guild_id"], name: "index_posts_on_guild_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "quests", force: :cascade do |t|
@@ -66,5 +78,7 @@ ActiveRecord::Schema.define(version: 2020_11_23_165405) do
   add_foreign_key "guilds", "users", column: "creator_id"
   add_foreign_key "members", "guilds"
   add_foreign_key "members", "users"
+  add_foreign_key "posts", "guilds"
+  add_foreign_key "posts", "users"
   add_foreign_key "quests", "users", column: "creator_id"
 end
