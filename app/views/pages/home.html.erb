@@ -1,16 +1,16 @@
+
+<%= render 'shared_huyvu/navbar_banner_home' %>
+
 <div class="container">
-  <h1>Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
 
-  <% @quests.each do |quest| %>
-    <%= quest.title %>
-    <%= quest.id %>
-  <% end %>
-
-  <%= @guild.name %>
-  <%= @guild.id %>
-
-  <%= current_user != nil ? @current_user.username : "" %>
-
-  <%= link_to "Voir toutes les quêtes", quests_path %>
+  <%= render 'shared_huyvu/text_section_index_quest' %>
+  <%= render 'shared_huyvu/card_quest' %>
 </div>
+
+  <%= render 'shared_huyvu/calltoaction' %>
+
+  <%= render 'shared_huyvu/footer' %>
+
+
+
+
