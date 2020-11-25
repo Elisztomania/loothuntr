@@ -2,8 +2,21 @@
 
   <h1 class="text-center pt-16">Dashbord: <%= @guild.name %></h1>
 
+  <br>
+  <hr>
 
-
+  <h2>Des personnes veulent entrer dans votre guilde</h2>
+  <br>
+  <% @guild.members.each do |member| %>
+    <% if member.accepted == false %>
+      <strong><h3><%= member.user.username %></h3></strong>
+      <p ><%= member.cover_letter %></p>
+      <%= link_to "", root_path, class: "fas fa-check-circle", style: "color: green; font-size: 20px;" %>
+      <%= link_to "", root_path, class: "fas fa-times-circle", style: "color: red; font-size: 20px;"%>
+    <br>
+    <% end %>
+  <% end %>
+  <hr>
   <br>
   <%= link_to 'Modifier ma guilde', edit_guild_path(@guild), class: "btn-ghost-margtop" %>
 

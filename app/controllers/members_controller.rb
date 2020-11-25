@@ -23,13 +23,13 @@ class MembersController < ApplicationController
     @guild.member = @member.user
     @member.save
     @guild.save
-    redirect_to quest_guild_path(@guild)
+    redirect_to guild_path(@guild), notice: 'Vous avez bien accepté la candidature 🥰'
   end
 
   def refused
     @member.accepted = false
     @member.save
-    redirect_to quest_guild_path(@guild)
+    redirect_to guild_path(@guild), 'Vous avez bien refusé la candidature 😭'
   end
 
   private
