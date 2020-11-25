@@ -3,6 +3,7 @@ class GuildsController < ApplicationController
 
   def show
     # show dashboard with the chat, the calendar, th members of the teams
+    @members = User.where(:acccepted == true)
   end
 
   def new

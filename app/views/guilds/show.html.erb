@@ -1,36 +1,42 @@
 <div class="container">
+  <% if @members == current_user || @guild.creator == current_user %>
 
-  <h1 class="text-center pt-16">Dashbord: <%= @guild.name %></h1>
-
-  <br>
-  <hr>
-
-  <h2>Des personnes veulent entrer dans votre guilde</h2>
-  <br>
-  <% @guild.members.each do |member| %>
-    <% if member.accepted == false %>
-      <strong><h3><%= member.user.username %></h3></strong>
-      <p ><%= member.cover_letter %></p>
-      <%= link_to "", guild_member_accepted_path(@guild, member), class: "fas fa-check-circle", style: "color: green; font-size: 20px;" %>
-      <%= link_to "", guild_member_refused_path(@guild, member), class: "fas fa-times-circle", style: "color: red; font-size: 20px;"%>
+    <h1 class="text-center pt-16">Dashbord: <%= @guild.name %></h1>
 
     <br>
+    <hr>
+
+    <% if @guild.creator == current_user %>
+      <h2>Des personnes veulent entrer dans votre guilde</h2>
+      <br>
+      <% @guild.members.each do |member| %>
+        <% if member.accepted == false %>
+          <strong><h3><%= member.user.username %></h3></strong>
+          <p ><%= member.cover_letter %></p>
+          <%= link_to "", guild_member_accepted_path(@guild, member), class: "fas fa-check-circle", style: "color: green; font-size: 20px;" %>
+          <%= link_to "", guild_member_refused_path(@guild, member), class: "fas fa-times-circle", style: "color: red; font-size: 20px;"%>
+
+        <br>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
-  <br>
-  <hr>
+    <br>
+    <hr>
 
-  <br>
-  <h2>Voici les membres de votre guilde</h2>
-  <% @guild.members.each do |member| %>
-    <% if member.accepted == true %>
-      <strong><h3><%= member.user.username %></h3></strong>
+    <br>
+    <h2>Voici les membres de votre guilde</h2>
+    <% @guild.members.each do |member| %>
+      <% if member.accepted == true %>
+        <strong><h3><%= member.user.username %></h3></strong>
+      <% end %>
     <% end %>
+
+    <br>
+    <hr>
+    <br>
+    <%= link_to 'Modifier ma guilde', edit_guild_path(@guild), class: "btn-ghost-margtop" %>
+
+  <% else %>
+  <h2>Désolé, vous n'êtes pas member de cette guilde 😉</h2>
   <% end %>
-
-  <br>
-  <hr>
-  <br>
-  <%= link_to 'Modifier ma guilde', edit_guild_path(@guild), class: "btn-ghost-margtop" %>
-
 </div>
