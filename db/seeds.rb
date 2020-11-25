@@ -24,9 +24,14 @@ tresor_couvent_port_royal = Quest.create!(title: "Le trésor du Couvent de Port 
 puts 'Creating guilds...'
 hunters_de_loot = Guild.create!(name:"Hunters de Loot", description:"On est des chasseurs de trésoooooors !", creator: user_admin, quest: tresor_LyonVaise)
 fiers_de_hache = Guild.create!(name: "Les fiers de hache", description:"On va se faire le donjon de Naheulbeuk! OUAIIS!", creator: user_admin, quest: tresor_couvent_port_royal)
+les_backeuses = Guild.create!(name: "Les backeuses", description:"Du talent dans des boites jaunes", creator: user_admin, quest: tresor_jeanguennego)
 
 puts 'Creating members...'
 
-Member.create!(quest: tresor_LyonVaise, guild: hunters_de_loot, cover_letter)
+Member.create!(user: indiana, guild: hunters_de_loot, accepted: true, cover_letter: "j'ai de l'expérienceeee")
+Member.create!(user: benjamin, guild: fiers_de_hache, accepted: true, cover_letter: "j'ai beaucoup d'expérience")
+Member.create!(user: indiana, guild: les_backeuses, accepted: true, cover_letter: "j'ai de fou de l'expérienceee")
+Member.create!(user: ella, guild: les_backeuses, accepted: true, cover_letter: "j'ai masse l'expérienceee")
+Member.create!(user: ella, guild: fiers_de_hache, accepted: true, cover_letter: "j'ai plus d'expérienceeee")
 
 puts 'Finished!'
