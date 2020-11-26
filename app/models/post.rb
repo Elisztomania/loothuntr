@@ -6,5 +6,5 @@ class Post < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true
-  validates :category, presence: true, inclusion: { in: CATEGROY }
+  validates :category, presence: true, inclusion: { in: CATEGORY }
 end
