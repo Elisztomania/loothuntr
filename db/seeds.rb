@@ -31,6 +31,11 @@ tresor_jeanguennego.photo.attach(io: source, filename: 'jeanguennego.jpeg', cont
 source = File.open("app/assets/images/port_royal.jpeg")
 tresor_couvent_port_royal.photo.attach(io: source, filename: 'port_royal.jpeg', content_type: 'image/jpeg')
 
+tresor_LyonVaise.save!
+tresor_mandrin.save!
+tresor_jeanguennego.save!
+tresor_couvent_port_royal.save!
+
 puts 'Creating guilds...'
 hunters_de_loot = Guild.create!(name:"Hunters de Loot", description:"On est des chasseurs de trésoooooors !", creator: user_admin, quest: tresor_LyonVaise)
 fiers_de_hache = Guild.create!(name: "Les fiers de hache", description:"On va se faire le donjon de Naheulbeuk! OUAIIS!", creator: user_admin, quest: tresor_couvent_port_royal)
