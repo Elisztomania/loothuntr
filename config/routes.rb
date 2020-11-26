@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :guilds, only: [:show, :edit, :update] do
     resources :posts, only: [:new, :create] do
-      resources :comments, only: [:create, :new, :edit, :update]
+      resources :comments, only: [:create, :new]
       collection do
         get :pistes
       end
