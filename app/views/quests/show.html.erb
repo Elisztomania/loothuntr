@@ -19,8 +19,10 @@
 <br>
 
 
-
-
+  <% @quest.avancees.each do |avancee| %>
+    <%= avancee.title %>
+    <%= avancee.description %>
+  <% end %>
 
 
 <hr>

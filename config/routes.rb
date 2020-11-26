@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :guilds, only: [:create, :new]
   end
   resources :guilds, only: [:show, :edit, :update] do
-    resources :posts, only: [:new, :create, :edit, :update] do
+    resources :posts, only: [:new, :create] do
       collection do
         get :pistes
       end
@@ -13,6 +13,12 @@ Rails.application.routes.draw do
         get '/accepted', to: 'members#accepted'
         get '/refused', to: 'members#refused'
       end
+    end
+  end
+  resources :posts, only: [:edit, :update] do
+    member do
+      get :new_avancee_from_post
+      post :create_avancee_from_post
     end
   end
 
