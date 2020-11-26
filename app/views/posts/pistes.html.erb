@@ -4,23 +4,37 @@
 
 <!-- LISTE DES PISTES -->
   <h1>Voici les pistes</h1>
+
+<!-- BOUCLE QUI AFFICHES CHAQUE PISTE -->
   <% i = 0 %>
   <% @pistes.each do |piste| %>
+
     <% i += 1 %>
+    <div class="card my-10 p-10">
     <h2>Piste n°<%= i %> : <%= piste.title %></h2>
     <%= piste.description %>
 
+  <form class="w-full max-w-sm">
+    <div class="flex items-center border-b border-teal-500 py-2">
+      <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Votre commentaire" aria-label="Full name">
+      <button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
+        ➡️
+      </button>
+    </div>
+  </form>
 
   <!-- ETAT DE LA PISTE POSTEE/NON POSTEE -->
     <% if piste.category == 'piste' %>
-      <%= link_to "Poster une avancée", new_avancee_from_post_post_path(piste), class: "btn btn-primary"  %>
+      <%= link_to "Poster une avancée", new_avancee_from_post_post_path(piste), class: "btn btn-primary mx-96 mt-10"  %>
     <% elsif piste.category == 'piste_publiee' %>
-      <p class= "btn">Avancée déjà publiée</p>
+      <p class= "btn mx-96 mt-10">Avancée déjà publiée</p>
     <% end %>
     <br>
+    </div>
+
   <% end %>
   <br>
-
+<!-- FIN DE BOUCLE -->
 
 <!-- BUTTONS NEW PISTE & RETOUR -->
   <%= link_to "Explorer une nouvelle piste", new_guild_post_path(@guild), class: "btn btn-primary mt-10 mb-10" %>
