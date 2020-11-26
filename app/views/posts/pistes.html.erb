@@ -1,20 +1,28 @@
+<!-- INDEX DES PISTES -->
 <div class="container">
   <br>
+
+<!-- LISTE DES PISTES -->
   <h1>Voici les pistes</h1>
   <% i = 0 %>
   <% @pistes.each do |piste| %>
-  <% i += 1 %>
-  <h2>Piste n°<%= i %> : <%= piste.title %></h2>
-  <%= piste.description %>
+    <% i += 1 %>
+    <h2>Piste n°<%= i %> : <%= piste.title %></h2>
+    <%= piste.description %>
 
-  <% if piste.category == 'piste' %>
-  <%= link_to "Poster une avancée", new_avancee_from_post_post_path(piste), class: "btn btn-primary"  %>
-  <% elsif piste.category == 'piste_publiee' %>
-  <p class= "btn">Avancée déjà publiée</p>
-  <% end %>
+
+  <!-- ETAT DE LA PISTE POSTEE/NON POSTEE -->
+    <% if piste.category == 'piste' %>
+      <%= link_to "Poster une avancée", new_avancee_from_post_post_path(piste), class: "btn btn-primary"  %>
+    <% elsif piste.category == 'piste_publiee' %>
+      <p class= "btn">Avancée déjà publiée</p>
+    <% end %>
+    <br>
   <% end %>
   <br>
 
+
+<!-- BUTTONS NEW PISTE & RETOUR -->
   <%= link_to "Explorer une nouvelle piste", new_guild_post_path(@guild), class: "btn btn-primary mt-10 mb-10" %>
 
   <%= link_to "Retour au tableau de bord", guild_path(@guild), class: "btn btn-primary mt-10 mb-10" %>
