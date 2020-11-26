@@ -15,6 +15,16 @@ ActiveRecord::Schema.define(version: 2020_11_26_131701) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "guilds", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -74,6 +84,8 @@ ActiveRecord::Schema.define(version: 2020_11_26_131701) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
   add_foreign_key "guilds", "quests"
   add_foreign_key "guilds", "users", column: "creator_id"
   add_foreign_key "members", "guilds"
