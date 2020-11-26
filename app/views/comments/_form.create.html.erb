@@ -1,0 +1,11 @@
+
+<div class="form-inputs">
+
+<%= simple_form_for [@post, @comment] do |f| %>
+   <%= f.input :content, label: 'Mon super commentaire' %>
+   <%= f.button :submit, "Ajouter mon super commentaire", class: 'btn-form' %>
+
+<% end %>
+
+
+</div>
