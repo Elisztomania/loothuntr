@@ -9,6 +9,4 @@ class Quest < ApplicationRecord
   validates :description, presence: true, length: { minimum: 30 }
   validates :location, presence: true
   validates :creator, presence: true
-  validates :photo, presence: true
-
 end
