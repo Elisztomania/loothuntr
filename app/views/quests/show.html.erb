@@ -1,3 +1,96 @@
+
+
+<!--Test-->
+
+<!--Header-->
+<div class="font-sans leading-normal tracking-normal">
+    <div class="w-full m-0 p-0 bg-cover bg-bottom" style="background-image:url('https://images.unsplash.com/photo-1498578989336-56425ea7d68a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1923&q=80'); height: 60vh; max-height:460px; box-shadow: inset 0 0 0 100vw rgba(7, 25, 43, 0.4)">
+      <div class="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
+        <!--Title-->
+          <p class="text-white font-extrabold text-3xl md:text-5xl">
+            🤠 <%= @quest.title %>
+          </p>
+      </div>
+    </div>
+
+    <!--Container-->
+    <div class="container px-4 md:px-0 max-w-6xl mx-auto -mt-32">
+      <div class="mx-0 sm:mx-6">
+        <div class="bg-white-200 w-full text-xl md:text-2xl text-gray-800 leading-normal rounded-t">
+
+        <!--Lead Card-->
+        <div class="flex h-full bg-white rounded overflow-hidden shadow-lg">
+
+            <div class="w-full md:w-1/2 rounded-t">
+              <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg h-full">
+                <div class="w-full font-bold text-xl text-gray-900 px-6 mt-4 mb-4">🤔 Description de la quête</div>
+                <p class="text-gray-800 font-serif text-base px-6 mb-5 ">
+                  <%= @quest.description %>
+                </p>
+              </div>
+            </div>
+
+            <div class="w-full md:w-1/2 rounded-t">
+              <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg h-full">
+                <div class="w-full font-bold text-xl text-gray-900 px-6 mt-4 mb-4 ">🤩 Informations Clés</div>
+                  <div class="text-gray-800 font-serif text-base px-6">
+                     <p>
+                     📍 <%= @quest.location %> <br>
+
+                     ➡️ <%= @quest.resolved ? "Résolue" : "Non résolue" %> <br>
+
+                     🕺<%= @quest.creator.username %> <br>
+                    </p>
+                  </div>
+
+
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+        <!--/Lead Card-->
+
+  <!--Test-->
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+
+
+
+
+<br>
+<br>
+<br>
+
+
+
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+
+<!-- Code de la team BACK -->
 <div class="container">
     <% if current_user != nil && current_user == @quest.creator %>
       <%= link_to edit_quest_path(@quest.id) do %>
@@ -5,16 +98,7 @@
       <% end %>
     <% end %>
 
-<!-- DESCRIPTION QUETE -->
-  <h1><strong><%= @quest.title %></strong></h1>
-    <h3><strong>Histoire de la quête</strong></h3>
-      <%= @quest.description %>
-    <h3><strong>Lieu de recherche</strong></h3>
-    <%= @quest.location %>
-    <h3><strong>Statut de la quête</strong></h3>
-      <%= @quest.resolved ? "Résolue" : "Non résolue" %>
-    <h3><strong>Créateur de la quête</strong></h3>
-    <%= @quest.creator.username %>
+
 
 <hr>
 <br>
@@ -52,3 +136,7 @@
   <%= link_to 'Retour', quests_path, class: "btn btn-primary mt-2" %>
 
 </div>
+<br>
+<br>
+<br>
+<!-- Code de la team BACK -->
