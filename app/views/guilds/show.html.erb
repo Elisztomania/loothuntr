@@ -32,8 +32,8 @@
       <% @guild.members.waiting.each do |member| %>
           <strong><h3><%= member.user.username %></h3></strong>
           <p ><%= member.cover_letter %></p>
-          <%= link_to "", guild_member_accepted_path(@guild, member), class: "fas fa-check-circle", style: "color: green; font-size: 20px;" %>
-          <%= link_to "", guild_member_refused_path(@guild, member), class: "fas fa-times-circle", style: "color: red; font-size: 20px;"%>
+          <%= link_to "", accepted_member_path(@guild, member), class: "fas fa-check-circle", style: "color: green; font-size: 20px;" %>
+          <%= link_to "", refused_member_path(@guild, member), class: "fas fa-times-circle", style: "color: red; font-size: 20px;"%>
         <% end %>
     <% end %>
 <!-- FIN CANDIDATURES POUR REJOINDRE VISIBLE QUE PAR CREATOR -->
