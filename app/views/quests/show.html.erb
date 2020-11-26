@@ -5,6 +5,7 @@
       <% end %>
     <% end %>
 
+<!-- DESCRIPTION QUETE -->
   <h1><strong><%= @quest.title %></strong></h1>
     <h3><strong>Histoire de la quête</strong></h3>
       <%= @quest.description %>
@@ -17,6 +18,20 @@
 
 <hr>
 <br>
+
+<!-- POST DES AVANCEES -->
+  <% @quest.avancees.each do |avancee| %>
+    <strong><%= avancee.title %></strong>
+    <%= avancee.description %>
+    <br>
+    <hr>
+  <% end %>
+
+
+<hr>
+<br>
+
+<!--  INFO SI GUILDE ET LA REJOINDRE / TABLEAU DE BORD -->
 <% if @quest.guild.present? %>
   <p>Guilde active sur la quête : <%= @quest.guild.name %></p>
   <% if current_user != nil && current_user.is_member_of?(@quest.guild) %>
@@ -33,6 +48,7 @@
 
 <br>
 
+<!-- RETOUR TOUTES LES QUESTS -->
   <%= link_to 'Retour', quests_path, class: "btn btn-primary mt-2" %>
 
 </div>
