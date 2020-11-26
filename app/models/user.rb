@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :members
   has_many :guilds_member, -> { where("members.accepted= true") }, through: :members, class_name: 'Guild', source: :guild
   has_many :guilds_applier, -> { where("members.accepted= false") }, through: :members, class_name: 'Guild', source: :guild
+  has_many :posts
 
   validates :username, presence: true, uniqueness: true
   validates :bio, presence: true
