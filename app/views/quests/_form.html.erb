@@ -1,23 +1,46 @@
+<div class="body-bg min-h-screen pt-12 md:pt-20 pb-6 px-2 md:px-0" style="font-family:'Lato',sans-serif;">
+    <header class="max-w-lg mx-auto">
+        <a href="#">
+            <h1 class="text-4xl font-bold text-white text-center">Créez ma propre quête !</h1>
+        </a>
+    </header>
 
-<div class="form-inputs">
+    <main class="bg-white max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl">
+        <section>
+            <h3 class="font-bold text-2xl">En avant Guigamp</h3>
+            <p class="text-gray-600 pt-2">Prêt à vivre des aventures totalement folles ?</p>
+        </section>
 
-    <%= simple_form_for @quest do |f| %>
+        <section class="mt-10">
 
-      <%= f.input :title, label: 'Nom de la quête'  %>
-      <%= f.input :description, label: 'Description'  %>
-      <%= f.input :location, label: 'Adresse' %>
+          <%= simple_form_for @quest do |f| %>
 
-        <% if @quest.new_record? %>
-      <%= f.button :submit, 'Créer ma super quête', class: 'btn-form'  %>
-        <% else %>
-      <%= f.button :submit, 'Mettre à jour ma super quête', class: 'btn-form'  %>
-        <% end %>
+            <form class="flex flex-col" method="POST" action="#">
+                <div class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-purple-600 transition duration-500 px-3 mb-3">
+                    <%= f.input :title, label: 'Nom de la quête'  %>
+                </div>
+                <div class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-purple-600 transition duration-500 px-3 mb-3">
+                    <%= f.input :description, label: 'Description'  %>
+                </div>
+                <div class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-purple-600 transition duration-500 px-3 mb-3">
+                    <%= f.input :location, label: 'Adresse' %>
+                </div>
 
-    <% end %>
+                <div>
+                  <% if @quest.new_record? %>
+                  <%= f.button :submit, 'Créer ma super quête', class: 'button-create-quest'  %>
+                  <% else %>
+                  <%= f.button :submit, 'Mettre à jour ma super quête', class: 'button-create-quest'  %>
+                  <% end %>
+                </div>
 
-      <div class="center-btn">
-        <%= link_to 'Retour', quests_path, class: "btn-ghost-margtop" %>
-      </div>
+                <% end %>
+
+            </form>
+        </section>
+    </main>
+
 </div>
+
 
 
