@@ -3,17 +3,26 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :quests, only: [:index, :show, :create, :new, :edit, :update] do
     resources :guilds, only: [:create, :new]
-    resources :posts, only: [:edit, :update]
   end
 
   resources :guilds, only: [:show, :edit, :update] do
     resources :posts, only: [:new, :create] do
       resources :comments, only: [:create, :new, :edit, :update]
-        end
-    resources :members, only: [:new, :create] do
-      get '/accepted', to: 'members#accepted'
-      get '/refused', to: 'members#refused'
+      collection do
+        get :pistes
+      end
     end
+
+    resources :members, only: [:new, :create] do
+    end
+  end
+  resources :members, only: [] do
+    get :accepted, on: :member
+    get :refused, on: :member
+  end
+  resources :posts, only: [:edit, :update] do
+    get :new_avancee_from_post, on: :member
+    post :create_avancee_from_post, on: :member
   end
 
   resources :comments, only: :destroy
