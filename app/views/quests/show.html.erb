@@ -98,15 +98,7 @@
       <% end %>
     <% end %>
 
-  <h1><strong><%= @quest.title %></strong></h1>
-    <h3><strong>Histoire de la quête</strong></h3>
-      <%= @quest.description %>
-    <h3><strong>Lieu de recherche</strong></h3>
-    <%= @quest.location %>
-    <h3><strong>Statut de la quête</strong></h3>
-      <%= @quest.resolved ? "Résolue" : "Non résolue" %>
-    <h3><strong>Créateur de la quête</strong></h3>
-    <%= @quest.creator.username %>
+
 
 <hr>
 <br>
@@ -129,4 +121,7 @@
   <%= link_to 'Retour', quests_path, class: "btn btn-primary mt-2" %>
 
 </div>
+<br>
+<br>
+<br>
 <!-- Code de la team BACK -->
