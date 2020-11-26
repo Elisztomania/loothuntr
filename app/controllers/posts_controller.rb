@@ -14,8 +14,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     @post.guild_id = params[:guild_id]
-    if @post.save
+    if @post.save && @post.category == "piste"
       redirect_to pistes_guild_posts_path(@guild)
+    elsif @post.save && @post.category == "orga"
+      redirect_to guild_path(@guild)
     else
       render :new
     end

@@ -4,6 +4,8 @@ class GuildsController < ApplicationController
   def show
     # show dashboard with the chat, the calendar, th members of the teams
     @members = User.where(:acccepted == true)
+    @post_new = Post.new
+    @post = Post.create
   end
 
   def new
@@ -41,5 +43,9 @@ class GuildsController < ApplicationController
 
   def guild_params
     params.require(:guild).permit(:quest_id, :creator, :name, :description)
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :description, :user_id, :guild_id, :category)
   end
 end

@@ -1,10 +1,22 @@
 <div class="container">
 <% if current_user.is_member_of?(@guild) %>
 
-    <h1 class="text-center pt-16">Dashbord: <%= @guild.name %></h1>
+    <h1 class="text-center pt-16">Tableau de bord: <%= @guild.name %></h1>
 
     <br>
 
+    <div class="container">
+      <%= simple_form_for [@guild, @post_new] do |f| %>
+        <%= f.hidden_field :category, value: 'orga' %>
+        <%= f.input :title, label: 'Titre'  %>
+        <%= f.input :description, label: 'Description'  %>
+        <!-- Ajouter un champ photo <%= f.input :photo, as: :file %> -->
+          <%= f.button :submit, '>', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+
+
+<!-- DEBUT CANDIDATURES POUR REJOINDRE VISIBLE QUE PAR CREATOR -->
     <% if @guild.creator == current_user && @guild.members.waiting.present? %>
       <h2>Des personnes veulent entrer dans votre guilde</h2>
       <br>
@@ -15,32 +27,40 @@
           <%= link_to "", guild_member_refused_path(@guild, member), class: "fas fa-times-circle", style: "color: red; font-size: 20px;"%>
         <% end %>
     <% end %>
+<!-- FIN CANDIDATURES POUR REJOINDRE VISIBLE QUE PAR CREATOR -->
 
     <br>
     <hr>
     <br>
 
+<!-- DEBUT LISTE MEMBRES DE LA GUIDE -->
     <h2>Voici les membres de votre guilde</h2>
     <% @guild.members.each do |member| %>
       <% if member.accepted == true %>
         <strong><h3><%= member.user.username %></h3></strong>
       <% end %>
     <% end %>
+<!-- FIN LISTE MEMBRES DE LA GUIDE -->
 
     <br>
     <hr>
     <br>
 
+<!-- BUTTON PISTE-->
     <%= link_to 'Voir les pistes', pistes_guild_posts_path(@guild), class: "btn btn-primary" %>
 
-
+<!-- BUTTON MODIF GUILDE QUE PAR CREATOR-->
     <% if current_user == @guild.creator %>
     <%= link_to 'Modifier ma guilde', edit_guild_path(@guild), class: "btn-ghost-margtop" %>
     <% end %>
 
+
+<!-- BUTTON RETOUR-->
+  <%= link_to 'Voir la quête', quest_path(@guild.quest), class: "btn btn-primary" %>
+
+
+<!-- A LAISSER EN BAS, SI T'ES PAS MEMBRE, TU VOIS RIEN -->
 <% else %>
   <h2>Désolé, vous n'êtes pas member de cette guilde 😉</h2>
 <% end %>
-
-  <%= link_to 'Voir la quête', quest_path(@guild.quest), class: "btn btn-primary" %>
 </div>
