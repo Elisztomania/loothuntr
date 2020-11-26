@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :update]
-  before_action :set_guild, only: [:pistes, :new, :create]
+  before_action :set_guild, only: [:pistes, :new, :create, :edit, :update]
 
   def pistes
     @pistes = Post.where(category: "piste")
@@ -24,11 +24,14 @@ class PostsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
-
+    if Post.create(post_params)
+      redirect_to guild_path(@guild)
+    else
+      render :edit
+    end
   end
 
   private

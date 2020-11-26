@@ -17,6 +17,14 @@
 
 <hr>
 <br>
+
+
+
+
+
+
+<hr>
+<br>
 <% if @quest.guild.present? %>
   <p>Guilde active sur la quête : <%= @quest.guild.name %></p>
   <% if current_user != nil && current_user.is_member_of?(@quest.guild) %>

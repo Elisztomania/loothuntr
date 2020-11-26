@@ -6,6 +6,8 @@
   <% i += 1 %>
   <h2>Piste n°<%= i %> : <%= piste.title %></h2>
   <%= piste.description %>
+
+  <%= link_to "Poster une avancée", edit_guild_post_path(piste.guild, piste), class: "btn btn-primary"  %>
   <% end %>
   <br>
 
