@@ -1,9 +1,71 @@
+<!-- BANNER DEBUT -->
+<div class="gradient leading-relaxed tracking-wide flex flex-col">
+    <div class="container mx-auto h-screen mt-32">
+      <div class="text-center px-3 lg:px-0">
+        <h1 class="my-4 text-2xl md:text-3xl lg:text-5xl font-black leading-tight"> La recherche de trésor, plus qu'une passion</h1>
+        <p class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8"> Envie de vivre une aventure incroyable ?</p>
+        <% if current_user == nil %>
+        <button>
+          <%= link_to "S'inscrire", new_user_session_path, class:"mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48" %>
+          </button>
+        <% else %>
+        <% end %>
+        <button>
+          <%= link_to "Voir toutes les quêtes", quests_path, class:"mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48" %>
+        </button>
+      </div>
 
-<div class="container">
-
-  <%= render 'shared_huyvu/text_section_index_quest' %>
-  <%= render 'shared_huyvu/card_quest' %>
+      <div class="flex items-center w-full mx-auto content-end mt-0.5">
+        <div>
+          <%= image_tag 'imagebanner.png' %>
+        </div>
+      </div>
+    </div>
 </div>
 
+<!-- BANNER FIN -->
 
+<!-- CARDS DEBUT -->
+<div class="container">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-center text-3xl sm:text-4xl mt-8 sm:mt-16 text-gray-800 mb-4 leading-tight">La recherche de trésor, plus qu'une passion</h2>
+    <p class="text-center text-gray-600 mb-0">Envie de vivre une aventure incroyable ? Ne cherchez plus, <strong>Loot Huntr</strong> est LA plateforme qui vous permet de découvrir des quêtes mystérieuses et excitantes, rencontrer les plus grands aventuriers de notre génération et organiser votre prochaine quête !</p>
+  </div>
 
+  <ul class="my-8 sm:my-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="text_decoration_card_quest">
+
+    <% @quests.sample(4).each do |quest| %>
+    <%= link_to quest do %>
+
+    <li class="group transition-transform duration-200 transform sm:hover:-translate-y-1">
+      <div class="relative flex-shrink-0">
+
+        <img loading="lazy" src="https://pyxis.nymag.com/v1/imgs/027/cf0/d4c718a6f46b8fb48a5cb4d54c98b771c5-23-firewatch.rsquare.w700.jpg"
+        srcset="https://pyxis.nymag.com/v1/imgs/027/cf0/d4c718a6f46b8fb48a5cb4d54c98b771c5-23-firewatch.rsquare.w700.jpg 1x, https://pyxis.nymag.com/v1/imgs/027/cf0/d4c718a6f46b8fb48a5cb4d54c98b771c5-23-firewatch.rsquare.w700.jpg 2x"
+        width="352" height="256"
+        class="transition duration-200 group-hover:shadow-2xl h-64 w-full rounded-lg shadow-md object-cover"
+        alt="Image de Pirate">
+      </div>
+
+      <div class="relative px-4 -mt-12 text-left">
+        <div class="bg-white rounded-lg px-4 py-3 transition duration-200 sm:group-hover:shadow-2xl shadow-md">
+          <div class="text-xs text-gray-600 font-semibold"><span class="uppercase"><%= quest.resolved ? "TERMINEE" : "EN COURS" %></span> </div>
+
+            <h1 class="truncate text-gray-900 font-bold text-lg leading-tight my-1"><%= quest.title %></h1>
+            <div class="m-3" >
+              <button class="text-white-800 font-bold rounded border-b-2 border-white-500 hover:border-white-600 hover:bg-white-500 hover:text-black shadow-md py-2 px-6 inline-flex items-center" id="button_card_quest">
+                <span class="mr-2">Découvrir</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="currentcolor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                </svg>
+              </button>
+            </div>
+
+        </div>
+      </div>
+    </li>
+    <% end %>
+    <% end %>
+  </ul>
+</div>
+<!-- CARDS FIN -->
