@@ -1,0 +1,15 @@
+<div class="container">
+  <br>
+  <h1>Voici les pistes</h1>
+  <% i = 0 %>
+  <% @pistes.each do |piste| %>
+  <% i += 1 %>
+  <h2>Piste n°<%= i %> : <%= piste.title %></h2>
+  <%= piste.description %>
+  <% end %>
+  <br>
+
+  <%= link_to "Explorer une nouvelle piste", new_guild_post_path(@guild), class: "btn btn-primary mt-10 mb-10" %>
+
+  <%= link_to "Retour au tableau de bord", guild_path(@guild), class: "btn btn-primary mt-10 mb-10" %>
+</div>

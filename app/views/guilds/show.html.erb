@@ -31,6 +31,9 @@
     <hr>
     <br>
 
+    <%= link_to 'Voir les pistes', pistes_guild_posts_path(@guild), class: "btn btn-primary" %>
+
+
     <% if current_user == @guild.creator %>
     <%= link_to 'Modifier ma guilde', edit_guild_path(@guild), class: "btn-ghost-margtop" %>
     <% end %>
