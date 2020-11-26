@@ -5,7 +5,8 @@
 
     <br>
 
-    <div class="container">
+<!-- FORMULAIRE POSTS ORGA -->
+    <div class="card h-80 overflow-auto">
       <%= simple_form_for [@guild, @post_new] do |f| %>
         <%= f.hidden_field :category, value: 'orga' %>
         <%= f.input :title, label: 'Titre'  %>
@@ -13,8 +14,16 @@
         <!-- Ajouter un champ photo <%= f.input :photo, as: :file %> -->
           <%= f.button :submit, '>', class: 'btn btn-primary' %>
       <% end %>
+<br>
+<!-- AFFICHAGE POSTS ORGA -->
+      <h2>Derniers posts</h2>
+      <% @guild.posts.each do |post| %>
+        <% if post.category == "orga" %>
+          <strong><h3><%= post.title %></h3></strong>
+          <p><%= post.description %></p>
+        <% end %>
+      <% end %>
     </div>
-
 
 <!-- DEBUT CANDIDATURES POUR REJOINDRE VISIBLE QUE PAR CREATOR -->
     <% if @guild.creator == current_user && @guild.members.waiting.present? %>
