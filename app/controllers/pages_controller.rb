@@ -9,13 +9,13 @@ class PagesController < ApplicationController
   end
 
   def index
-    @quests = Quest.all
+    @quests = policy_scope(Quest).order(created_at: :desc)
 
-    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
-    @markers = @quests.geocoded.map do  quest|
+    @markers = @quests.geocoded.map do |quest|
       {
         lat: quest.latitude,
-        lng: quest.longitude
+        lng: quest.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { quest: quest })
       }
     end
   end
