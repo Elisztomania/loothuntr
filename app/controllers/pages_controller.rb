@@ -7,4 +7,16 @@ class PagesController < ApplicationController
     @member = Member.first
     @user = current_user
   end
+
+  def index
+    @quests = Quest.all
+
+    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+    @markers = @quests.geocoded.map do  quest|
+      {
+        lat: quest.latitude,
+        lng: quest.longitude
+      }
+    end
+  end
 end
