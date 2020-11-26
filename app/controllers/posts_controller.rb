@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :set_guild, only: [:pistes, :new, :create]
 
   def pistes
-    @pistes = Post.where(category: "piste")
+    @pistes = Post.where(category: ["piste", "piste_publiee"])
   end
 
   def new
@@ -35,6 +35,7 @@ class PostsController < ApplicationController
     @avancee.guild = @post.guild
     if @avancee.save
       @post.category = "piste_publiee"
+      @post.save
       redirect_to quest_path(@avancee.guild.quest)
     else
       @avancee = @post.dup

@@ -9,8 +9,8 @@
 
   <% if piste.category == 'piste' %>
   <%= link_to "Poster une avancée", new_avancee_from_post_post_path(piste), class: "btn btn-primary"  %>
-  <% else %>
-  <p>Avancée déjà publiée</p>
+  <% elsif piste.category == 'piste_publiee' %>
+  <p class= "btn">Avancée déjà publiée</p>
   <% end %>
   <% end %>
   <br>
