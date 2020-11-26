@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :guild
 
-  CATEGORY = ["orga", "piste", "avancee"]
+  CATEGORY = ["orga", "piste", "piste_publiee", "avancee"]
 
   validates :title, presence: true
   validates :description, presence: true

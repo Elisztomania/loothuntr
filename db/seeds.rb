@@ -1,5 +1,6 @@
 puts 'Cleaning database...'
 Member.destroy_all
+Post.destroy_all
 Guild.destroy_all
 Quest.destroy_all
 User.destroy_all

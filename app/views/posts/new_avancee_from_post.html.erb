@@ -1,0 +1,8 @@
+<div class="container">
+  <%= simple_form_for @avancee, url:create_avancee_from_post_post_path do |f| %>
+      <%= f.input :title, label: 'Titre'  %>
+      <%= f.input :description, label: 'Description'  %>
+      <!-- Ajouter un champ photo <%= f.input :photo, as: :file %> -->
+      <%= f.button :submit, 'Poster mon avancée', class: 'btn btn-primary'  %>
+  <% end %>
+</div>

@@ -1,9 +1,0 @@
-<div class="container">
-  <%= simple_form_for [@guild, @post] do |f| %>
-      <%= f.hidden_field :category, value: 'avancee' %>
-      <%= f.input :title, label: 'Titreeee'  %>
-      <%= f.input :description, label: 'Description'  %>
-      <!-- Ajouter un champ photo <%= f.input :photo, as: :file %> -->
-        <%= f.button :submit, 'Poster mon avancée', class: 'btn btn-primary'  %>
-  <% end %>
-</div>

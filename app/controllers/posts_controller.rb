@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:edit, :update]
-  before_action :set_guild, only: [:pistes, :new, :create, :edit, :update]
+  before_action :set_post, only: [:new_avancee_from_post, :update, :create_avancee_from_post]
+  before_action :set_guild, only: [:pistes, :new, :create]
 
   def pistes
     @pistes = Post.where(category: "piste")
@@ -23,14 +23,22 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
+  def new_avancee_from_post
+    @avancee = @post.dup
   end
 
-  def update
-    if Post.create(post_params)
-      redirect_to guild_path(@guild)
+  def create_avancee_from_post
+    @avancee = Post.new(post_params)
+    @avancee.category = "avancee"
+    @avancee.user = @post.user
+    # recuperer les photos
+    @avancee.guild = @post.guild
+    if @avancee.save
+      @post.category = "piste_publiee"
+      redirect_to quest_path(@avancee.guild.quest)
     else
-      render :edit
+      @avancee = @post.dup
+      render :new_avancee_from_post
     end
   end
 
