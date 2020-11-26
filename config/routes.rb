@@ -5,10 +5,21 @@ Rails.application.routes.draw do
     resources :guilds, only: [:create, :new]
   end
   resources :guilds, only: [:show, :edit, :update] do
-    resources :members, only: [:new, :create] do
-      get '/accepted', to: 'members#accepted'
-      get '/refused', to: 'members#refused'
+    resources :posts, only: [:new, :create] do
+      collection do
+        get :pistes
+      end
     end
+    resources :members, only: [:new, :create] do
+    end
+  end
+  resources :members, only: [] do
+    get :accepted, on: :member
+    get :refused, on: :member
+  end
+  resources :posts, only: [:edit, :update] do
+    get :new_avancee_from_post, on: :member
+    post :create_avancee_from_post, on: :member
   end
 
 end
