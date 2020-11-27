@@ -61,7 +61,7 @@ Member.create!(user: indiana, guild: les_chouetteurs, accepted: true, cover_lett
 
 puts 'Creating posts category piste...'
 piste1 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "Pièces inconnues", description: "Regardez les pièces que nous avons trouvés.. Quelqu'un s'y connait un peu et peut nous dire ce que c'est ?", category: "piste")
-piste2 = Post.create!(user: lara, guild: les_chouetteurs, title: "Deuxième éngime", description: "Mon Premier, première moitié de la moitié du premier âge,
+piste2 = Post.create!(user: lara, guild: les_chouetteurs, title: "Deuxième énigme", description: "Mon Premier, première moitié de la moitié du premier âge,
 Précède mes Second et Troisième, cherchant leur chemin.
 Mon Quatrième s'inspire, mon Cinquième est en rage,
 Mais, sans protester, suit mon Quatrième et l'alpha romain.

@@ -8,9 +8,9 @@
 <!-- BOUCLE QUI AFFICHES CHAQUE PISTE -->
 
   <% @pistes.each_with_index do |piste, i| %>
-
+  <% if piste.guild == @guild %>
     <div class="card my-10 p-10">
-    <h2>Piste n°<%= i %> : <%= piste.title %></h2>
+    <h2>Piste n°<%= i + 1 %> : <%= piste.title %></h2>
     <%= piste.description %>
 
       <% piste.photos.each do |photo| %>
@@ -35,7 +35,7 @@
     <% end %>
     <br>
     </div>
-
+  <% end %>
   <% end %>
   <br>
 <!-- FIN DE BOUCLE -->
