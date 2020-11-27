@@ -6,26 +6,33 @@
   <h1>Voici les pistes</h1>
 
 <!-- BOUCLE QUI AFFICHES CHAQUE PISTE -->
-
   <% @pistes.each_with_index do |piste, i| %>
   <% if piste.guild == @guild %>
-    <div class="card my-10 p-10">
-    <h2>Piste n°<%= i + 1 %> : <%= piste.title %></h2>
-    <%= piste.description %>
+    <div class="rounded-xl bg-gray-50 my-10 p-10">
+      <div class="bg-gray-50 p-2 border">
+        <h2>Piste n°<%= i + 1 %> : <%= piste.title %></h2>
+        <%= piste.description %>
+      </div>
 
       <% piste.photos.each do |photo| %>
           <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
       <% end %>
 
-  <!-- AFFICHAGE FORM COMMENTAIRE -->
-  <form class="w-full max-w-sm">
-    <div class="flex items-center border-b border-teal-500 py-2">
-      <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Votre commentaire" aria-label="Full name">
-      <button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
-        ➡️
-      </button>
+      <div class="p-2">
+        <% piste.comments.reverse_each do |comment| %>
+          <div class="bg-gray-100 my-1 rounded-xl pl-2 -pb-2">
+            <p><m class="italic text-sm"><%= comment.user.username %> : </m><%= comment.content %></p>
+          </div>
+        <% end %>
+      </div>
+      
+      <div class="flex items-center border-b border-teal-500 py-2">
+      <%= simple_form_for [piste, @comment_new] do |f| %>
+        <%= f.input_field :content, label: false, placeholder: "Votre commentaire" %>
+        <%= f.button :submit, '>', class: 'btn btn-primary' %>
+        <% end %>
+        </div>
     </div>
-  </form>
 
   <!-- ETAT DE LA PISTE POSTEE/NON POSTEE -->
     <% if piste.category == 'piste' %>
@@ -34,6 +41,7 @@
       <p class= "btn mx-96 mt-10">Avancée déjà publiée</p>
     <% end %>
     <br>
+  
     </div>
   <% end %>
   <% end %>

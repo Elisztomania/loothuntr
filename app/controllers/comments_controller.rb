@@ -1,17 +1,14 @@
 class CommentsController < ApplicationController
-  before_action :set_post, only: [:new, :create]
-
-  def new
-    @comment = Comment.new
-  end
+  before_action :set_post, only: [:create]
 
   def create
     @comment = Comment.new(comment_params)
     @comment.post = @post
     @comment.user = current_user
-
-    if @comment.save
-      redirect_to @post
+    if @comment.save && @post.category == "piste"
+      redirect_to pistes_guild_posts_path(@post.guild)
+    elsif @comment.save && @post.category == "orga"
+      redirect_to guild_path(@post.guild)
     else
       render :new
     end

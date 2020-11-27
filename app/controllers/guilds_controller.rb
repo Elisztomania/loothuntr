@@ -5,7 +5,7 @@ class GuildsController < ApplicationController
     # show dashboard with the chat, the calendar, th members of the teams
     @members = User.where(:acccepted == true)
     @post_new = Post.new
-    @post = Post.create
+    @comment_new = Comment.new
   end
 
   def new

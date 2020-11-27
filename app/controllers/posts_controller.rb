@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def pistes
     @pistes = Post.where(category: ["piste", "piste_publiee"])
+    @comment_new = Comment.new
   end
 
   def new
