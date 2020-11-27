@@ -14,7 +14,7 @@
     <h2>Piste n°<%= i %> : <%= piste.title %></h2>
     <%= piste.description %>
 
-    <% if @piste.photos.attached? %>
+    <% if piste.photos.attached? %>
       <% piste.photos.each do |photo| %>
           <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
       <% end %>
@@ -42,6 +42,7 @@
   <% end %>
   <br>
 <!-- FIN DE BOUCLE -->
+
 
 <!-- BUTTONS NEW PISTE & RETOUR -->
   <%= link_to "Explorer une nouvelle piste", new_guild_post_path(@guild), class: "btn btn-primary mt-10 mb-10" %>
