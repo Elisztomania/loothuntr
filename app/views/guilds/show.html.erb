@@ -6,7 +6,7 @@
     <br>
 
 <!-- FORMULAIRE POSTS ORGA -->
-    <div class="card h-80 overflow-auto">
+    <div class="card">
       <%= simple_form_for [@guild, @post_new] do |f| %>
         <%= f.hidden_field :category, value: 'orga' %>
         <%= f.input :title, label: 'Titre'  %>
@@ -14,14 +14,30 @@
         <!-- Ajouter un champ photo <%= f.input :photo, as: :file %> -->
           <%= f.button :submit, '>', class: 'btn btn-primary' %>
       <% end %>
+    </div>
 <br>
 <!-- AFFICHAGE POSTS ORGA -->
-      <h2>Derniers posts</h2>
+  <div class="h-80 overflow-auto">
+    <h2>Derniers posts</h2>
       <% @guild.posts.reverse_each do |post| %>
+        <div class="p-2">
         <% if post.category == "orga" %>
           <strong><h3><%= post.title %></h3></strong>
           <p><%= post.description %></p>
+
+          <div class="p-2">
+            <% post.comments.each do |comment| %>
+              <%= comment.user.username %> : <%= comment.content %>
+              <br>
+            <% end %>
+
+            <%= simple_form_for [post, @comment_new] do |f| %>
+              <%= f.input_field :content, label: false, placeholder: "Votre commentaire" %>
+              <%= f.button :submit, '>', class: 'btn btn-primary' %>
+            <% end %>
+          </div>
         <% end %>
+      </div>
       <% end %>
     </div>
 

@@ -18,11 +18,9 @@
     <div class="flex items-center border-b border-teal-500 py-2">
     <%= simple_form_for [piste, @comment_new] do |f| %>
       <%= f.input_field :content, label: false, placeholder: "Votre commentaire" %>
-      <button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
       <%= f.button :submit, '>', class: 'btn btn-primary' %>
-        </button>
+      <% end %>
       </div>
-    <% end %>
     </form>
 
     <% piste.comments.reverse_each do |comment| %>

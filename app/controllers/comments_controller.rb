@@ -5,8 +5,10 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.post = @post
     @comment.user = current_user
-    if @comment.save
+    if @comment.save && @post.category == "piste"
       redirect_to pistes_guild_posts_path(@post.guild)
+    elsif @comment.save && @post.category == "orga"
+      redirect_to guild_path(@post.guild)
     else
       render :new
     end
