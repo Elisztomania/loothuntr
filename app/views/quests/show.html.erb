@@ -60,6 +60,22 @@
       </div>
     </div>
 
+<!--  INFO SI GUILDE ET LA REJOINDRE / TABLEAU DE BORD -->
+    <div class="mx-40 my-6">
+      <% if @quest.guild.present? %>
+        <% if current_user != nil && current_user.is_member_of?(@quest.guild) %>
+          <%= link_to "Tableau de bord de guilde", guild_path(@quest.guild), class: "btn btn-warning" %>
+        <% elsif current_user != nil && !current_user.has_apply_to?(@quest.guild) %>
+          <%= link_to "Postuler pour les rejoindre", new_guild_member_path(@quest.guild), class: "btn btn-success" %>
+        <% end %>
+      <% elsif @quest.creator == current_user %>
+          <%= link_to 'Créer une guilde', new_quest_guild_path(@quest), class: "" %>
+
+      <% else %>
+          <p>Pas de guilde active sur la quête</p>
+      <% end %>
+    </div>
+
 <!-- POST DES AVANCEES BOUCLE-->
     <% @quest.avancees.each do |avancee| %>
     <div class="m-10 p-10">
@@ -82,19 +98,7 @@
 
 <br>
 
-<!--  INFO SI GUILDE ET LA REJOINDRE / TABLEAU DE BORD -->
-<% if @quest.guild.present? %>
-  <% if current_user != nil && current_user.is_member_of?(@quest.guild) %>
-    <%= link_to "Tableau de bord de guilde", guild_path(@quest.guild), class: "btn btn-warning" %>
-  <% elsif current_user != nil && !current_user.has_apply_to?(@quest.guild) %>
-    <%= link_to "Postuler pour les rejoindre", new_guild_member_path(@quest.guild), class: "btn btn-success" %>
-  <% end %>
-<% elsif @quest.creator == current_user %>
-    <%= link_to 'Créer une guilde', new_quest_guild_path(@quest), class: "" %>
 
-<% else %>
-    <p>Pas de guilde active sur la quête</p>
-<% end %>
 
 <br>
 
