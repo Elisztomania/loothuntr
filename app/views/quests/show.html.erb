@@ -60,7 +60,7 @@
     </div>
 
 <!--  INFO SI GUILDE ET LA REJOINDRE / TABLEAU DE BORD -->
-    <div class="mx-40 my-6 content-center">
+    <div class="mx-40 my-6 text-center">
       <% if @quest.guild.present? %>
           <p> Guilde active sur la quête : <%= @quest.guild.name %> </p>
         <% if current_user != nil && current_user.is_member_of?(@quest.guild) %>
@@ -103,7 +103,7 @@
 <br>
 
 <!-- RETOUR TOUTES LES QUESTS -->
-<div class="mx-40 mb-20 content-center">
+<div class="mx-40 mb-20 text-center">
   <%= link_to 'Retour', quests_path, class: "btn btn-primary mt-2" %>
 </div>
 
