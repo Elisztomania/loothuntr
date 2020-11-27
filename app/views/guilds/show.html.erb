@@ -20,15 +20,16 @@
   <div class="h-80 overflow-auto">
     <h2>Derniers posts</h2>
       <% @guild.posts.reverse_each do |post| %>
-        <div class="p-2">
         <% if post.category == "orga" %>
+        <div class="p-2 rounded-xl bg-gray-50 my-2">
           <strong><h3><%= post.title %></h3></strong>
           <p><%= post.description %></p>
 
           <div class="p-2">
             <% post.comments.each do |comment| %>
-              <%= comment.user.username %> : <%= comment.content %>
-              <br>
+            <div class="bg-gray-100 my-1 rounded-xl pl-2 -pb-2">
+              <p><m class="italic text-sm"><%= comment.user.username %> : </m><%= comment.content %></p>
+            </div>
             <% end %>
 
             <%= simple_form_for [post, @comment_new] do |f| %>
@@ -36,8 +37,8 @@
               <%= f.button :submit, '>', class: 'btn btn-primary' %>
             <% end %>
           </div>
+        </div>
         <% end %>
-      </div>
       <% end %>
     </div>
 
