@@ -35,13 +35,6 @@
                  <p> ➡️ <%= @quest.resolved ? "Résolue" : "Non résolue" %> </p>
 
                  <p> 🕺 <%= @quest.creator.username %> </p>
-              <div class="text-right place-self-end">
-                <% if current_user != nil && current_user == @quest.creator %>
-                  <%= link_to edit_quest_path(@quest.id) do %>
-                    <i class="fas fa-pencil-alt"></i>
-                  <% end %>
-                <% end %>
-              </div>
 
               </div>
 
@@ -51,11 +44,11 @@
         <% if current_user != nil && @quest.resolved == true %>
           <p class="text-lg">La guilde <strong><%= @quest.guild.name %></strong> a résolu la quête</p>
         <% elsif current_user != nil && current_user.is_member_of?(@quest.guild) %>
-          <p> Guilde active sur la quête : <%= @quest.guild.name %> </p>
-          <%= link_to "Tableau de bord de guilde", guild_path(@quest.guild), class: "btn btn-warning" %>
+          <p class="text-base font-semibold mt-10"> Guilde active sur la quête : <%= @quest.guild.name %> </p><br>
+          <%= link_to "Tableau de bord de guilde", guild_path(@quest.guild), class: "btn-dash mx-auto lg:mx-0 font-extrabold rounded mt-20 md:my-6 py-2 px-4 w-48n no-underline" %>
         <% elsif current_user != nil && !current_user.has_apply_to?(@quest.guild) %>
-          <p> Guilde active sur la quête : <%= @quest.guild.name %> </p>
-          <%= link_to "Postuler pour les rejoindre", new_guild_member_path(@quest.guild), class: "btn btn-success" %>
+          <p class="text-base font-semibold mt-10"> Guilde active sur la quête : <%= @quest.guild.name %> </p><br>
+          <%= link_to "Postuler pour les rejoindre", new_guild_member_path(@quest.guild), class: "btn-rejoindre mx-auto lg:mx-0 font-extrabold rounded mt-20 md:my-6 py-2 px-4 w-48n no-underline" %>
         <% end %>
       <% elsif @quest.creator == current_user %>
           <%= link_to 'Créer une guilde', new_quest_guild_path(@quest), class: "" %>
@@ -64,6 +57,15 @@
           <p>Pas de guilde active sur la quête</p>
       <% end %>
     </div>
+
+<!--  EDIT QUEST -->
+              <div class="text-right mx-10 mt-20 mb-5">
+                <% if current_user != nil && current_user == @quest.creator %>
+                  <%= link_to edit_quest_path(@quest.id) do %>
+                    <i class="fas fa-pencil-alt"></i>
+                  <% end %>
+                <% end %>
+              </div>
 
           </div>
           </div>
@@ -101,7 +103,7 @@
 
 <!-- RETOUR TOUTES LES QUESTS -->
 <div class="mx-40 mb-20 text-center">
-  <%= link_to 'Retour', quests_path, class: "btn btn-primary mt-2" %>
+  <%= link_to 'Retour', quests_path, class: "btn-back mx-auto lg:mx-0 font-extrabold rounded mt-20 md:my-6 py-2 px-4 w-48n no-underline" %>
 </div>
 
 </div>
