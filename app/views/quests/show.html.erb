@@ -23,8 +23,8 @@
 
             <div class="w-full md:w-1/2 rounded-t group transition-transform duration-200 transform sm:hover:-translate-y-1">
               <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg h-full">
-                <div class="w-full font-bold text-xl text-gray-900 px-6 mt-4 mb-4">🤔 Description de la quête</div>
-                <p class="text-gray-800 font-serif text-base px-6 mb-5 ">
+                <div class="w-full font-bold text-xl text-gray-900 px-6 mt-4 mb-4">🤔 Description</div>
+                <p class="text-gray-800 font-serif text-base px-10 mb-5 ">
                   <%= @quest.description %>
                 </p>
               </div>
@@ -32,17 +32,22 @@
 
             <div class="w-full md:w-1/2 rounded-t group transition-transform duration-200 transform sm:hover:-translate-y-1">
               <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg h-full">
-                <div class="w-full font-bold text-xl text-gray-900 px-6 mt-4 mb-4 ">🤩 Informations Clés</div>
-                  <div class="text-gray-800 font-serif text-base px-6">
-                     <p>
-                     📍 <%= @quest.location %> <br>
+                <div class="w-full font-bold text-xl text-gray-900 px-6 mt-4 mb-4 ">🤩 Informations clés</div>
+                  <div class="text-gray-800 font-serif text-base px-10">
+                     <p> 📍 <%= @quest.location %> </p>
 
-                     ➡️ <%= @quest.resolved ? "Résolue" : "Non résolue" %> <br>
+                     <p> ➡️ <%= @quest.resolved ? "Résolue" : "Non résolue" %> </p>
 
-                     🕺<%= @quest.creator.username %> <br>
-                    </p>
+                     <p> 🕺 <%= @quest.creator.username %> </p>
+
+                     <p> Guilde active sur la quête : <%= @quest.guild.name %> </p>
                   </div>
 
+                  <% if current_user != nil && current_user == @quest.creator %>
+                    <%= link_to edit_quest_path(@quest.id) do %>
+                      <i class="fas fa-pencil-alt"></i>
+                    <% end %>
+                  <% end %>
 
               </div>
             </div>
@@ -56,47 +61,10 @@
 
   <!--Test-->
 
-
-
-
-
-
-
-
-
-
-
 <br>
-<br>
-<br>
-
-
-
-
-<br>
-<br>
-<br>
-
-
-
-<br>
-<br>
-<br>
-
-
-
-
-
-
-
 
 <!-- Code de la team BACK -->
-<div class="container">
-    <% if current_user != nil && current_user == @quest.creator %>
-      <%= link_to edit_quest_path(@quest.id) do %>
-        <i class="fas fa-pencil-alt"></i>
-      <% end %>
-    <% end %>
+<div class="container my-36">
 
 
 
@@ -117,7 +85,6 @@
 
 <!--  INFO SI GUILDE ET LA REJOINDRE / TABLEAU DE BORD -->
 <% if @quest.guild.present? %>
-  <p>Guilde active sur la quête : <%= @quest.guild.name %></p>
   <% if current_user != nil && current_user.is_member_of?(@quest.guild) %>
     <%= link_to "Tableau de bord de guilde", guild_path(@quest.guild), class: "btn btn-warning" %>
   <% elsif current_user != nil && !current_user.has_apply_to?(@quest.guild) %>
