@@ -6,15 +6,17 @@
   <h1>Voici les pistes</h1>
 
 <!-- BOUCLE QUI AFFICHES CHAQUE PISTE -->
-  <% i = 0 %>
-  <% @pistes.each do |piste| %>
-
-    <% i += 1 %>
+  <% @pistes.each_with_index do |piste, i| %>
+  <% if piste.guild == @guild %>
     <div class="rounded-xl bg-gray-50 my-10 p-10">
       <div class="bg-gray-50 p-2 border">
-        <h2>Piste n°<%= i %> : <%= piste.title %></h2>
-        <p><%= piste.description %></p>
+        <h2>Piste n°<%= i + 1 %> : <%= piste.title %></h2>
+        <%= piste.description %>
       </div>
+
+      <% piste.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
 
       <div class="p-2">
         <% piste.comments.reverse_each do |comment| %>
@@ -23,7 +25,7 @@
           </div>
         <% end %>
       </div>
-
+      
       <div class="flex items-center border-b border-teal-500 py-2">
       <%= simple_form_for [piste, @comment_new] do |f| %>
         <%= f.input_field :content, label: false, placeholder: "Votre commentaire" %>
@@ -39,10 +41,13 @@
       <p class= "btn mx-96 mt-10">Avancée déjà publiée</p>
     <% end %>
     <br>
-
+  
+    </div>
+  <% end %>
   <% end %>
   <br>
 <!-- FIN DE BOUCLE -->
+
 
 <!-- BUTTONS NEW PISTE & RETOUR -->
   <%= link_to "Explorer une nouvelle piste", new_guild_post_path(@guild), class: "btn btn-primary mt-10 mb-10" %>
