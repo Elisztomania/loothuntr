@@ -46,7 +46,7 @@
               </div>
 
 <!--  INFO SI GUILDE ET LA REJOINDRE / TABLEAU DE BORD -->
-    <div class="mx-40 my-6 text-center text-sm">
+    <div class="mx-10 my-6 text-center text-sm">
       <% if @quest.guild.present? %>
         <% if current_user != nil && @quest.resolved == true %>
           <p class="text-lg">La guilde <strong><%= @quest.guild.name %></strong> a résolu la quête</p>
