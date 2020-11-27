@@ -6,19 +6,16 @@
   <h1>Voici les pistes</h1>
 
 <!-- BOUCLE QUI AFFICHES CHAQUE PISTE -->
-  <% i = 0 %>
-  <% @pistes.each do |piste| %>
 
-    <% i += 1 %>
+  <% @pistes.each_with_index do |piste, i| %>
+
     <div class="card my-10 p-10">
     <h2>Piste n°<%= i %> : <%= piste.title %></h2>
     <%= piste.description %>
 
-    <% if piste.photos.attached? %>
       <% piste.photos.each do |photo| %>
           <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
       <% end %>
-    <% end %>
 
   <!-- AFFICHAGE FORM COMMENTAIRE -->
   <form class="w-full max-w-sm">

@@ -5,7 +5,7 @@
       <%= f.hidden_field :category, value: 'piste' %>
       <%= f.input :title, label: 'Titre'  %>
       <%= f.input :description, label: 'Description'  %>
-      <%= f.input :photo, as: :file, input_html: { multiple: true } %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <!--     <% if @post.new_record? %> -->
         <%= f.button :submit, 'Créer ma piste', class: 'btn btn-primary'  %>
       <!--    <% end %> -->
