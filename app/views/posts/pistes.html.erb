@@ -19,13 +19,13 @@
       <% end %>
 
       <div class="p-2">
-        <% piste.comments.reverse_each do |comment| %>
+        <% piste.comments.each do |comment| %>
           <div class="bg-gray-100 my-1 rounded-xl pl-2 -pb-2">
             <p><m class="italic text-sm"><%= comment.user.username %> : </m><%= comment.content %></p>
           </div>
         <% end %>
       </div>
-      
+
       <div class="flex items-center border-b border-teal-500 py-2">
       <%= simple_form_for [piste, @comment_new] do |f| %>
         <%= f.input_field :content, label: false, placeholder: "Votre commentaire" %>
@@ -41,7 +41,7 @@
       <p class= "btn mx-96 mt-10">Avancée déjà publiée</p>
     <% end %>
     <br>
-  
+
     </div>
   <% end %>
   <% end %>
