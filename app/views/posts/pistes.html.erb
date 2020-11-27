@@ -14,6 +14,13 @@
     <h2>Piste n°<%= i %> : <%= piste.title %></h2>
     <%= piste.description %>
 
+    <% if @piste.photos.attached? %>
+      <% piste.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+    <% end %>
+
+  <!-- AFFICHAGE FORM COMMENTAIRE -->
   <form class="w-full max-w-sm">
     <div class="flex items-center border-b border-teal-500 py-2">
       <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Votre commentaire" aria-label="Full name">
