@@ -17,7 +17,7 @@
 <br>
 <!-- AFFICHAGE POSTS ORGA -->
       <h2>Derniers posts</h2>
-      <% @guild.posts.each do |post| %>
+      <% @guild.posts.reverse_each do |post| %>
         <% if post.category == "orga" %>
           <strong><h3><%= post.title %></h3></strong>
           <p><%= post.description %></p>
