@@ -25,13 +25,15 @@
           </div>
         <% end %>
       </div>
-      
-      <div class="flex items-center border-b border-teal-500 py-2">
-      <%= simple_form_for [piste, @comment_new] do |f| %>
-        <%= f.input_field :content, label: false, placeholder: "Votre commentaire" %>
-        <%= f.button :submit, '>', class: 'btn btn-primary' %>
-        <% end %>
-        </div>
+
+      <% if piste.category == "piste_publiee" %>
+        <div class="flex items-center border-b border-teal-500 py-2">
+        <%= simple_form_for [piste, @comment_new] do |f| %>
+          <%= f.input_field :content, label: false, placeholder: "Votre commentaire" %>
+          <%= f.button :submit, '>', class: 'btn btn-primary' %>
+          <% end %>
+          </div>
+      <% end %>
     </div>
 
   <!-- ETAT DE LA PISTE POSTEE/NON POSTEE -->
@@ -41,7 +43,7 @@
       <p class= "btn mx-96 mt-10">Avancée déjà publiée</p>
     <% end %>
     <br>
-  
+
     </div>
   <% end %>
   <% end %>
