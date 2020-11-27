@@ -40,7 +40,6 @@
 
                      <p> 🕺 <%= @quest.creator.username %> </p>
 
-                     <p> Guilde active sur la quête : <%= @quest.guild.name %> </p>
 
                   <div class="text-right place-self-end">
                     <% if current_user != nil && current_user == @quest.creator %>
@@ -61,8 +60,9 @@
     </div>
 
 <!--  INFO SI GUILDE ET LA REJOINDRE / TABLEAU DE BORD -->
-    <div class="mx-40 my-6">
+    <div class="mx-40 my-6 content-center">
       <% if @quest.guild.present? %>
+          <p> Guilde active sur la quête : <%= @quest.guild.name %> </p>
         <% if current_user != nil && current_user.is_member_of?(@quest.guild) %>
           <%= link_to "Tableau de bord de guilde", guild_path(@quest.guild), class: "btn btn-warning" %>
         <% elsif current_user != nil && !current_user.has_apply_to?(@quest.guild) %>
@@ -103,7 +103,9 @@
 <br>
 
 <!-- RETOUR TOUTES LES QUESTS -->
+<div class="mx-40 mb-20 content-center">
   <%= link_to 'Retour', quests_path, class: "btn btn-primary mt-2" %>
+</div>
 
 </div>
 <!-- Code de la team BACK -->
