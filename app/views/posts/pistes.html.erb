@@ -8,7 +8,7 @@
 <!-- BOUCLE QUI AFFICHES CHAQUE PISTE -->
   <% @pistes.each_with_index do |piste, i| %>
   <% if piste.guild == @guild %>
-    <div class="rounded-xl bg-gray-50 my-10 p-10">
+    <div class="rounded-xl bg-gray-50 m-10 p-10">
       <div class="bg-gray-50 p-2 border">
         <h2>Piste n°<%= i + 1 %> : <%= piste.title %></h2>
         <%= piste.description %>
@@ -34,7 +34,6 @@
           <% end %>
           </div>
       <% end %>
-    </div>
 
   <!-- ETAT DE LA PISTE POSTEE/NON POSTEE -->
     <% if piste.category == 'piste' %>
@@ -43,10 +42,11 @@
       <p class= "btn mx-96 mt-10">Avancée déjà publiée</p>
     <% end %>
     <br>
+    <% end %>
+    </div>
+    <% end %>
 
     </div>
-  <% end %>
-  <% end %>
   <br>
 <!-- FIN DE BOUCLE -->
 
