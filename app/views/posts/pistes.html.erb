@@ -14,14 +14,21 @@
     <h2>Piste n°<%= i %> : <%= piste.title %></h2>
     <%= piste.description %>
 
-  <form class="w-full max-w-sm">
+    <form class="w-full max-w-sm">
     <div class="flex items-center border-b border-teal-500 py-2">
-      <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Votre commentaire" aria-label="Full name">
+    <%= simple_form_for [piste, @comment_new] do |f| %>
+      <%= f.input_field :content, label: false, placeholder: "Votre commentaire" %>
       <button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
-        ➡️
-      </button>
-    </div>
-  </form>
+      <%= f.button :submit, '>', class: 'btn btn-primary' %>
+        </button>
+      </div>
+    <% end %>
+    </form>
+
+    <% piste.comments.reverse_each do |comment| %>
+      <%= comment.user.username %> : <%= comment.content %>
+      <br>
+    <% end %>
 
   <!-- ETAT DE LA PISTE POSTEE/NON POSTEE -->
     <% if piste.category == 'piste' %>
