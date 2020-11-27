@@ -19,7 +19,7 @@
       <% end %>
 
       <div class="p-2">
-        <% piste.comments.reverse_each do |comment| %>
+        <% piste.comments.each do |comment| %>
           <div class="bg-gray-100 my-1 rounded-xl pl-2 -pb-2">
             <p><m class="italic text-sm"><%= comment.user.username %> : </m><%= comment.content %></p>
           </div>
@@ -42,6 +42,7 @@
       <p class= "btn mx-96 mt-10">Avancée déjà publiée</p>
     <% end %>
     <br>
+
     <% end %>
     </div>
     <% end %>
