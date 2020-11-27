@@ -32,11 +32,19 @@ class PostsController < ApplicationController
     @avancee.category = "avancee"
     @avancee.user = @post.user
     # recuperer les photos
+    @post.photos.each do |photo|
+      @avancee.photos.attach(
+        :io           => StringIO.new(photo.download),
+        :filename     => photo.filename,
+        :content_type => photo.content_type
+      )
+    end
+    # recuperer les photos fin
     @avancee.guild = @post.guild
     if @avancee.save
       @post.category = "piste_publiee"
       @post.save
-      redirect_to quest_path(@avancee.guild.quest)
+      redirect_to quest_path(@avancee.guild.quest), notice: "Votre piste est bien une avancée ✌️"
     else
       @avancee = @post.dup
       render :new_avancee_from_post
@@ -54,6 +62,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :description, :user_id, :guild_id, :category)
+    params.require(:post).permit(:title, :description, :user_id, :guild_id, :category, photos: [])
   end
 end
