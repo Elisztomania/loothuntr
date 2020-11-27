@@ -1,3 +1,27 @@
 .button-create-quest {
-  background-color: #e58457;
+  background-color: #ed6449;
+  color: white;
+  border-radius: 2px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-weight: 600;
 }
+
+.button-create-quest:hover {
+  background-color: #ba3841;
+  color: white;
+}
+
+ // C'est une classe dans les div des champs des forms (enfin pour l'instant dans celui du form de creation de quest)
+.champ-form {
+  background-color: #f3dfca;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  color: black;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+}
+
+ // C'est une classe dans les div des champs des forms (enfin pour l'instant dans celui du form de creation de quest)
+
