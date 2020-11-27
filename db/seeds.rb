@@ -14,7 +14,7 @@ indiana = User.create(username:"Indiana Jones", email:"indiana@jones.co", passwo
 benjamin = User.create(username:"Benjamin Gates", email:"ben@portail.co", password:"portail2", bio: "Passionné par l'histoire des Etats Unis")
 ella = User.create(username:"Ella Maillart", email:"e@ll.a", password:"ellaellaaa", bio: "Passionnée de voile et de ski, j'ai fondé le premier club féminin de hockey sur glace en Suisse romande.")
 lara = User.create(username:"Lara Croft", email:"lara@croft.co", password:"aventure20", bio: "Prof d'histoire, je suis passionnée d'aventure et je rêve de trouver un trésor.")
-xavier = User.create(username:"Xavier.D", email:"xav@chasseur.co", password:"aventure200" bio: "Mon détecteur de métal sous le bras, récemment à la retraite, j'ai décidé de consacrer ce précieux temps à la recherche de trésors...")
+xavier = User.create(username:"Xavier.D", email:"xav@chasseur.co", password:"aventure200", bio: "Mon détecteur de métal sous le bras, récemment à la retraite, j'ai décidé de consacrer ce précieux temps à la recherche de trésors...")
 
 puts 'Creating quests...'
 
@@ -33,8 +33,8 @@ source = File.open("app/assets/images/jeanguennego.jpeg")
 tresor_jeanguennego.photo.attach(io: source, filename: 'jeanguennego.jpeg', content_type: 'image/jpeg')
 source = File.open("app/assets/images/port_royal.jpeg")
 tresor_couvent_port_royal.photo.attach(io: source, filename: 'port_royal.jpeg', content_type: 'image/jpeg')
-source = File.open("app/assets/images/chouette-or.jpeg")
-tresor_chouette_or.photo.attach(io: source, filename: 'chouette-or.jpeg', content_type: 'image/jpeg')
+source = File.open("app/assets/images/chouette-or.jpg")
+tresor_chouette_or.photo.attach(io: source, filename: 'chouette-or.jpg', content_type: 'image/jpg')
 
 tresor_LyonVaise.save!
 tresor_mandrin.save!
@@ -55,8 +55,8 @@ Member.create!(user: benjamin, guild: fiers_de_hache, accepted: true, cover_lett
 Member.create!(user: indiana, guild: les_backeuses, accepted: true, cover_letter: "j'ai de fou de l'expérienceee")
 Member.create!(user: ella, guild: les_backeuses, accepted: true, cover_letter: "j'ai masse l'expérienceee")
 Member.create!(user: ella, guild: fiers_de_hache, accepted: true, cover_letter: "j'ai plus d'expérienceeee")
-Member.creat!(user: ella, guild: les_chouetteurs, accepted: true, cover_letter: "J'ai plus d'expérienceeee")
-Member.creat!(user: indiana, guild: les_chouetteurs, accepted: true, cover_letter: "Je suis Indiana Jones pas besoin de lettre de motivation!")
+Member.create!(user: ella, guild: les_chouetteurs, accepted: true, cover_letter: "J'ai plus d'expérienceeee")
+Member.create!(user: indiana, guild: les_chouetteurs, accepted: true, cover_letter: "Je suis Indiana Jones pas besoin de lettre de motivation!")
 
 
 puts 'Creating posts category piste...'
@@ -71,8 +71,8 @@ Pour trouver mon tout, il suffit d'être Sage,
 Car la Vérité, en vérité, ne sera pas affaire de Devin.", category: "piste")
 
 source_p = File.open("app/assets/images/piste2.png")
-piste2.photo.attach(io: source_p, filename: 'piste2.png', content_type: 'image/png')
-piste2.photo.attach.save!
+piste2.photos.attach(io: source_p, filename: 'piste2.png', content_type: 'image/png')
+piste2.save!
 
 puts 'Creating posts category orga...'
 orga1 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "Choix de date pour prochaine sortie", description:"Quelle date vous convient le mieux?", category: "orga")
@@ -83,7 +83,7 @@ avancee1 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "Nouvel
 avancee2 = Post.create!(user: lara, guild: les_chouetteurs, title: "Première énigme résolue", description: "IL N'EST DE PIRE AVEUGLE, QUE CELUI QUI NE VEUT PAS VOIR, 1 = 530, 3 = 470, 5 = 600, 7 = 420, 9 = 650", category: "avancee" )
 
 source_a = File.open("app/assets/images/avancee2.png")
-avancee2(io: source_a, filename: 'avancee2.png', content_type: 'image/png')
+avancee2.photos.attach(io: source_a, filename: 'avancee2.png', content_type: 'image/png')
 avancee2.save!
 
 puts 'Finished!'
