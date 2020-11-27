@@ -8,7 +8,7 @@
 <!-- BOUCLE QUI AFFICHES CHAQUE PISTE -->
   <% @pistes.each_with_index do |piste, i| %>
   <% if piste.guild == @guild %>
-    <div class="rounded-xl bg-gray-50 my-10 p-10">
+    <div class="rounded-xl bg-gray-50 m-10 p-10">
       <div class="bg-gray-50 p-2 border">
         <h2>Piste n°<%= i + 1 %> : <%= piste.title %></h2>
         <%= piste.description %>
@@ -26,13 +26,14 @@
         <% end %>
       </div>
 
-      <div class="flex items-center border-b border-teal-500 py-2">
-      <%= simple_form_for [piste, @comment_new] do |f| %>
-        <%= f.input_field :content, label: false, placeholder: "Votre commentaire" %>
-        <%= f.button :submit, '>', class: 'btn btn-primary' %>
-        <% end %>
-        </div>
-    </div>
+      <% if piste.category == "piste_publiee" %>
+        <div class="flex items-center border-b border-teal-500 py-2">
+        <%= simple_form_for [piste, @comment_new] do |f| %>
+          <%= f.input_field :content, label: false, placeholder: "Votre commentaire" %>
+          <%= f.button :submit, '>', class: 'btn btn-primary' %>
+          <% end %>
+          </div>
+      <% end %>
 
   <!-- ETAT DE LA PISTE POSTEE/NON POSTEE -->
     <% if piste.category == 'piste' %>
@@ -42,9 +43,11 @@
     <% end %>
     <br>
 
+    <% end %>
     </div>
-  <% end %>
-  <% end %>
+    <% end %>
+
+    </div>
   <br>
 <!-- FIN DE BOUCLE -->
 
