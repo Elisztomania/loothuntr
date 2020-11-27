@@ -1,6 +1,10 @@
 class GuildsController < ApplicationController
   before_action :set_guild, only: [:show, :edit, :update]
 
+  def my_guilds
+    @my_guilds = Guild.where(member: current_user)
+  end
+
   def show
     # show dashboard with the chat, the calendar, th members of the teams
     @members = User.where(:acccepted == true)
