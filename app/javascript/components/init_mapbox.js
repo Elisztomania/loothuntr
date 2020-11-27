@@ -13,19 +13,20 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/fribot/ckhnjz1vp0xds19qt4dxda6vn'
+      style: 'mapbox://styles/mapbox/streets-v10'
     });
     const markers = JSON.parse(mapElement.dataset.markers);
+    if (markers) {
     markers.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+      // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
 
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup)
+        // .setPopup(popup)
         .addTo(map);
     });
     fitMapToMarkers(map, markers);
-  }
+   }}
 };
 
 export { initMapbox };
