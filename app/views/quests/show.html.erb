@@ -67,11 +67,11 @@
       <strong><%= avancee.title %></strong>
       <p><%= avancee.description %></p>
 
+      <div class="inline-flex space-x-4 p-6 center">
       <% avancee.photos.each do |photo| %>
-        <div class="inline-flex space-x-4 p-6">
           <div class="flex-1 self-center"><%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %></div>
-        </div>
       <% end %>
+      </div>
     </div>
     <% end %>
 
