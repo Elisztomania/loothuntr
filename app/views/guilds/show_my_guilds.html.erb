@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Les guildes dont je suis membre</h1>
+  <br>
+  <% @myguilds.each do |guild| %>
+    <hr>
+    <div class="group"><%= link_to guild_path(guild) do %>
+      <div class="flex p-2 no-underline group-hover:text-black group-hover:bg-white">
+        <%= cl_image_tag guild.quest.photo.key, height: 200, width: 200, crop: :fill %>
+        <div class="text-center p-2 my-auto text-base group-hover:text-black group-hover:bg-white">
+          <p><em><%= guild.name %></em> consacrée à la quête <strong><%= guild.quest.title %></strong></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
+</div>
