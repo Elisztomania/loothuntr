@@ -1,5 +1,9 @@
+$corail: #ed6449;
+$pinky: #ba3841;
+$darkp: #4a0b2e;
+
 .button-create-quest {
-  background-color: #ed6449;
+  background-color: $corail;
   color: white;
   border-radius: 2px;
   padding-left: 16px;
@@ -10,7 +14,7 @@
 }
 
 .button-create-quest:hover {
-  background-color: #ba3841;
+  background-color: $pinky;
   color: white;
 }
 
@@ -24,4 +28,32 @@
 }
 
  // C'est une classe dans les div des champs des forms (enfin pour l'instant dans celui du form de creation de quest)
+.btn-dash {
+  background-color: $corail;
+  color: white;
 
+  &:hover {
+    background-color: $pinky;
+    color: white;
+  }
+}
+
+.btn-rejoindre {
+  background-color: $darkp;
+  color: white;
+
+  &:hover {
+    background-color: $pinky;
+    color: white;
+  }
+}
+
+.btn-back {
+  background-color: $pinky;
+  color: white;
+
+  &:hover {
+    background-color: $corail;
+    color: white;
+  }
+}
