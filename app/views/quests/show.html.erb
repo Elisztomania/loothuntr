@@ -19,7 +19,7 @@
 
         <div class="w-full md:w-1/2 rounded-t group transition-transform duration-200 transform sm:hover:-translate-y-1">
           <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg h-full">
-            <div class="w-full font-bold text-xl text-gray-900 px-6 mt-4 mb-4">🤔 Description</div>
+            <h2 class="w-full font-bold text-xl text-gray-900 px-6 mt-4 mb-4">🤔 Description</h2>
             <p class="text-gray-800 font-serif text-base px-10 mb-5 ">
               <%= @quest.description %>
             </p>
@@ -28,7 +28,7 @@
 
         <div class="w-full md:w-1/2 rounded-t group transition-transform duration-200 transform sm:hover:-translate-y-1">
           <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg h-full">
-            <div class="w-full font-bold text-xl text-gray-900 px-6 mt-4 mb-4 ">🤩 Informations clés</div>
+            <h2 class="w-full font-bold text-xl text-gray-900 px-6 mt-4 mb-4 ">🤩 Informations clés</h2>
               <div class="text-gray-800 font-serif text-base px-10 justify-self-center">
                  <p> 📍 <%= @quest.location %> </p>
 
@@ -74,6 +74,7 @@
     </div>
   </div>
 
+  <h2 class="m-10 p-10 text-center text-xl">Les avancées : <%= @quest.title %></h2>
 
 <!-- POST DES AVANCEES BOUCLE-->
     <% @quest.avancees.each do |avancee| %>
@@ -84,7 +85,7 @@
 
       <div class="inline-flex space-x-4 p-6 center">
       <% avancee.photos.each do |photo| %>
-          <div class="flex-1 self-center"><%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %></div>
+          <div class="flex-1 self-center"><%= cl_image_tag photo.key, height: 300, width: 400 %></div>
       <% end %>
       </div>
     </div>
