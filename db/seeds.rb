@@ -18,7 +18,7 @@ xavier = User.create(username:"Xavier.D", email:"xav@chasseur.co", password:"ave
 
 puts 'Creating quests...'
 
-tresor_LyonVaise = Quest.create!(title:"Trésor de Lyon-Vaise", description:"Le trésor de Lyon-Vaise est un ensemble d’objets précieux du IIIe siècle de l’Empire romain, trouvés à Lyon en 1992 et exposés au musée gallo-romain de Fourvière. Plus précisément daté d’après les monnaies qu’il comporte, ce trésor aurait été enseveli après 258 dans la crainte des raids barbares, peut-être lors du raid de 259.", location: "20-28 Rue Masaryk, 69009 Lyon", resolved:true, creator: user_admin)
+tresor_LyonVaise = Quest.create!(title:"Trésor de Lyon-Vaise", description:"Le trésor de Lyon-Vaise est un ensemble d’objets précieux du IIIe siècle de l’Empire romain, trouvés à Lyon en 1992 et exposés au musée gallo-romain de Fourvière. Plus précisément daté d’après les monnaies qu’il comporte, ce trésor aurait été enseveli après 258 dans la crainte des raids barbares, peut-être lors du raid de 259. Outre les pièces de vaisselle, bijoux et monnaies qu'il contient, il a l'originalité d'inclure des statuettes en argent et acquiert ainsi une place à part dans l'ensemble des trésors du iiie siècle.", location: "20-28 Rue Masaryk, 69009 Lyon", resolved:true, creator: user_admin)
 tresor_mandrin = Quest.create!(title:"Trésor de Mandrin", description:"On raconte que Mandrin aurait pris l’habitude de cacher ses butins dans des endroits qu’il nommait ses coffres-forts. Plusieurs d’entre eux auraient été localisés !
 Ainsi, une cassette serait encore enterrée dans le jardin de sa maison natale à Saint-Etienne-de Saint-Geoirs (Isère). A Verel-de-Montbel (Savoie), il fera une cache dans les hautes roches qui entoure le village et y glissa une bourse remplie de pierres précieuses. Il enterra 25 000 livres en or en pleine forêt du Vercors là où Mandrin aimait à prendre ses quartiers.", location: "Carterie - Gadgeterie, 63600 Ambert", resolved:false, creator: user_admin)
 tresor_jeanguennego = Quest.create!(title:"Questembert tresor de Jean Guennégo de Quervien", description:"En 1863, un trésor caché depuis le XVe siècle est mis au jour à Questembert, dans le Morbihan, fortune mise à l’abri des regards par Jean Guennégo de Quervien, exerçant la double profession de maître-d’hôtel à sa mort, emportant avec lui son secret. Sa maison a passé dans des mains étrangères, et l’on ignorerait encore qu’une petite fortune y avait été cachée, si le propriétaire d’une partie du logis de Jean Guennégo, dans le but de réparations intérieures, n’avait mis à découvert la tirelire du maître-d’hôtel. Elle était en terre et contenait environ 2 200 pièces.1090 de ces pièces appartenant toutes au XVe siècle. Il nous révèle que 370 sont en billon blanchi et portent les noms de rois de France. Une seule est de Charles VII ; les autres sont des blancs de billon, au soleil ou à la couronne, de Louis XI et de Charles VIII.", location: "12 Place du Gén de Gaulle, 56230 Questembert", resolved:true, creator: user_admin)
@@ -79,11 +79,21 @@ orga1 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "Choix de 
 orga2 = Post.create!(user: lara, guild: les_chouetteurs, title: "Choix de date pour prochaine sortie", description:"Quelle date vous convient le mieux? Le samedi 12 décmebre?", category: "orga")
 
 puts 'Creating posts category avancée...'
-avancee1 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "Nouvelles pièces d'or trouvée", description: "Lors de notre dernière balade nous avons trouvé des magniques pièces de l'époque de Carolingienne. Une belle avancée pour trouver le Trésor de Vaise", category: "avancee" )
-avancee2 = Post.create!(user: lara, guild: les_chouetteurs, title: "Première énigme résolue", description: "IL N'EST DE PIRE AVEUGLE, QUE CELUI QUI NE VEUT PAS VOIR, 1 = 530, 3 = 470, 5 = 600, 7 = 420, 9 = 650", category: "avancee" )
+avancee1 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "La découverte", description: "Ce trésor a été découvert en mars 1992, dans le dernier mois d'une fouille archéologique préventive entreprise de août 1991 à mars 19923 en vue de la construction de la ZAC de Charavay au quartier de Vaise, au nord de Lyon, proche de la Saône, en rive droite. Le site se trouve entre la rue du Chapeau rouge et la Grande rue de Vaise.", category: "avancee" )
 
+avancee2 = Post.create!(user: lara, guild: les_chouetteurs, title: "Première énigme résolue", description: "IL N'EST DE PIRE AVEUGLE, QUE CELUI QUI NE VEUT PAS VOIR, 1 = 530, 3 = 470, 5 = 600, 7 = 420, 9 = 650", category: "avancee")
 source_a = File.open("app/assets/images/avancee2.png")
 avancee2.photos.attach(io: source_a, filename: 'avancee2.png', content_type: 'image/png')
 avancee2.save!
+
+avancee3 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "La restauration", description: "Le nettoyage des gangues de terre et des concrétions couvrant les objets a été réalisé par le centre de Recherches et d’Études archéologique de Vienne. Si les bijoux d’or ont rapidement été dégagés, les monnaies et la vaisselle d’argent ont requis des bains chimiques et un nettoyage minutieux sous loupe binoculaire.", category: "avancee" )
+
+avancee4 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "Le trésor", description: "Les statuettes du trésor de Vaise sont toutes en argent et pour la plupart de thème religieux. Ce lot proviendrait soit d’un temple, soit d’une chapelle privée de la villa fouillée. Trois statuettes sont entières et remarquables par la qualité de leur facture, en tôle d’argent martelée, rehaussée d’une dorure sur le liséré des vêtements, les diadèmes et les fruits.
+  Les bijoux sont également remarquables. Par leur facture, ces bijoux sont classés comme des productions gallo-romaines du iiie siècle. Une recherche sur l’origine des émeraudes du collier a abouti à un diagnostic inattendu.", category: "avancee")
+source_a = File.open("app/assets/images/avancee4_1.jpg")
+avancee4.photos.attach(io: source_a, filename: 'avancee4_1.jpg', content_type: 'image/jpg')
+source_a = File.open("app/assets/images/avancee4_2.jpg")
+avancee4.photos.attach(io: source_a, filename: 'avancee4_2.jpg', content_type: 'image/jpg')
+avancee4.save!
 
 puts 'Finished!'
