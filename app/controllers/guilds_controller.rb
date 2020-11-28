@@ -1,9 +1,8 @@
 class GuildsController < ApplicationController
   before_action :set_guild, only: [:show, :edit, :update]
 
-  def myguilds
-    raise
-    @my_guilds = Guild.where(current_user.is_member_of(@guild))
+  def show_my_guilds
+    @myguilds = Guild.where(current_user.is_member_of?(@guild))
   end
 
   def show
