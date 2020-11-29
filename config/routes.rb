@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/guilds/myguilds', to: 'guilds#show_my_guilds', as: 'myguilds'
   get '/guild/:id/resolved', to: 'guilds#resolved', as: 'quest_resolved'
+  post '/guild/:id/resolved', to: 'guilds#resolved'
   resources :quests, only: [:index, :show, :create, :new, :edit, :update] do
     resources :guilds, only: [:create, :new]
   end

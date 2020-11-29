@@ -19,6 +19,8 @@ class PostsController < ApplicationController
       redirect_to pistes_guild_posts_path(@guild)
     elsif @post.save && @post.category == "orga"
       redirect_to guild_path(@guild)
+    elsif @post.save && @post.category == "avancee"
+      redirect_to quest_path(@guild.quest)
     else
       render :new
     end
