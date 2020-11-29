@@ -1,7 +1,14 @@
 <div class="container">
 <% if current_user.is_member_of?(@guild) %>
 
-    <h1 class="text-center pt-16">Tableau de bord: <%= @guild.name %></h1>
+<!-- BUTTON MODIF GUILDE QUE PAR CREATOR-->
+    <h1 class="text-center pt-16 text-2xl">Tableau de bord : <%= @guild.name %>
+      <% if current_user == @guild.creator %>
+        <%= link_to edit_guild_path(@guild) do %>
+          <i class="fas fa-pencil-alt text-sm"></i>
+        <% end %>
+      <% end %>
+    </h1>
 
     <br>
 
@@ -11,14 +18,13 @@
         <%= f.hidden_field :category, value: 'orga' %>
         <%= f.input :title, label: 'Titre'  %>
         <%= f.input :description, label: 'Description'  %>
-        <!-- Ajouter un champ photo <%= f.input :photo, as: :file %> -->
-          <%= f.button :submit, '>', class: 'btn btn-primary' %>
+        <%= f.button :submit, '>', class: 'btn btn-primary' %>
       <% end %>
     </div>
 <br>
 <!-- AFFICHAGE POSTS ORGA -->
   <div class="h-80 overflow-auto">
-    <h2>Derniers posts</h2>
+    <h2 class="text-xl">Derniers posts</h2>
       <% @guild.posts.reverse_each do |post| %>
         <% if post.category == "orga" %>
         <div class="p-2 rounded-xl bg-gray-50 my-2">
@@ -60,10 +66,11 @@
     <br>
 
 <!-- DEBUT LISTE MEMBRES DE LA GUIDE -->
-    <h2>Voici les membres de votre guilde</h2>
+    <h2 class="text-xl"> La guilde </h2>
     <% @guild.members.each do |member| %>
       <% if member.accepted == true %>
-        <strong><h3><%= member.user.username %></h3></strong>
+        <strong><p><%= member.user.username %></p></strong>
+        <p><%= member.user.bio %></p>
       <% end %>
     <% end %>
 <!-- FIN LISTE MEMBRES DE LA GUIDE -->
@@ -73,12 +80,8 @@
     <br>
 
 <!-- BUTTON PISTE-->
-    <%= link_to 'Voir les pistes', pistes_guild_posts_path(@guild), class: "btn btn-primary" %>
+    <%= link_to 'Voir les pistes en cours', pistes_guild_posts_path(@guild), class: "btn btn-primary" %>
 
-<!-- BUTTON MODIF GUILDE QUE PAR CREATOR-->
-    <% if current_user == @guild.creator %>
-    <%= link_to 'Modifier ma guilde', edit_guild_path(@guild), class: "btn-ghost-margtop" %>
-    <% end %>
 
 
 <!-- BUTTON RETOUR-->
