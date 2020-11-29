@@ -13,14 +13,19 @@
 
   </head>
 
-  <body>
+  <body class="flex flex-col min-h-screen">
+    <header>
+     <%= render 'shared/navbar' %>
+    </header>
 
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-
-
+    <main class="flex-grow">
+     <%= render 'shared/flashes' %>
      <%= yield %>
-    <%= render 'shared/footer' %>
+    </main>
+
+    <footer>
+     <%= render 'shared/footer' %>
+   </footer>
 
   </body>
 </html>
