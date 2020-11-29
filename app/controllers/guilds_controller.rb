@@ -1,8 +1,8 @@
 class GuildsController < ApplicationController
-  before_action :set_guild, only: [:show, :edit, :update]
+  before_action :set_guild, only: [:show, :edit, :update, :resolved]
 
   def show_my_guilds
-    @myguilds = Guild.where(current_user.is_member_of?(@guild))
+    @guilds = Guild.all
   end
 
   def show
@@ -37,6 +37,12 @@ class GuildsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def resolved
+    @guild.quest.resolved = true
+    @post_new = Post.new
+    @guild.quest.save
   end
 
   private

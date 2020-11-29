@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="font-bold uppercase text-center p-3">FéLICITATIONS VOUS AVEZ TROUVÉ LE TRÉSOR DE <%= @guild.quest.title %>
+  </div>
+
+<h1 class="text-lg text-center italic">Laisser une trace de votre découverte finale</h1>
+<div class="container">
+  <%= simple_form_for [@guild, @post_new] do |f| %>
+      <%= f.hidden_field :category, value: 'avancee' %>
+      <%= f.input :title, label: 'Titre'  %>
+      <%= f.input :description, label: 'Description'  %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.button :submit, 'Publier cette fin de quête', class: 'btn btn-primary'  %>
+  <% end %>
+</div>
+</div>
+

@@ -82,10 +82,14 @@
 <!-- BUTTON PISTE-->
     <%= link_to 'Voir les pistes en cours', pistes_guild_posts_path(@guild), class: "btn btn-primary" %>
 
-
-
 <!-- BUTTON RETOUR-->
   <%= link_to 'Voir la quête', quest_path(@guild.quest), class: "btn btn-primary" %>
+
+
+<!-- BUTTON QUETE RESOLUE-->
+  <% if current_user == @guild.creator %>
+    <%= link_to 'Le trésor a été trouvé', quest_resolved_path(@guild), class: "btn btn-primary" %>
+  <% end %>
 
 
 <!-- A LAISSER EN BAS, SI T'ES PAS MEMBRE, TU VOIS RIEN -->
