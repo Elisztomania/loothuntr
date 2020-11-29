@@ -87,7 +87,7 @@
 
 <!-- BUTTON QUETE RESOLUE-->
   <% if current_user == @guild.creator %>
-    <%= link_to 'Le trésor a été trouvé', quest_resolved_path(@guild.quest), class: "btn btn-primary" %>
+    <%= link_to 'Le trésor a été trouvé', quest_resolved_path(@guild), class: "btn btn-primary" %>
   <% end %>
 
 

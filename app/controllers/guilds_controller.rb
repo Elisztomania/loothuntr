@@ -40,7 +40,8 @@ class GuildsController < ApplicationController
   end
 
   def resolved
-    @guild.quest.resolved == true
+    @guild.quest.resolved = true
+    @post_new = Post.new
   end
 
   private
