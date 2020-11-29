@@ -85,6 +85,10 @@
   <%= link_to 'Voir la quête', quest_path(@guild.quest), class: "btn btn-primary" %>
 
 
+<!-- BUTTON QUETE RESOLUE-->
+  <%= link_to 'Le trésor a été trouvé', quest_resolved_path(@guild.quest), class: "btn btn-primary" %>
+
+
 <!-- A LAISSER EN BAS, SI T'ES PAS MEMBRE, TU VOIS RIEN -->
 <% else %>
   <h2>Désolé, vous n'êtes pas member de cette guilde 😉</h2>
