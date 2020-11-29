@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="font-bold uppercase">FéLICITATIONS VOUS AVEZ TROUVÉ LE TRÉSOR DE <%= @guild.quest.title %>
+  </div>
+</div>
+
+<div class="text-lg">Laisser une trace de votre découverte finale</div>
+<div class="container">
+  <%= simple_form_for [@guild, @post] do |f| %>
+      <%= f.hidden_field :category, value: 'piste_publiee' %>
+      <%= f.input :title, label: 'Titre'  %>
+      <%= f.input :description, label: 'Description'  %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <!--     <% if @post.new_record? %> -->
+        <%= f.button :submit, 'Créer ma piste', class: 'btn btn-primary'  %>
+      <!--    <% end %> -->
+  <% end %>
+</div>
+

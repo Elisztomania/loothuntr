@@ -1,6 +1,6 @@
 class QuestsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_quest, only: [:show, :edit, :update, :resolved]
+  before_action :set_quest, only: [:show, :edit, :update]
 
   def index
     @quests = Quest.all
@@ -32,10 +32,6 @@ class QuestsController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def resolved
-    @quest.resolved == true
   end
 
   private

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get '/guilds/myguilds', to: 'guilds#show_my_guilds', as: 'myguilds'
-  get '/quests/:id/reseolved', to: 'quests#resolved', as: 'quest_resolved'
+  get '/guild/:id/resolved', to: 'guilds#resolved', as: 'quest_resolved'
   resources :quests, only: [:index, :show, :create, :new, :edit, :update] do
     resources :guilds, only: [:create, :new]
   end
