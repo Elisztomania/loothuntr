@@ -1,5 +1,39 @@
-  <%= render 'form', guild: @guild %>
 
 
+<div class="body-bg md:p-10  md:px-0 items-center flex flex-col">
+
+    <div class="bg-white max-w-lg md:p-12 my-8 rounded-lg shadow-2xl">
+        <div class="text-center">
+            <h2>Créer ma guilde</h2>
+            <p class="text-gray-600 pt-2">Prêt à vivre des aventures totalement folles ?</p>
+        </div>
+
+        <div class="mt-10 ">
+
+            <%= simple_form_for [@quest, @guild] do |f| %>
 
 
+            <form class="flex flex-col" method="POST" action="#">
+                <div class="border-black-100 rounded w-full text-black-700 focus:outline-none focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
+                    <%= f.input :name, label: 'Nom de la guilde'  %>
+                </div>
+
+                <div class="border-black-100 rounded w-full text-black-700 focus:outline-none focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
+                    <%= f.input :description, label: 'Description'  %>
+                </div>
+
+                <div class="flex flex-col items-center mt-4 px-12">
+                  <% if @guild.new_record? %>
+                    <%= f.button :submit, 'Créer ma guilde', class: 'button-create-quest'  %>
+                  <% else %>
+                    <%= f.button :submit, 'Mettre à jour ma super quête', class: 'button-create-quest'  %>
+                  <% end %>
+                </div>
+
+                <% end %>
+            </form>
+        </div>
+    </div>
+<%= link_to 'Retour', root_path, class: 'button-create-quest' %>
+
+</div>
