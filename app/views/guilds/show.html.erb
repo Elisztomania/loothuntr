@@ -1,24 +1,47 @@
 <div class="container">
 <% if current_user.is_member_of?(@guild) %>
 
-    <h1 class="text-center pt-16">Tableau de bord: <%= @guild.name %></h1>
+    <h1 class="text-center pt-16 text-2xl">Tableau de bord : <%= @guild.name %>
+<!-- BUTTON MODIF GUILDE QUE PAR CREATOR-->
+      <% if current_user == @guild.creator %>
+        <%= link_to edit_guild_path(@guild) do %>
+          <i class="fas fa-pencil-alt text-sm"></i>
+        <% end %>
+      <% end %>
+    </h1>
 
-    <br>
+<!-- GRID -->
+<div class="mx-10 py-8">
+   <div class="grid gap-6 mb-8 grid-cols-2">
 
 <!-- FORMULAIRE POSTS ORGA -->
-    <div class="card">
-      <%= simple_form_for [@guild, @post_new] do |f| %>
+    <div class="min-w-0 p-4 bg-white rounded-xl border border-gray-300 h-80">
+      <h2 class="text-xl text-center">Ajouter un message</h2>
+      <p class="italic"><%= simple_form_for [@guild, @post_new] do |f| %>
         <%= f.hidden_field :category, value: 'orga' %>
         <%= f.input :title, label: 'Titre'  %>
-        <%= f.input :description, label: 'Description'  %>
-        <!-- Ajouter un champ photo <%= f.input :photo, as: :file %> -->
-          <%= f.button :submit, '>', class: 'btn btn-primary' %>
-      <% end %>
+        <%= f.input :description, label: 'Description' %>
+        <%= f.button :submit, '>', class: 'btn-dash' %>
+      <% end %><p>
     </div>
-<br>
+
+
+<!-- DEBUT LISTE MEMBRES DE LA GUIDE -->
+  <div class="min-w-0 p-4 bg-white rounded-xl border border-gray-300 h-auto">
+    <h2 class="text-xl text-center">La guilde</h2>
+    <% @guild.members.each do |member| %>
+        <% if member.accepted == true %>
+          <strong><p><%= member.user.username %></p></strong>
+          <p><%= member.user.bio %></p>
+        <% end %>
+    <% end %>
+  </div>
+<!-- FIN LISTE MEMBRES DE LA GUIDE -->
+
+
 <!-- AFFICHAGE POSTS ORGA -->
-  <div class="h-80 overflow-auto">
-    <h2>Derniers posts</h2>
+  <div class="min-w-0 p-4 bg-white rounded-xl border border-gray-300 h-96 overflow-auto">
+    <h2 class="text-xl text-center">Derniers posts</h2>
       <% @guild.posts.reverse_each do |post| %>
         <% if post.category == "orga" %>
         <div class="p-2 rounded-xl bg-gray-50 my-2">
@@ -32,63 +55,64 @@
             </div>
             <% end %>
 
-            <%= simple_form_for [post, @comment_new] do |f| %>
+            <p><%= simple_form_for [post, @comment_new] do |f| %>
               <%= f.input_field :content, label: false, placeholder: "Votre commentaire" %>
-              <%= f.button :submit, '>', class: 'btn btn-primary' %>
-            <% end %>
+              <%= f.button :submit, '>', class: 'btn-dash' %>
+            <% end %></p>
           </div>
         </div>
         <% end %>
       <% end %>
     </div>
 
+  <div class="space-y-6">
+<!-- BUTTON PISTE-->
+  <!-- <%= link_to 'Voir les pistes en cours', pistes_guild_posts_path(@guild), class: "btn btn-primary" %> -->
+  <%= link_to pistes_guild_posts_path(@guild) do %>
+    <div class="block min-w-0 mb-4 p-4 bg-white rounded-xl border border-gray-300 h-40">
+      <h2 class="text-xl text-center">Les différentes pistes en cours 👀</h2>
+    </div>
+  <% end %>
+
+<!-- BUTTON QUEST-->
+  <!-- <%= link_to 'Voir la quête', quest_path(@guild.quest), class: "btn btn-primary" %>-->
+  <%= link_to quest_path(@guild.quest) do %>
+    <div class="block min-w-0 p-4 bg-white rounded-xl border border-gray-300 h-40">
+      <h2 class="text-xl text-center">Voir les avancées de la quête 🔥</h2>
+    </div>
+  <% end %>
+</div>
+
 <!-- DEBUT CANDIDATURES POUR REJOINDRE VISIBLE QUE PAR CREATOR -->
+  <div class="min-w-0 p-4 bg-white rounded-xl border border-gray-300 h-auto overflow-auto col-end-3 col-span-1">
     <% if @guild.creator == current_user && @guild.members.waiting.present? %>
-      <h2>Des personnes veulent entrer dans votre guilde</h2>
+      <h2 class="text-xl text-center">Des personnes veulent entrer dans votre guilde</h2>
       <br>
       <% @guild.members.waiting.each do |member| %>
-          <strong><h3><%= member.user.username %></h3></strong>
-          <p ><%= member.cover_letter %></p>
-          <%= link_to "", accepted_member_path(member), class: "fas fa-check-circle", style: "color: green; font-size: 20px;" %>
-          <%= link_to "", refused_member_path(member), class: "fas fa-times-circle", style: "color: red; font-size: 20px;"%>
+        <div class="px-4 py-2 rounded-xl bg-gray-50 my-2">
+          <strong><h3 class="text-lg"><%= member.user.username %></h3></strong>
+          <p class="py-1 text-justify"><%= member.cover_letter %></p>
+
+          <div class="text-center">
+            <%= link_to "", accepted_member_path(member), class: "fas fa-check-circle", style: "color: green; font-size: 20px;" %>
+            <%= link_to "", refused_member_path(member), class: "fas fa-times-circle", style: "color: red; font-size: 20px;"%>
+          </div>
+        </div>
         <% end %>
     <% end %>
+  </div>
 <!-- FIN CANDIDATURES POUR REJOINDRE VISIBLE QUE PAR CREATOR -->
 
-    <br>
-    <hr>
-    <br>
-
-<!-- DEBUT LISTE MEMBRES DE LA GUIDE -->
-    <h2>Voici les membres de votre guilde</h2>
-    <% @guild.members.each do |member| %>
-      <% if member.accepted == true %>
-        <strong><h3><%= member.user.username %></h3></strong>
-      <% end %>
-    <% end %>
-<!-- FIN LISTE MEMBRES DE LA GUIDE -->
-
-    <br>
-    <hr>
-    <br>
-
-<!-- BUTTON PISTE-->
-    <%= link_to 'Voir les pistes', pistes_guild_posts_path(@guild), class: "btn btn-primary" %>
-
-<!-- BUTTON MODIF GUILDE QUE PAR CREATOR-->
-  <% if current_user == @guild.creator %>
-    <%= link_to 'Modifier ma guilde', edit_guild_path(@guild), class: "btn-ghost-margtop" %>
-  <% end %>
-
-
-<!-- BUTTON RETOUR-->
-  <%= link_to 'Voir la quête', quest_path(@guild.quest), class: "btn btn-primary" %>
-
+</div>
+  </div>
+<!-- FIN DE GRID-->
 
 <!-- BUTTON QUETE RESOLUE-->
+<div class="mx-40 mb-20 text-center">
   <% if current_user == @guild.creator %>
-    <%= link_to 'Le trésor a été trouvé', quest_resolved_path(@guild), class: "btn btn-primary" %>
+    <%= link_to 'Le trésor a été trouvé', quest_resolved_path(@guild), class: "btn-back mx-auto lg:mx-0 font-extrabold rounded mt-20 md:my-6 py-2 px-4 w-48n no-underline" %>
   <% end %>
+</div>
 
 
 <!-- A LAISSER EN BAS, SI T'ES PAS MEMBRE, TU VOIS RIEN -->
