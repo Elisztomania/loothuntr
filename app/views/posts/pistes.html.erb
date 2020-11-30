@@ -20,7 +20,8 @@
       <% end %>
       </div>
 
-      <% if piste.category == "piste_publiee" %>
+
+      <% if piste.category != "piste_publiee" %>
         <div class="flex">
         <%= simple_form_for [piste, @comment_new] do |f| %>
           <%= f.input_field :content, label: false, placeholder: "Votre commentaire" %>
