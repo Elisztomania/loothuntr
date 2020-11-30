@@ -66,9 +66,15 @@
             <% end %>
 
             <p><%= simple_form_for [post, @comment_new] do |f| %>
-              <%= f.input_field :content, label: false, placeholder: "Votre commentaire" %>
-              <%= f.button :submit, '>', class: 'btn-dash' %>
-            <% end %></p>
+              <div class="flex items-center">
+                <%= f.input_field :content, label: false, placeholder: "Votre commentaire" %>
+                <%= button_tag type: 'submit', class: 'btn-dash p-2 rounded-sm' do %>
+                  <i class="fas fa-paper-plane"></i>
+                <% end %>
+              <% end %>
+              </div>
+            </p>
+
           </div>
         </div>
         <% end %>
