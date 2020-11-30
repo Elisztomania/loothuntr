@@ -6,7 +6,7 @@
         <p class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8"> Envie de vivre une aventure incroyable ?</p>
         <% if current_user == nil %>
         <button class="mr-2">
-          <%= link_to "S'inscrire", new_user_session_path, class:"mx-auto lg:mx-0 text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48 no-underline " %>
+          <%= link_to "S'inscrire", new_user_registration_path, class:"mx-auto lg:mx-0 text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48 no-underline " %>
           </button>
         <% else %>
         <% end %>
