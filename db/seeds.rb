@@ -56,7 +56,7 @@ puts 'Creating quests...'
       tresor_jeanguennego.photo.attach(io: source, filename: 'jeanguennego.jpeg', content_type: 'image/jpeg')
         tresor_jeanguennego.save!
   tresor_couvent_port_royal = Quest.create!(title: "Le trésor du Couvent de Port royal des Champs", description: "Le trésor du Couvent de Port royal des Champs,rasé au 17° Siècle par Louis XIV,les ruines du couvent garderaient encore d’importantes richesses jamais mises à jours.Les Sœurs sachant que le Roi allait détruire le couvent,firent enterrer le trésor dans l’ancien cimetière,l’ouvrier qui réalisa ce travail du travailler les yeux bandés pour éviter qu’il ne sache ou il enterrait le trésor.Après plusieurs interrogatoire,celui ci dit qu’il entendait roucouler pendant qu’il travaillait a enterrer le butin. Sachant que couvent avait un Superbe pigeonnier qui existe toujours de nos jours.", location: "Magny-les-Hameaux", resolved:false, creator: user_admin)
-      tresor_couvent_port_royal.update(latitude: 48.676992, longitude: 2.192863)
+      tresor_couvent_port_royal.update(latitude: 48.7333, longitude: 2.0667)
       source = File.open("app/assets/images/port_royal.jpeg")
       tresor_couvent_port_royal.photo.attach(io: source, filename: 'port_royal.jpeg', content_type: 'image/jpeg')
         tresor_couvent_port_royal.save!
@@ -65,11 +65,28 @@ puts 'Creating quests...'
       source = File.open("app/assets/images/chouette-or.jpg")
       tresor_chouette_or.photo.attach(io: source, filename: 'chouette-or.jpg', content_type: 'image/jpg')
         tresor_chouette_or.save!
-  tresor_crypto_buse = Quest.create!(title: "Le cryptogramme de la Buse", description: "Le cryptogramme de La Buse est un document crypté que l'on attribue à Olivier Levasseur, pirate connu sous le nom de La Buse. Ce document permet de localiser son fabuleux trésor. D'après la légende orale, retranscrite par de nombreux auteurs, le pirate aurait jeté son cryptogramme dans la foule juste avant de mourir pendu le 7 juillet 1730. Tout en lançant son cryptogramme vers la foule venue assister à sa pendaison, il se serait écrié « Mon trésor à qui saura le prendre… ».", location:"Chemin Cremont",resolved:false, creator: ella )
+  tresor_crypto_buse = Quest.create!(title: "Le cryptogramme de la Buse", description: "Le cryptogramme de La Buse est un document crypté que l'on attribue à Olivier Levasseur, pirate connu sous le nom de La Buse. Ce document permet de localiser son fabuleux trésor. D'après la légende orale, retranscrite par de nombreux auteurs, le pirate aurait jeté son cryptogramme dans la foule juste avant de mourir pendu le 7 juillet 1730. Tout en lançant son cryptogramme vers la foule venue assister à sa pendaison, il se serait écrié « Mon trésor à qui saura le prendre… ».", location:"Chemin Cremont", resolved:false, creator: ella )
       tresor_crypto_buse.update(latitude: 55.3459, longitude: -20.9223)
       source = File.open("app/assets/images/crypto_de_la_buse.jpg")
       tresor_crypto_buse.photo.attach(io: source, filename: 'crypto_de_la_buse.jpg', content_type: 'image/jpg')
         tresor_crypto_buse.save!
+  tresor_abbaye_jumiege = Quest.create!(title: "Les ifs de l'abbaye", description: "Un trésor aurait été caché près d'un if dans le parc de l'abbaye de Jumièges pendant la révolution.", location:"Jumièges", resolved:false, creator: benjamin )
+      tresor_abbaye_jumiege.update(latitude: 49.435, longitude: -0.822)
+      source = File.open("app/assets/images/abbaye_jumieges.jpg")
+      tresor_abbaye_jumiege.photo.attach(io: source, filename: 'abbaye_jumieges.jpg', content_type: 'image/jpg')
+        tresor_abbaye_jumiege.save!
+  tresor_vierges_verdun = Quest.create!(title: "La dot des vierges de Verdun", description: "Lorsque pendant la Révolution, la ville de Verdun fut investie par les troupes de Brunswick, la population accueillit l'envahisseur par des liesses et des fêtes. Une cérémonie fut donnée au cours de laquelle, des jeunes filles toutes vêtues de blanc, vinrent remettre des dragées et des bouquets de fleurs au conquérant. Parmi elles, on comptait trois sœurs issues de la classe aisée de Verdun, les sœurs Watrin. La ville fut finalement reprise par les Français et près de quarante des participants à la réception, furent dénoncés par leurs concitoyens et arrêtées.
+Elles restèrent dans leurs geôles jusqu’en 1794, année au cours de laquelle elles furent finalement transférées à Paris pour y être jugées. Les plus jeunes furent condamnées à 20 ans de détention, les autres furent guillotinées.
+Parmi elles se trouvaient les sœurs Watrin dites 'les vierges de Verdun'. Avant d’être arrêtées, elles avaient morcelé leurs dots en 12 dépôts cachés ou enterrés en différents endroits de Verdun. Le montant total de ces dots atteindrait 10 000 livres et 5 000 écus en monnaies ainsi que des bijoux.", location:"Jumièges", resolved:false, creator: benjamin )
+      tresor_vierges_verdun.update(latitude: 49.435, longitude: -0.822)
+      source = File.open("app/assets/images/vierges_verdun.jpg")
+      tresor_vierges_verdun.photo.attach(io: source, filename: 'vierges_verdun.jpg', content_type: 'image/jpg')
+        tresor_vierges_verdun.save!
+
+
+
+
+  tresor_abbaye_jumiege = Quest.create!(title: "", description: "", location:"", resolved:false, creator: ella )
 
 
 puts 'Creating guilds...'
