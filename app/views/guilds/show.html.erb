@@ -1,4 +1,4 @@
-<div id="bg-dash">
+<div id="bg-dash" class="pb-20">
 <div class="container">
 <% if current_user.is_member_of?(@guild) %>
 
@@ -31,7 +31,7 @@
   <div class="min-w-0 p-4 bg-white rounded-xl h-auto">
     <h2 class="text-xl text-center pb-3">La guilde</h2>
         <% @guild.members.each do |member| %>
-          <div class="pb-3">
+          <div class="pb-4">
             <% if member.accepted == true %>
             <div class="flex items-center justify-center pb-1">
               <p class="pr-1"><%= image_tag member.user.photo, class: "avatar"%></p>
@@ -50,14 +50,18 @@
     <h2 class="text-xl text-center pb-1">Les dernières publications</h2>
       <% @guild.posts.reverse_each do |post| %>
         <% if post.category == "orga" %>
-        <div class="p-2 rounded-xl bg-gray-50 my-2">
-          <strong><h3><%= post.title %></h3></strong>
-          <p><%= post.description %></p>
+        <div class="p-3 rounded-xl bg-gray-50 my-2">
+          <div class="flex items-center">
+            <%= image_tag post.user.photo, class: "avatar-mini"%>
+            <h3 class="text-lg pl-2"><%= post.title %></h3>
+          </div>
+            <p><%= post.description %></p>
 
           <div class="p-2">
             <% post.comments.each do |comment| %>
-            <div class="bg-gray-100 my-1 rounded-xl p-2 flex">
-              <p><%= image_tag comment.user.photo, class: "avatar-mini"%><m class="italic text-sm"><%= comment.user.username %> : </m><%= comment.content %></p>
+            <div class="bg-gray-100 my-1 rounded-xl p-2 flex items-center">
+              <%= image_tag comment.user.photo, class: "avatar-mini"%>
+              <p class="pl-2"><%= comment.content %></p>
             </div>
             <% end %>
 
@@ -114,9 +118,9 @@
 <!-- FIN DE GRID-->
 
 <!-- BUTTON QUETE RESOLUE-->
-<div class="mx-40 mb-20 text-center">
+<div class="mx-40 text-center transform hover:scale-110 motion-reduce:transform-none hover:opacity-100">
   <% if current_user == @guild.creator %>
-    <%= link_to 'Le trésor a été trouvé', quest_resolved_path(@guild), class: "btn-back mx-auto lg:mx-0 font-extrabold rounded mt-20 md:my-6 py-2 px-4 w-48n no-underline" %>
+    <%= link_to 'Le trésor a été trouvé', quest_resolved_path(@guild), class: "btn-find mx-auto lg:mx-0 font-extrabold rounded mt-20 md:my-6 py-2 px-4 w-48n no-underline" %>
   <% end %>
 </div>
 
