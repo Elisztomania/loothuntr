@@ -25,7 +25,7 @@ tresor_jeanguennego = Quest.create!(title:"Trésor de Jean Guennégo de Quervien
 tresor_couvent_port_royal = Quest.create!(title: "Le trésor du Couvent de Port royal des Champs", description: "Le trésor du Couvent de Port royal des Champs,rasé au 17° Siècle par Louis XIV,les ruines du couvent garderaient encore d’importantes richesses jamais mises à jours.Les Sœurs sachant que le Roi allait détruire le couvent,firent enterrer le trésor dans l’ancien cimetière,l’ouvrier qui réalisa ce travail du travailler les yeux bandés pour éviter qu’il ne sache ou il enterrait le trésor.Après plusieurs interrogatoire,celui ci dit qu’il entendait roucouler pendant qu’il travaillait a enterrer le butin.Sachant que couvent avait un Superbe pigeonnier qui existe toujours de nos jours.", location: "78114 Magny-les-Hameaux", resolved:false, creator: user_admin)
 tresor_chouette_or = Quest.create!(title: "Le trésor de la Chouette d'Or", description: "Sur la trace de la chouette d'or (marque déposée) est un jeu de sagacité organisé sous la forme d'une chasse au trésor par Max Valentin. Lancée en 1993, elle n'a pas été résolue à ce jour. Pour l'emporter, il faut résoudre onze énigmes publiées dans un ouvrage d'une quarantaine de pages.", location:"Quelque part en France",resolved:false, creator: lara )
 
-tresor_LyonVaise.update(latitude: 42.7786521, longitude: 4.8073518)
+tresor_LyonVaise.update(latitude: 45.778994, longitude: 4.805448)
 tresor_mandrin.update(latitude: 45.55, longitude: 5.7167)
 tresor_couvent_port_royal.update(latitude: 48.676992, longitude: 2.192863)
 tresor_jeanguennego.update(latitude: 47.6667, longitude: -2.4667)
