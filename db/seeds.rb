@@ -70,6 +70,7 @@ puts 'Creating guilds...'
   fiers_de_hache = Guild.create!(name: "Les fiers de hache", description:"On va se faire le donjon de Naheulbeuk! OUAIIS!", creator: user_admin, quest: tresor_couvent_port_royal)
   les_backeuses = Guild.create!(name: "Les backeuses", description:"Du talent dans des boites jaunes", creator: user_admin, quest: tresor_jeanguennego)
   les_chouetteurs = Guild.create!(name: "Les Chouetteurs", description:"Passionnés par la quête de la Chouette d'or, déterminé à trouver le mystère de Michel Becker !", creator: lara, quest: tresor_chouette_or)
+  les_flexeurs = Guild.create!(name: "Les Flexeurs", description:"On flex sur tout le monde et sur les trésors, retrouvenez en live Twitch le mardi à 15h21", creator: user_admin, quest: tresor_mandrin)
 
 puts 'Creating members...'
 
@@ -80,57 +81,77 @@ puts 'Creating members...'
   Member.create!(guild: les_backeuses, user: ella, accepted: true, cover_letter: "j'ai masse l'expérienceee")
   Member.create!(guild: les_chouetteurs, user: ella, accepted: true, cover_letter: "J'ai plus d'expérienceeee")
   Member.create!(guild: les_chouetteurs, user: indiana, accepted: true, cover_letter: "Je suis Indiana Jones pas besoin de lettre de motivation!")
+  Member.create!(guild: les_flexeurs, user: benjamin, accepted: true, cover_letter: "Je flex du lundi au dimanche")
+  Member.create!(guild: les_flexeurs, user: xavier, accepted: true, cover_letter: "Je suis une flexbox")
 
-puts 'Creating posts category piste...'
-piste1 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "Pièces inconnues", description: "Regardez les pièces que nous avons trouvés.. Quelqu'un s'y connait un peu et peut nous dire ce que c'est ?", category: "piste_publiee")
-piste2 = Post.create!(user: lara, guild: les_chouetteurs, title: "Deuxième énigme", description: "Mon Premier, première moitié de la moitié du premier âge,
-Précède mes Second et Troisième, cherchant leur chemin.
-Mon Quatrième s'inspire, mon Cinquième est en rage,
-Mais, sans protester, suit mon Quatrième et l'alpha romain.
-Mon Sixième, aux limites de l'ETERNITE se cache.
-Mon Septième, dressé, crache son venin.
-Pour trouver mon tout, il suffit d'être Sage,
-Car la Vérité, en vérité, ne sera pas affaire de Devin.", category: "piste")
+puts "Creating La Chouette d'Or..."
 
-source_p = File.open("app/assets/images/piste2.png")
-piste2.photos.attach(io: source_p, filename: 'piste2.png', content_type: 'image/png')
-piste2.save!
+  orga_CO_1 = Post.create!(user: lara, guild: les_chouetteurs, title: "Choix de date pour prochaine sortie", description:"Quelle date vous convient le mieux? Le samedi 12 décmebre?", category: "orga")
 
-puts 'Creating posts category orga...'
-orga1 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "Choix de date pour prochaine sortie", description:"Quelle date vous convient le mieux?", category: "orga")
-orga2 = Post.create!(user: lara, guild: les_chouetteurs, title: "Choix de date pour prochaine sortie", description:"Quelle date vous convient le mieux? Le samedi 12 décmebre?", category: "orga")
+  piste_CO_1 = Post.create!(user: lara, guild: les_chouetteurs, title: "Deuxième énigme", description: "Mon Premier, première moitié de la moitié du premier âge,
+  Précède mes Second et Troisième, cherchant leur chemin.
+  Mon Quatrième s'inspire, mon Cinquième est en rage,
+  Mais, sans protester, suit mon Quatrième et l'alpha romain.
+  Mon Sixième, aux limites de l'ETERNITE se cache.
+  Mon Septième, dressé, crache son venin.
+  Pour trouver mon tout, il suffit d'être Sage,
+  Car la Vérité, en vérité, ne sera pas affaire de Devin.", category: "piste")
+    source_p = File.open("app/assets/images/piste2.png")
+    piste_CO_1.photos.attach(io: source_p, filename: 'piste2.png', content_type: 'image/png')
+    piste_CO_1.save!
 
-puts 'Creating posts category avancée...'
+  avancee_CO_1 = Post.create!(user: lara, guild: les_chouetteurs, title: "Le trésor", description: "La chouette d'or qui constitue le lot principal de cette chasse au trésor est une sculpture réalisée par Michel Becker représentant, comme son nom l'indique, une chouette ailes déployées, d'environ 50 centimètres d'envergure, pour un poids d'environ 10 kg, en or et argent, rehaussée de diamants. Michel Becker a enfoui la chouette d’or.", category: "avancee")
+    source_a = File.open("app/assets/images/tresor-chouette.jpg")
+    avancee_CO_1.photos.attach(io: source_a, filename: 'tresor-chouette.jpg', content_type: 'image/jpg')
+    avancee_CO_1.save!
 
-# Trésor de Lyon Vaise
-avancee1 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "La découverte", description: "Ce trésor a été découvert en mars 1992, dans le dernier mois d'une fouille archéologique préventive entreprise de août 1991 à mars 19923 en vue de la construction de la ZAC de Charavay au quartier de Vaise, au nord de Lyon, proche de la Saône, en rive droite. Le site se trouve entre la rue du Chapeau rouge et la Grande rue de Vaise.", category: "avancee")
-avancee3 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "La restauration", description: "Le nettoyage des gangues de terre et des concrétions couvrant les objets a été réalisé par le centre de Recherches et d’Études archéologique de Vienne. Si les bijoux d’or ont rapidement été dégagés, les monnaies et la vaisselle d’argent ont requis des bains chimiques et un nettoyage minutieux sous loupe binoculaire.", category: "avancee" )
+  avancee_CO_2 = Post.create!(user: lara, guild: les_chouetteurs, title: "L'origine...", description: "Lancée le 15 mai 1993, c'est à ce jour la chasse au trésor française ayant la plus grande longévité. À l'origine, son concepteur affirmait l'avoir « programmé » pour une période de huit à quatorze mois. A titre de comparaison, une chasse britannique intitulée Quest : A Zetetic Treasure Hunt aura duré treize ans et sept mois (septembre 1992 - mars 2006).", category: "avancee")
 
-avancee4 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "Le trésor", description: "Les statuettes du trésor de Vaise sont toutes en argent et pour la plupart de thème religieux. Ce lot proviendrait soit d’un temple, soit d’une chapelle privée de la villa fouillée. Trois statuettes sont entières et remarquables par la qualité de leur facture, en tôle d’argent martelée, rehaussée d’une dorure sur le liséré des vêtements, les diadèmes et les fruits.
-  Les bijoux sont également remarquables. Par leur facture, ces bijoux sont classés comme des productions gallo-romaines du iiie siècle. Une recherche sur l’origine des émeraudes du collier a abouti à un diagnostic inattendu.", category: "avancee")
-source_a = File.open("app/assets/images/avancee4_1.jpg")
-avancee4.photos.attach(io: source_a, filename: 'avancee4_1.jpg', content_type: 'image/jpg')
-source_a = File.open("app/assets/images/avancee4_2.jpg")
-avancee4.photos.attach(io: source_a, filename: 'avancee4_2.jpg', content_type: 'image/jpg')
-avancee4.save!
-
-# La chouette d'or
-avancee7 = Post.create!(user: lara, guild: les_chouetteurs, title: "Le trésor", description: "La chouette d'or qui constitue le lot principal de cette chasse au trésor est une sculpture réalisée par Michel Becker représentant, comme son nom l'indique, une chouette ailes déployées, d'environ 50 centimètres d'envergure, pour un poids d'environ 10 kg, en or et argent, rehaussée de diamants. Michel Becker a enfoui la chouette d’or.", category: "avancee")
-source_a = File.open("app/assets/images/tresor-chouette.jpg")
-avancee7.photos.attach(io: source_a, filename: 'tresor-chouette.jpg', content_type: 'image/jpg')
-avancee7.save!
-
-avancee6 = Post.create!(user: lara, guild: les_chouetteurs, title: "L'origine...", description: "Lancée le 15 mai 1993, c'est à ce jour la chasse au trésor française ayant la plus grande longévité. À l'origine, son concepteur affirmait l'avoir « programmé » pour une période de huit à quatorze mois. A titre de comparaison, une chasse britannique intitulée Quest : A Zetetic Treasure Hunt aura duré treize ans et sept mois (septembre 1992 - mars 2006).", category: "avancee")
-
-avancee2 = Post.create!(user: lara, guild: les_chouetteurs, title: "Première énigme résolue", description: "IL N'EST DE PIRE AVEUGLE, QUE CELUI QUI NE VEUT PAS VOIR.
+  avancee_CO_3 = Post.create!(user: lara, guild: les_chouetteurs, title: "Première énigme résolue", description: "IL N'EST DE PIRE AVEUGLE, QUE CELUI QUI NE VEUT PAS VOIR.
 Sur le visuel on aperçoit une forme humaine devant un arc en ciel, il s'agit du spectre de la lumière blanche.
 Les numéros des énigmes correspondent à des longueurs d'ondes en nanomètres de la couleur de la chouette correspondante à l'énigme.
 En placant les numéros des énigmes sur un cercle (comme le disque de Newton ou le tableau de l ' E.U.), on s'apercoit que les longueurs d'onde des couleurs complémentaires se font face. On peut donc les associer deux par deux : 530 & 780, 470 & 580, 600 & 500, 420 & 560, 650 & 520", category: "avancee")
-source_a = File.open("app/assets/images/avancee2.png")
-avancee2.photos.attach(io: source_a, filename: 'avancee2.png', content_type: 'image/png')
-avancee2.save!
+    source_a = File.open("app/assets/images/avancee2.png")
+    avancee_CO_3.photos.attach(io: source_a, filename: 'avancee2.png', content_type: 'image/png')
+    avancee_CO_3.save!
 
-avancee5 = Post.create!(user: lara, guild: les_chouetteurs, title: "Indication supplémentaire", description: "LA CHOUETTE N'EST PAS SUR UNE ÎLE. Indication supplémentaire fournie par Michel Becker, à la demande de Max Valentin, dans l'émission Coucou, c'est nous ! du 23 juin 1993 sur TF1.", category: "avancee")
+  avancee_CO_4 = Post.create!(user: lara, guild: les_chouetteurs, title: "Indication supplémentaire", description: "LA CHOUETTE N'EST PAS SUR UNE ÎLE. Indication supplémentaire fournie par Michel Becker, à la demande de Max Valentin, dans l'émission Coucou, c'est nous ! du 23 juin 1993 sur TF1.", category: "avancee")
+
+puts "Creating Le Trésor de Lyon Vaise..."
+
+  piste_LV_1 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "Pièces inconnues", description: "Regardez les pièces que nous avons trouvés.. Quelqu'un s'y connait un peu et peut nous dire ce que c'est ?", category: "piste_publiee")
+
+  orga_LV_1 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "Choix de date pour prochaine sortie", description:"Quelle date vous convient le mieux?", category: "orga")
+
+  avancee_LV_1 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "La découverte", description: "Ce trésor a été découvert en mars 1992, dans le dernier mois d'une fouille archéologique préventive entreprise de août 1991 à mars 19923 en vue de la construction de la ZAC de Charavay au quartier de Vaise, au nord de Lyon, proche de la Saône, en rive droite. Le site se trouve entre la rue du Chapeau rouge et la Grande rue de Vaise.", category: "avancee")
+  avancee_LV_3 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "La restauration", description: "Le nettoyage des gangues de terre et des concrétions couvrant les objets a été réalisé par le centre de Recherches et d’Études archéologique de Vienne. Si les bijoux d’or ont rapidement été dégagés, les monnaies et la vaisselle d’argent ont requis des bains chimiques et un nettoyage minutieux sous loupe binoculaire.", category: "avancee" )
+  avancee_LV_4 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "Le trésor", description: "Les statuettes du trésor de Vaise sont toutes en argent et pour la plupart de thème religieux. Ce lot proviendrait soit d’un temple, soit d’une chapelle privée de la villa fouillée. Trois statuettes sont entières et remarquables par la qualité de leur facture, en tôle d’argent martelée, rehaussée d’une dorure sur le liséré des vêtements, les diadèmes et les fruits.
+    Les bijoux sont également remarquables. Par leur facture, ces bijoux sont classés comme des productions gallo-romaines du iiie siècle. Une recherche sur l’origine des émeraudes du collier a abouti à un diagnostic inattendu.", category: "avancee")
+    source_a = File.open("app/assets/images/avancee4_1.jpg")
+    avancee_LV_4.photos.attach(io: source_a, filename: 'avancee4_1.jpg', content_type: 'image/jpg')
+    source_a = File.open("app/assets/images/avancee4_2.jpg")
+    avancee_LV_4.photos.attach(io: source_a, filename: 'avancee4_2.jpg', content_type: 'image/jpg')
+    avancee_LV_4.save!
+
+puts "Creating Le Trésor de Lyon Vaise..."
+
+  piste_LV_1 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "Pièces inconnues", description: "Regardez les pièces que nous avons trouvés.. Quelqu'un s'y connait un peu et peut nous dire ce que c'est ?", category: "piste_publiee")
+
+  orga_LV_1 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "Choix de date pour prochaine sortie", description:"Quelle date vous convient le mieux?", category: "orga")
+
+  avancee_LV_1 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "La découverte", description: "Ce trésor a été découvert en mars 1992, dans le dernier mois d'une fouille archéologique préventive entreprise de août 1991 à mars 19923 en vue de la construction de la ZAC de Charavay au quartier de Vaise, au nord de Lyon, proche de la Saône, en rive droite. Le site se trouve entre la rue du Chapeau rouge et la Grande rue de Vaise.", category: "avancee")
+  avancee_LV_3 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "La restauration", description: "Le nettoyage des gangues de terre et des concrétions couvrant les objets a été réalisé par le centre de Recherches et d’Études archéologique de Vienne. Si les bijoux d’or ont rapidement été dégagés, les monnaies et la vaisselle d’argent ont requis des bains chimiques et un nettoyage minutieux sous loupe binoculaire.", category: "avancee" )
+  avancee_LV_4 = Post.create!(user: user_admin, guild: hunters_de_loot, title: "Le trésor", description: "Les statuettes du trésor de Vaise sont toutes en argent et pour la plupart de thème religieux. Ce lot proviendrait soit d’un temple, soit d’une chapelle privée de la villa fouillée. Trois statuettes sont entières et remarquables par la qualité de leur facture, en tôle d’argent martelée, rehaussée d’une dorure sur le liséré des vêtements, les diadèmes et les fruits.
+    Les bijoux sont également remarquables. Par leur facture, ces bijoux sont classés comme des productions gallo-romaines du iiie siècle. Une recherche sur l’origine des émeraudes du collier a abouti à un diagnostic inattendu.", category: "avancee")
+    source_a = File.open("app/assets/images/avancee4_1.jpg")
+    avancee_LV_4.photos.attach(io: source_a, filename: 'avancee4_1.jpg', content_type: 'image/jpg')
+    source_a = File.open("app/assets/images/avancee4_2.jpg")
+    avancee_LV_4.photos.attach(io: source_a, filename: 'avancee4_2.jpg', content_type: 'image/jpg')
+    avancee_LV_4.save!
+
+puts "Creating Le Trésor de Mandrin"
+
+
 
 
 puts 'Finished!'
