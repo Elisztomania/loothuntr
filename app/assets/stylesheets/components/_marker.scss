@@ -1,0 +1,22 @@
+.card-info-marker {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 8px;
+  color: white;
+
+  .fas {
+    color: #F2A918;
+  }
+}
+
+.mapboxgl-popup-content {
+  border-radius: 15px;
+  padding: 0px;
+  background-color: rgb(46,46,46);
+  box-shadow: 7px 9px 23px 5px rgba(255,255,255,0.11);
+}
+
+.mapboxgl-popup-tip {
+  // background-color: rgb(46,46,46);
+  border-bottom-color: rgb(46,46,46) !important;
+}

@@ -99,6 +99,7 @@ GEM
     ffi (1.13.1)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
+    geocoder (1.6.4)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     http-accept (1.7.0)
@@ -223,6 +224,9 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
+    turbolinks_render (0.9.20)
+      rails (>= 5.2.0)
+      turbolinks-source (~> 5.1)
     tzinfo (1.2.8)
       thread_safe (~> 0.1)
     unf (0.1.4)
@@ -262,6 +266,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   font-awesome-sass
+  geocoder
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
@@ -276,6 +281,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
+  turbolinks_render (~> 0.9.20)
   tzinfo-data
   web-console (>= 3.3.0)
   webdrivers
