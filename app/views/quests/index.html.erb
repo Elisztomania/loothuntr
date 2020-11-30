@@ -1,6 +1,6 @@
 <!-- BANNER DEBUT -->
 <div class="gradient leading-relaxed tracking-wide flex flex-col space-y-0">
-    <div class="container mx-auto m-8 mb-28 ">
+    <div class="container mt-8 ">
       <div class="text-center px-3 lg:px-0">
         <h1 class="my-4 text-2xl md:text-3xl lg:text-5xl font-black leading-tight"> C'est parti pour créer des supers quêtes !</h1>
         <p class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-16"> N'attendez plus, votre prochaine aventure n'est plus très loin ...</p>
@@ -9,10 +9,13 @@
          <%= link_to 'Créer une super quête', new_quest_path(@quest), class:"mx-auto lg:mx-0 text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48 no-underline" %>
         </button>
 
+         <div class="mt-4 place-self-center items-center img-banner-index-quest flex items-center">
+            <%= image_tag 'bonhomme.png' %>
+          </div>
+
+        </div>
       </div>
     </div>
-
-</div>
 
 <!-- BANNER FIN -->
 
@@ -38,6 +41,7 @@
         width="352" height="256"
         class="transition duration-200 group-hover:shadow-2xl h-64 w-full rounded-lg shadow-md object-cover"
         alt="Image de Pirate"> -->
+
       </div>
 
       <div class="relative px-4 -mt-12 text-left">
