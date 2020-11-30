@@ -1,12 +1,13 @@
 <!--Header-->
-  <div class="font-sans leading-normal tracking-normal">
-    <div class="w-full m-0 p-0 bg-cover bg-bottom" style="background-image:url('<%= cl_image_path @quest.photo.key %>'); background-position: center; height: 60vh; max-height:460px; box-shadow: inset 0 0 0 100vw rgba(7, 25, 43, 0.4)">
-      <div class="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
-        <!--Title-->
-        <p class="text-white font-extrabold text-3xl md:text-5xl">
-          🤠 <%= @quest.title %>
-        </p>
-      </div>
+<div class="font-sans leading-normal tracking-normal">
+  <% if @quest.photo.attached? %>
+  <div class="w-full m-0 p-0 bg-cover bg-bottom" style="background-image:url('<%= cl_image_path @quest.photo.key %>'); background-position: center; height: 60vh; max-height:460px; box-shadow: inset 0 0 0 100vw rgba(7, 25, 43, 0.4)">
+  <% end %>
+    <div class="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
+      <!--Title-->
+      <p class="text-white font-extrabold text-3xl md:text-5xl">
+        🤠 <%= @quest.title %>
+      </p>
     </div>
 
     <!--Container-->
