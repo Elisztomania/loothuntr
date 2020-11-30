@@ -1,3 +1,4 @@
+<div id="bg-dash">
 <div class="container">
 <% if current_user.is_member_of?(@guild) %>
 
@@ -15,9 +16,9 @@
    <div class="grid gap-6 mb-8 grid-cols-2">
 
 <!-- FORMULAIRE POSTS ORGA -->
-    <div class="min-w-0 p-4 bg-white rounded-xl border border-gray-300 h-80">
-      <h2 class="text-xl text-center">Ajouter un message</h2>
-      <p class="italic"><%= simple_form_for [@guild, @post_new] do |f| %>
+    <div class="min-w-0 p-4 bg-white rounded-xl  h-auto">
+      <h2 class="text-xl text-center pb-1">Ajouter une publication</h2>
+      <p class="pt-2"><%= simple_form_for [@guild, @post_new] do |f| %>
         <%= f.hidden_field :category, value: 'orga' %>
         <%= f.input :title, label: 'Titre'  %>
         <%= f.input :description, label: 'Description' %>
@@ -27,22 +28,26 @@
 
 
 <!-- DEBUT LISTE MEMBRES DE LA GUIDE -->
-  <div class="min-w-0 p-4 bg-white rounded-xl border border-gray-300 h-auto">
-    <h2 class="text-xl text-center">La guilde</h2>
-    <% @guild.members.each do |member| %>
-        <% if member.accepted == true %>
-          <p><%= image_tag member.user.photo, class: "avatar"%>
-          <%= member.user.username %></p>
-          <p><%= member.user.bio %></p>
+  <div class="min-w-0 p-4 bg-white rounded-xl h-auto">
+    <h2 class="text-xl text-center pb-3">La guilde</h2>
+        <% @guild.members.each do |member| %>
+          <div class="pb-3">
+            <% if member.accepted == true %>
+            <div class="flex items-center justify-center pb-1">
+              <p class="pr-1"><%= image_tag member.user.photo, class: "avatar"%></p>
+              <p class="font-medium"><%= member.user.username %></p>
+            </div>
+              <p class="text-center"><%= member.user.bio %></p>
+            <% end %>
+          </div>
         <% end %>
-    <% end %>
   </div>
 <!-- FIN LISTE MEMBRES DE LA GUIDE -->
 
 
 <!-- AFFICHAGE POSTS ORGA -->
-  <div class="min-w-0 p-4 bg-white rounded-xl border border-gray-300 h-96 overflow-auto">
-    <h2 class="text-xl text-center">Derniers posts</h2>
+  <div class="min-w-0 p-4 bg-white rounded-xl h-96 overflow-auto">
+    <h2 class="text-xl text-center pb-1">Les dernières publications</h2>
       <% @guild.posts.reverse_each do |post| %>
         <% if post.category == "orga" %>
         <div class="p-2 rounded-xl bg-gray-50 my-2">
@@ -67,18 +72,18 @@
     </div>
 
   <div class="space-y-6">
-<!-- BUTTON PISTE-->
+<!-- CARD PISTE-->
   <!-- <%= link_to 'Voir les pistes en cours', pistes_guild_posts_path(@guild), class: "btn btn-primary" %> -->
   <%= link_to pistes_guild_posts_path(@guild) do %>
-    <div class="block min-w-0 mb-4 p-4 bg-white rounded-xl border border-gray-300 h-40">
-      <h2 class="text-xl text-center">Les différentes pistes en cours 👀</h2>
+    <div class="block min-w-0 mb-4 p-4 bg-white rounded-xl h-40 flex items-center justify-center">
+      <h2 class="text-xl">Les différentes pistes en cours 👀</h2>
     </div>
   <% end %>
 
-<!-- BUTTON QUEST-->
+<!-- CARD QUEST-->
   <!-- <%= link_to 'Voir la quête', quest_path(@guild.quest), class: "btn btn-primary" %>-->
   <%= link_to quest_path(@guild.quest) do %>
-    <div class="block min-w-0 p-4 bg-white rounded-xl border border-gray-300 h-40">
+    <div class="block min-w-0 p-4 bg-white rounded-xl h-40 flex items-center justify-center">
       <h2 class="text-xl text-center">Voir les avancées de la quête 🔥</h2>
     </div>
   <% end %>
@@ -86,7 +91,7 @@
 
 <!-- DEBUT CANDIDATURES POUR REJOINDRE VISIBLE QUE PAR CREATOR -->
     <% if @guild.creator == current_user && @guild.members.waiting.present? %>
-    <div class="min-w-0 p-4 bg-white rounded-xl border border-gray-300 h-auto overflow-auto col-end-3 col-span-1">
+    <div class="min-w-0 p-4 bg-white rounded-xl h-auto overflow-auto col-end-3 col-span-1">
       <h2 class="text-xl text-center">Des personnes veulent entrer dans votre guilde</h2>
       <br>
       <% @guild.members.waiting.each do |member| %>
@@ -115,9 +120,10 @@
   <% end %>
 </div>
 
-
-<!-- A LAISSER EN BAS, SI T'ES PAS MEMBRE, TU VOIS RIEN -->
 <% else %>
   <h2>Désolé, vous n'êtes pas member de cette guilde 😉</h2>
 <% end %>
+</div>
+
+<!-- A LAISSER EN BAS, SI T'ES PAS MEMBRE, TU VOIS RIEN -->
 </div>
