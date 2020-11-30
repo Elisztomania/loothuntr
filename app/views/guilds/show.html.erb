@@ -18,11 +18,11 @@
 <!-- FORMULAIRE POSTS ORGA -->
     <div class="min-w-0 p-4 bg-white rounded-xl h-80">
       <h2 class="text-xl text-center pb-1">Ajouter une publication</h2>
-      <p class="pt-2"><%= simple_form_for [@guild, @post_new] do |f| %>
+      <p class="pt-2"><%= simple_form_for ([@guild, @post_new], remote: true) do |f| %>
         <%= f.hidden_field :category, value: 'orga' %>
         <%= f.input :title, label: 'Titre', class: 'mt-1 relative rounded-md shadow-sm' %>
         <%= f.input :description, label: 'Description' %>
-        <p class="text-center"><%= f.button :submit, 'Publier', class: 'btn-dash', remote: true%></p>
+        <p class="text-center"><%= f.button :submit, 'Publier', class: 'btn-dash' %></p>
       <% end %></p>
     </div>
 
