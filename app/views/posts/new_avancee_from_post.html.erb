@@ -1,0 +1,17 @@
+<!-- FORMULAIRE QUI DUPLIQUE UNE PISTE POUR CREER UNE AVANCEE -->
+
+<div class="container my-36">
+
+  <!-- @post.photos -->
+  <% @post.photos.each do |photo| %>
+      <div class="flex-1 self-center"><%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %></div>
+  <% end %>
+
+  <%= simple_form_for @avancee, url:create_avancee_from_post_post_path do |f| %>
+      <%= f.input :title, label: 'Titre'  %>
+      <%= f.input :description, label: 'Description'  %>
+      <%= f.button :submit, 'Poster mon avancée sur la quête', class: 'btn btn-primary'  %>
+  <% end %>
+
+
+</div>

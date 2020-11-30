@@ -1,0 +1,59 @@
+$corail: #ed6449;
+$pinky: #ba3841;
+$darkp: #4a0b2e;
+
+.button-create-quest {
+  background-color: $corail;
+  color: white;
+  border-radius: 2px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-weight: 600;
+}
+
+.button-create-quest:hover {
+  background-color: $pinky;
+  color: white;
+}
+
+ // C'est une classe dans les div des champs des forms (enfin pour l'instant dans celui du form de creation de quest)
+.champ-form {
+  background-color: #f3dfca;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  color: black;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+}
+
+ // C'est une classe dans les div des champs des forms (enfin pour l'instant dans celui du form de creation de quest)
+.btn-dash {
+  background-color: $corail;
+  color: white;
+
+  &:hover {
+    background-color: $pinky;
+    color: white;
+  }
+}
+
+.btn-rejoindre {
+  background-color: $darkp;
+  color: white;
+
+  &:hover {
+    background-color: $pinky;
+    color: white;
+  }
+}
+
+.btn-back {
+  background-color: $pinky;
+  color: white;
+
+  &:hover {
+    background-color: $corail;
+    color: white;
+  }
+}

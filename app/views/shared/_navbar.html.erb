@@ -1,4 +1,3 @@
-
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 lg:bg-transparent text-black p-1 lg:p-0 z-20 bg-gray-100" >
     <div class="pl-4 flex items-center"></div>
@@ -12,6 +11,9 @@
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "Quêtes", quests_path, class: "nav-link inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Mes guildes", myguilds_path, class: "nav-link inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" %>
           </li>
           <li class="nav-item">
             <%= link_to current_user.username, "#", class: "nav-link" %>

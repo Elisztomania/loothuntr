@@ -1,9 +1,15 @@
 class GuildsController < ApplicationController
-  before_action :set_guild, only: [:show, :edit, :update]
+  before_action :set_guild, only: [:show, :edit, :update, :resolved]
+
+  def show_my_guilds
+    @guilds = Guild.all
+  end
 
   def show
     # show dashboard with the chat, the calendar, th members of the teams
     @members = User.where(:acccepted == true)
+    @post_new = Post.new
+    @comment_new = Comment.new
   end
 
   def new
@@ -33,6 +39,12 @@ class GuildsController < ApplicationController
     end
   end
 
+  def resolved
+    @guild.quest.resolved = true
+    @post_new = Post.new
+    @guild.quest.save
+  end
+
   private
 
   def set_guild
@@ -41,5 +53,9 @@ class GuildsController < ApplicationController
 
   def guild_params
     params.require(:guild).permit(:quest_id, :creator, :name, :description)
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :description, :user_id, :guild_id, :category)
   end
 end

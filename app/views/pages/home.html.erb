@@ -1,26 +1,25 @@
 <!-- BANNER DEBUT -->
-<div class="gradient leading-relaxed tracking-wide flex flex-col">
-    <div class="container mx-auto h-screen mt-32">
+<div class="gradient leading-relaxed tracking-wide flex flex-col space-y-0">
+    <div class="container mx-auto mt-8 ">
       <div class="text-center px-3 lg:px-0">
         <h1 class="my-4 text-2xl md:text-3xl lg:text-5xl font-black leading-tight"> La recherche de trésor, plus qu'une passion</h1>
         <p class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8"> Envie de vivre une aventure incroyable ?</p>
         <% if current_user == nil %>
         <button>
-          <%= link_to "S'inscrire", new_user_session_path, class:"mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48" %>
+          <%= link_to "S'inscrire", new_user_session_path, class:"mx-auto lg:mx-0 text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48 no-underline " %>
           </button>
         <% else %>
         <% end %>
         <button>
-          <%= link_to "Voir toutes les quêtes", quests_path, class:"mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48" %>
+          <%= link_to "Voir toutes les quêtes", quests_path, class:"mx-auto lg:mx-0 text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48n no-underline " %>
         </button>
       </div>
-
-      <div class="flex items-center w-full mx-auto content-end mt-0.5">
-        <div>
-          <%= image_tag 'imagebanner.png' %>
-        </div>
-      </div>
     </div>
+
+      <div class="place-self-center items-center w-4/5 content-end mt-0.5 text-center">
+          <%= image_tag 'imagebanner.png' %>
+      </div>
+
 </div>
 
 <!-- BANNER FIN -->
@@ -40,11 +39,13 @@
     <li class="group transition-transform duration-200 transform sm:hover:-translate-y-1">
       <div class="relative flex-shrink-0">
 
-        <img loading="lazy" src="https://pyxis.nymag.com/v1/imgs/027/cf0/d4c718a6f46b8fb48a5cb4d54c98b771c5-23-firewatch.rsquare.w700.jpg"
+        <div class="transition duration-200 group-hover:shadow-2xl w-full h-full rounded-lg shadow-md object-cover"><%= cl_image_tag quest.photo.key %></div>
+
+       <!--  <img loading="lazy" src="https://pyxis.nymag.com/v1/imgs/027/cf0/d4c718a6f46b8fb48a5cb4d54c98b771c5-23-firewatch.rsquare.w700.jpg"
         srcset="https://pyxis.nymag.com/v1/imgs/027/cf0/d4c718a6f46b8fb48a5cb4d54c98b771c5-23-firewatch.rsquare.w700.jpg 1x, https://pyxis.nymag.com/v1/imgs/027/cf0/d4c718a6f46b8fb48a5cb4d54c98b771c5-23-firewatch.rsquare.w700.jpg 2x"
         width="352" height="256"
         class="transition duration-200 group-hover:shadow-2xl h-64 w-full rounded-lg shadow-md object-cover"
-        alt="Image de Pirate">
+        alt="Image de Pirate"> -->
       </div>
 
       <div class="relative px-4 -mt-12 text-left">

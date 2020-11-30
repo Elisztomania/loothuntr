@@ -3,6 +3,8 @@ class Guild < ApplicationRecord
   belongs_to :creator, class_name: 'User'
   has_many :members
   has_many :posts
+  has_many :pistes, -> { where(category: ['piste', 'piste_publiee']) }, source: :posts
+  has_many :orgas, -> { where(caterogy: 'orga') }, source: :posts
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true

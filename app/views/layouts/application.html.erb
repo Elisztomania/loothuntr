@@ -13,14 +13,20 @@
 
   </head>
 
-  <body>
 
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+  <body class="flex flex-col min-h-screen">
+    <header>
+     <%= render 'shared/navbar' %>
+    </header>
 
-    <%= yield %>
-    <%= render 'shared_bastien/mapbox' %>
-    <%= render 'shared/footer' %>
+    <main class="flex-grow">
+     <%= render 'shared/flashes' %>
+     <%= yield %>
+    </main>
+
+     <footer>
+       <%= render 'shared/footer' %>
+     </footer>
 
   </body>
 </html>
