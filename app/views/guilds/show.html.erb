@@ -20,7 +20,7 @@
       <h2 class="text-xl text-center pb-1">Ajouter une publication</h2>
       <p class="pt-2"><%= simple_form_for [@guild, @post_new] do |f| %>
         <%= f.hidden_field :category, value: 'orga' %>
-        <%= f.input_field :title, label: false, placeholder: "Titre", class: 'mt-1 relative rounded-md shadow-sm' %>
+        <%= f.input :title, label: 'Titre', class: 'mt-1 relative rounded-md shadow-sm' %>
         <%= f.input :description, label: 'Description' %>
         <p class="text-center"><%= f.button :submit, 'Publier', class: 'btn-dash', remote: true%></p>
       <% end %></p>
@@ -67,7 +67,7 @@
 
             <p><%= simple_form_for [post, @comment_new] do |f| %>
               <div class="flex items-center">
-                <%= f.input_field :content, label: false, placeholder: "Votre commentaire", class: 'pr-3' %>
+                <%= f.input_field :content, label: false, placeholder: "Votre commentaire", class: 'pr-3 block w-full pl-2 pr-12 sm:text-sm border-gray-300 rounded-md' %>
                 <%= button_tag type: 'submit', class: 'btn-dash py-2 px-3 rounded-sm ml-3' do %>
                   <i class="fas fa-paper-plane"></i>
                 <% end %>
@@ -87,14 +87,15 @@
   <%= link_to pistes_guild_posts_path(@guild) do %>
     <div class="block min-w-0 mb-4 p-4 bg-white rounded-xl h-40 flex items-center justify-center"
     style="background-image:url('https://image.freepik.com/free-vector/vintage-monochrome-treasure-map_225004-986.jpg'); background-position: center; box-shadow: inset 0 0 0 100vw rgba(7, 25, 43, 0.4)">
-      <h2 class="text-xl">Les différentes pistes en cours 👀</h2>
+      <h2 class="text-xl text-white">Les différentes pistes en cours 👀</h2>
     </div>
   <% end %>
 
 <!-- CARD QUEST-->
   <%= link_to quest_path(@guild.quest) do %>
-    <div class="block min-w-0 p-4 bg-white rounded-xl h-40 flex items-center justify-center">
-      <h2 class="text-xl text-center">Voir les avancées de la quête 🔥</h2>
+    <div class="block min-w-0 p-4 bg-white rounded-xl h-40 flex items-center justify-center"
+      style="background-image:url('https://cdn.dribbble.com/users/59947/screenshots/12002099/media/35047050a52b5a57b806004e537b293b.jpg'); background-position: center; background-size: 100%; box-shadow: inset 0 0 0 100vw rgba(7, 25, 43, 0.4)">
+      <h2 class="text-xl text-white">Voir les avancées de la quête 🔥</h2>
     </div>
   <% end %>
 </div>
