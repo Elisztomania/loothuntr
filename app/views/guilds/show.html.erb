@@ -109,11 +109,13 @@
 <!-- FIN DE GRID-->
 
 <!-- BUTTON QUETE RESOLUE-->
+<% if @guild.quest.resolved == false %>
 <div class="mx-40 mb-20 text-center">
   <% if current_user == @guild.creator %>
     <%= link_to 'Le trésor a été trouvé', quest_resolved_path(@guild), class: "btn-back mx-auto lg:mx-0 font-extrabold rounded mt-20 md:my-6 py-2 px-4 w-48n no-underline" %>
   <% end %>
 </div>
+<% end %>
 
 
 <!-- A LAISSER EN BAS, SI T'ES PAS MEMBRE, TU VOIS RIEN -->
