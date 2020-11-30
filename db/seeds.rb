@@ -16,6 +16,32 @@ ella = User.create(username:"Ella Maillart", email:"e@ll.a", password:"ellaellaa
 lara = User.create(username:"Lara Croft", email:"lara@croft.co", password:"aventure20", bio: "Prof d'histoire, je suis passionnée d'aventure et je rêve de trouver un trésor.")
 xavier = User.create(username:"Xavier.D", email:"xav@chasseur.co", password:"aventure200", bio: "Mon détecteur de métal sous le bras, récemment à la retraite, j'ai décidé de consacrer ce précieux temps à la recherche de trésors...")
 
+avatar = File.open("app/assets/images/admin.jpg")
+user_admin.photo.attach(io: avatar, filename: 'admin.jpg', content_type: 'image/jpg')
+
+avatar = File.open("app/assets/images/indiana.jpg")
+indiana.photo.attach(io: avatar, filename: 'indiana.jpg', content_type: 'image/jpg')
+
+avatar = File.open("app/assets/images/ben.jpg")
+benjamin.photo.attach(io: avatar, filename: 'ben.jpg', content_type: 'image/jpg')
+
+avatar = File.open("app/assets/images/ella.jpg")
+ella.photo.attach(io: avatar, filename: 'ella.jpg', content_type: 'image/jpg')
+
+avatar = File.open("app/assets/images/lara.jpg")
+lara.photo.attach(io: avatar, filename: 'lara.jpg', content_type: 'image/jpg')
+
+avatar = File.open("app/assets/images/xav.jpg")
+xavier.photo.attach(io: avatar, filename: 'xav.jpg', content_type: 'image/jpg')
+
+user_admin.save!
+indiana.save!
+benjamin.save!
+ella.save!
+lara.save!
+xavier.save!
+
+
 puts 'Creating quests...'
 
 tresor_LyonVaise = Quest.create!(title:"Trésor de Lyon-Vaise", description:"Le trésor de Lyon-Vaise est un ensemble d’objets précieux du IIIe siècle de l’Empire romain, trouvés à Lyon en 1992 et exposés au musée gallo-romain de Fourvière. Plus précisément daté d’après les monnaies qu’il comporte, ce trésor aurait été enseveli après 258 dans la crainte des raids barbares, peut-être lors du raid de 259. Outre les pièces de vaisselle, bijoux et monnaies qu'il contient, il a l'originalité d'inclure des statuettes en argent et acquiert ainsi une place à part dans l'ensemble des trésors du iiie siècle.", location: "20-28 Rue Masaryk, 69009 Lyon", resolved:true, creator: user_admin)

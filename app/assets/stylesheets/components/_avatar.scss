@@ -1,6 +1,11 @@
 .avatar {
   width: 40px;
   border-radius: 50%;
+  opacity: 0.9;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  &:hover {
+    opacity: 1;
+  }
 }
 .avatar-large {
   width: 56px;
