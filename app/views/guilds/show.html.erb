@@ -21,7 +21,7 @@
         <%= f.hidden_field :category, value: 'orga' %>
         <%= f.input :title, label: 'Titre'  %>
         <%= f.input :description, label: 'Description' %>
-        <%= f.button :submit, '>', class: 'btn-dash' %>
+        <%= f.button :submit, '>', class: 'btn-dash publication' %>
       <% end %><p>
     </div>
 
@@ -49,16 +49,16 @@
           <strong><h3><%= post.title %></h3></strong>
           <p><%= post.description %></p>
 
-          <div class="p-2">
+          <div class="p-2 comments">
             <% post.comments.each do |comment| %>
             <div class="bg-gray-100 my-1 rounded-xl p-2 flex">
-              <p><%= image_tag comment.user.photo, class: "avatar-mini"%><m class="italic text-sm"><%= comment.user.username %> : </m><%= comment.content %></p>
+              <p><%= image_tag comment.user.photo, class: "avatar-mini"%><m class="italic text-sm username"><%= comment.user.username %> : </m><g class="content"><%= comment.content %></g></p>
             </div>
             <% end %>
 
             <p><%= simple_form_for [post, @comment_new] do |f| %>
               <%= f.input_field :content, label: false, placeholder: "Votre commentaire" %>
-              <%= f.button :submit, '>', class: 'btn-dash' %>
+              <%= f.button :submit, '>', class: 'btn-dash commentaire' %>
             <% end %></p>
           </div>
         </div>
