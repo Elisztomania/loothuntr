@@ -1,42 +1,57 @@
-<div class="container">
 
-<h2 class="text-center pt-16">Créer son compte</h2>
+<div class="body-bg md:p-10  md:px-0 items-center flex flex-col">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+    <div class="bg-white max-w-lg md:p-12 my-8 rounded-lg shadow-2xl">
+        <div class="text-center">
+            <h3 class="font-bold text-2xl">Créer son compte</h3>
+            <p class="text-gray-600 pt-2">Prêt à vivre des aventures totalement folles ?</p>
+        </div>
 
-  <div class="form-inputs">
-    <%= f.input :username,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "Votre pseudo" },
-                label: "Votre meilleur pseudo" %>
-    <%= f.input :bio,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "Présentez-vous" },
-                label: "Présentez-vous sous votre meilleur jour" %>
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "Votre email" },
-                label: "Votre meilleure adresse email" %>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "Votre mot de passe" },
-                label: "Votre meilleur mot de passe" %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "Confirmez votre mot de passe" },
-                label: "Confirmez votre meilleur mot de passe" %>
-    <%= f.input :photo, as: :file %>
-  </div>
+        <div class="mt-10 ">
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Créer son compte (à pimper)" %>
-  </div>
-<% end %>
+            <div class="flex flex-col" >
+                <div class="border-black-100 rounded w-full text-black-700 focus:outline-none focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
+                    <%= f.input :username,
+                                required: true,
+                                autofocus: true,
+                                input_html: { autocomplete: "Votre pseudo" },
+                                label: "Votre meilleur pseudo" %>
+                </div>
+                <div class="border-black-100 rounded w-full text-black-700 focus:outline-none focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
+                    <%= f.input :bio,
+                                required: true,
+                                autofocus: true,
+                                input_html: { autocomplete: "Présentez-vous" },
+                                label: "Présentez-vous sous votre meilleur jour" %>
+                </div>
+                <div class="border-black-100 rounded w-full text-black-700 focus:outline-none focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
+                    <%= f.input :email,
+                                required: true,
+                                autofocus: true,
+                                input_html: { autocomplete: "Votre email" },
+                                label: "Votre meilleure adresse email" %>
+                </div>
+                <div class="border-black-100 rounded w-full text-black-700 focus:outline-none focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
+                    <%= f.input :password,
+                                required: true,
+                                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                                input_html: { autocomplete: "Votre mot de passe" },
+                                label: "Votre meilleur mot de passe" %>
+                </div>
+                <div class="border-black-100 rounded w-full text-black-700 focus:outline-none focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
+                    <%= f.input :password_confirmation,
+                                required: true,
+                                input_html: { autocomplete: "Confirmez votre mot de passe" },
+                                label: "Confirmez votre meilleur mot de passe" %>
+                </div>
 
-<%= render "devise/shared/links" %>
+                <div class="flex flex-col items-center mt-4 px-12">
+                  <%= f.button :submit, "Créer son compte (à pimper)", class: 'button-create-quest' %>
+                </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,22 +1,38 @@
-<div class="container">
-  <h2 class="text-center pt-16">Se connecter</h2>
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-inputs">
-      <%= f.input :email,
-                  label: "Email",
-                  required: false,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" } %>
-      <%= f.input :password,
-                  label: "Mot de passe",
-                  required: false,
-                  input_html: { autocomplete: "current-password" } %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-    </div>
+<div class="body-bg md:p-10  md:px-0 items-center flex flex-col">
 
-    <div class="form-actions">
-      <%= f.button :submit, "Se connecter" %>
+    <div class="bg-white max-w-lg md:p-12 my-8 rounded-lg shadow-2xl">
+        <div class="text-center">
+            <h3 class="font-bold text-2xl">Se connecter</h3>
+            <p class="text-gray-600 pt-2">Prêt à vivre des aventures totalement folles ?</p>
+        </div>
+
+        <div class="mt-10 ">
+          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+
+
+            <div class="flex flex-col" >
+                <div class="border-black-100 rounded w-full text-black-700 focus:outline-none focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
+                    <%= f.input :email,
+                                required: false,
+                                autofocus: true,
+                                input_html: { autocomplete: "email" } %>
+                </div>
+                <div class="border-black-100 rounded w-full text-black-700 focus:outline-none focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
+                    <%= f.input :password,
+                                required: false,
+                                input_html: { autocomplete: "current-password" } %>
+                </div>
+                <div class="border-black-100 rounded w-full text-black-700 focus:outline-none focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
+                        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+
+                </div>
+
+                <div class="flex flex-col items-center mt-4 px-12">
+                  <%= f.button :submit, "Se connecter", class: 'button-create-quest' %>
+                </div>
+                <% end %>
+            </div>
+        </div>
     </div>
-  <% end %>
-  <%= render "devise/shared/links" %>
 </div>
