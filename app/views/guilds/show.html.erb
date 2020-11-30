@@ -31,7 +31,8 @@
     <h2 class="text-xl text-center">La guilde</h2>
     <% @guild.members.each do |member| %>
         <% if member.accepted == true %>
-          <strong><p><%= member.user.username %></p></strong>
+          <p><%= image_tag member.user.photo, class: "avatar"%>
+          <%= member.user.username %></p>
           <p><%= member.user.bio %></p>
         <% end %>
     <% end %>
@@ -50,8 +51,8 @@
 
           <div class="p-2">
             <% post.comments.each do |comment| %>
-            <div class="bg-gray-100 my-1 rounded-xl pl-2 -pb-2">
-              <p><m class="italic text-sm"><%= comment.user.username %> : </m><%= comment.content %></p>
+            <div class="bg-gray-100 my-1 rounded-xl p-2 flex">
+              <p><%= image_tag comment.user.photo, class: "avatar-mini"%><m class="italic text-sm"><%= comment.user.username %> : </m><%= comment.content %></p>
             </div>
             <% end %>
 
@@ -84,8 +85,8 @@
 </div>
 
 <!-- DEBUT CANDIDATURES POUR REJOINDRE VISIBLE QUE PAR CREATOR -->
-  <div class="min-w-0 p-4 bg-white rounded-xl border border-gray-300 h-auto overflow-auto col-end-3 col-span-1">
     <% if @guild.creator == current_user && @guild.members.waiting.present? %>
+    <div class="min-w-0 p-4 bg-white rounded-xl border border-gray-300 h-auto overflow-auto col-end-3 col-span-1">
       <h2 class="text-xl text-center">Des personnes veulent entrer dans votre guilde</h2>
       <br>
       <% @guild.members.waiting.each do |member| %>
@@ -99,8 +100,8 @@
           </div>
         </div>
         <% end %>
+    </div>
     <% end %>
-  </div>
 <!-- FIN CANDIDATURES POUR REJOINDRE VISIBLE QUE PAR CREATOR -->
 
 </div>
