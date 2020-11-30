@@ -167,41 +167,27 @@ Suite, au prochain épisode.", category: "avancee" )
 
 puts "Creating Le cryptogramme de la Buse..."
 
-  piste_CB_1 = Post.create!(user: indiana, guild: les_flexeurs, title: "Pierre gravée", description: "Grâce aux indices précédents, cette pierre a été trouvé. Deux hypothèses relativement différentes peuvent être avancées :
+  orga_CB_1 = Post.create!(user: ella, guild: pirates_d_attaque, title: "Le grand voyage", description:"Bon du coup, qui est dispo pour aller sur l'île de la Réunion ?", category: "orga")
 
-I) La première hypothèse consiste à interprêter les signes comme des lettres :
-
-    1) A†R: possible en caractères latins
-    A†F : possible en caractères latins
-
-    Photo 2 :
-    Elimine les 2 pistes, précédentes :
-
-A † P : possible en caractères grecs
- (http://libanphenix.free.fr)
-
-
-A†Γ: (alpha, Gamma) : possible en grec
-
-
-
-Conclusion 1 : nous avons sans équivoque la désignation de la Croix du Sud qui apparaît par le signe de la Croix, et le nom de ses étoiles les plus brillantes, indiquant le Nord et le Sud (Alpha Crucix, Gamma Crucix).
-
-
-
-II) La deuxième hypothèse consiste à interprêter les signes comme des marques de la Franc-maçonnererie : Extrait de l'analyse de Gaëtan Adam (30 avril 2008) :", category: "piste")
+  piste_CB_1 = Post.create!(user: indiana, guild: pirates_d_attaque, title: "Pierre gravée", description: "Grâce aux indices précédents, cette pierre a été trouvé. Deux hypothèses relativement différentes peuvent être avancées :
+1) La première hypothèse consiste à interprêter les signes comme des lettres : A†P ou A†Γ.
+2) La deuxième hypothèse consiste à interprêter les signes comme des marques des outils symboliques de la Franc-maçonnererie.
+Vous en pensez quoi ??", category: "piste")
     source_a = File.open("app/assets/images/piste_CB_1.png")
     piste_CB_1.photos.attach(io: source_a, filename: 'piste_CB_1.png', content_type: 'image/png')
+    source_a = File.open("app/assets/images/piste_CB_1_2.jpg")
+    piste_CB_1.photos.attach(io: source_a, filename: 'piste_CB_1_2.jpg', content_type: 'image/jpg')
     piste_CB_1.save!
 
   avancee_CB_1 = Post.create!(user: ella, guild: pirates_d_attaque, title: "Cryptogramme nettoyé", description: "L'étude du cryptogramme est basée sur le graphisme des lettres et des anomalies. Des analyses textuelles (traductions, sens littéral, sens littéraire, statistique, redondances, anomalies d'orthographes, grammaticale, champ lexical, etc) ont également était effectuées à partir des noms, noms propres des acteurs de l'époque (pirates, navires, lieux de mouillages connus en 1700, contexte historiques, langues, religions...). Ici, nous avons la version \"nettoyée\" du cryptogramme.", category: "avancee")
     source_a = File.open("app/assets/images/avancee_CB_1.jpg")
     avancee_CB_1.photos.attach(io: source_a, filename: 'avancee_CB_1.jpg', content_type: 'image/jpg')
+    avancee_CB_1.save!
   avancee_CB_2 = Post.create!(user: ella, guild: pirates_d_attaque, title: "La Croix du Sud", description: "On isole les signes de forme d’un ‘A’ (en fait des lettres Z marquées, avec un Z comme dans l'orthographe de l'époque de \"La Buze\"). Il apparaît sans équivoque que la Croix du Sud figure dans le crypto et avec elle, les coordonnées 55.5 et 22. Avec longitude 55.5 et latitude 22, même à cette époque, il était impossible de manquer l'Ile de la Réunion. C'est vers ça qu'on oriente nos recherches.", category: "avancee")
     source_a = File.open("app/assets/images/avancee_CB_2_1.jpeg")
-    avancee_CB_2_1.photos.attach(io: source_a, filename: 'avancee_CB_2_1.jpeg', content_type: 'image/jpeg')
+    avancee_CB_2.photos.attach(io: source_a, filename: 'avancee_CB_2_1.jpeg', content_type: 'image/jpeg')
     source_a = File.open("app/assets/images/avancee_CB_2_2.jpeg")
-    avancee_CB_2_2.photos.attach(io: source_a, filename: 'avancee_CB_2_2.png', content_type: 'image/png')
+    avancee_CB_2.photos.attach(io: source_a, filename: 'avancee_CB_2_2.png', content_type: 'image/png')
     avancee_CB_2.save!
 
 
