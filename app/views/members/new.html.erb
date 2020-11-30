@@ -1,9 +1,31 @@
 <!-- FORMULAIRE POSTULER A UNE GUILDE -->
-<h2>Postuler pour entre dans la guilde <%= @guild.name %></h2>
 
-<%= simple_form_for [@guild, @member] do |f| %>
-    <%= f.input :cover_letter %>
-      <%= f.button :submit, "Postuler" %>
-<% end %>
 
-<%= link_to 'Retour', root_path, class: 'btn btn-menu' %>
+<div class="body-bg md:p-10  md:px-0 items-center flex flex-col">
+
+    <div class="bg-white max-w-lg md:p-12 my-8 rounded-lg shadow-2xl">
+        <div class="text-center">
+            <h2>Postuler pour entrer dans la guilde <%= @guild.name %></h2>
+            <p class="text-gray-600 pt-2">Prêt à vivre des aventures totalement folles ?</p>
+        </div>
+
+        <div class="mt-10 ">
+
+            <%= simple_form_for [@guild, @member] do |f| %>
+
+            <form class="flex flex-col" method="POST" action="#">
+                <div class="border-black-100 rounded w-full text-black-700 focus:outline-none focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
+                    <%= f.input :cover_letter, label: 'Présentez-vous ☠️' %>
+                </div>
+
+                <div class="flex flex-col items-center mt-4 px-12">
+                  <%= f.button :submit, "Postuler", class: 'button-create-quest' %>
+                </div>
+                <% end %>
+            </form>
+        </div>
+    </div>
+<%= link_to 'Retour', root_path, class: 'button-create-quest' %>
+
+</div>
+
