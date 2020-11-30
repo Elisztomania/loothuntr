@@ -18,7 +18,7 @@
 <!-- FORMULAIRE POSTS ORGA -->
     <div class="min-w-0 p-4 bg-white rounded-xl h-80">
       <h2 class="text-xl text-center pb-1">Ajouter une publication</h2>
-      <p class="pt-2"><%= simple_form_for ([@guild, @post_new], remote: true) do |f| %>
+      <p class="pt-2"><%= simple_form_for [@guild, @post_new] do |f| %>
         <%= f.hidden_field :category, value: 'orga' %>
         <%= f.input :title, label: 'Titre', class: 'mt-1 relative rounded-md shadow-sm' %>
         <%= f.input :description, label: 'Description' %>
@@ -46,7 +46,7 @@
 
 
 <!-- AFFICHAGE POSTS ORGA -->
-  <div class="min-w-0 p-4 bg-white rounded-xl h-2/3 overflow-auto -mt-16">
+  <div class="min-w-0 p-4 bg-white rounded-xl h-96 overflow-auto -mt-16">
     <h2 class="text-xl text-center pb-1">Les dernières publications</h2>
       <% @guild.posts.reverse_each do |post| %>
         <% if post.category == "orga" %>
