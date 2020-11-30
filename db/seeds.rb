@@ -82,7 +82,7 @@ Parmi elles se trouvaient les sœurs Watrin dites 'les vierges de Verdun'. Avant
       source = File.open("app/assets/images/vierges_verdun.jpg")
       tresor_vierges_verdun.photo.attach(io: source, filename: 'vierges_verdun.jpg', content_type: 'image/jpg')
         tresor_vierges_verdun.save!
-  tresor_ruines_bazoches = Quest.create!(title: "Les ruines de Bazoche", description: "La Commanderie de Bazoches-les-Bray aurait encore son fabuleux trésor des templiers enfouis sous les ruines du village.", location:"Bazoche-les-Bray", resolved: false, creator: ella )
+  tresor_ruines_bazoches = Quest.create!(title: "Les ruines de Bazoches", description: "La Commanderie de Bazoches-les-Bray aurait encore son fabuleux trésor des templiers enfouis sous les ruines du village.", location:"Bazoche-les-Bray", resolved: false, creator: ella )
       tresor_ruines_bazoches.update(latitude: 48.4, longitude: 3.1833)
       source = File.open("app/assets/images/ruines_bazoche.jpg")
       tresor_ruines_bazoches.photo.attach(io: source, filename: 'ruines_bazoche.jpg', content_type: 'image/jpg')
