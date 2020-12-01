@@ -1,19 +1,36 @@
+
+<!-- CARDS DEBUT -->
 <div class="container">
-  <h1>Les guildes dont je suis membre</h1>
-  <br>
-  <% @guilds.each do |guild| %>
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-center text-3xl sm:text-4xl mt-8 sm:mt-16 text-gray-800 mb-4 leading-tight">Les guildes dont je suis membre</h2>
+  </div>
+
+  <ul class="my-8 sm:my-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="text_decoration_card_quest">
+
+    <% @guilds.each do |guild| %>
     <% if current_user.is_member_of?(guild) %>
-      <hr>
-      <div class="group"><%= link_to guild_path(guild) do %>
-        <div class="flex p-2 no-underline group-hover:text-black group-hover:bg-white">
-          <%= cl_image_tag guild.quest.photo.key, height: 200, width: 200, crop: :fill %>
-          <div class="p-2 my-auto text-base group-hover:text-black group-hover:bg-white">
-            <p><strong><%= guild.quest.resolved ? "Quête résolue" : "Quête en cours" %></strong></p>
-            <p><em><%= guild.name %></em> consacrée à la quête <strong><%= guild.quest.title %></strong></p>
-          </div>
+
+    <li class="group transition-transform duration-200 transform sm:hover:-translate-y-1">
+      <div class="relative flex-shrink-0">
+        <%= link_to guild_path(guild) do %>
+        <div class="transition duration-200 group-hover:shadow-2xl w-full h-full rounded-lg shadow-md object-cover"><%= cl_image_tag guild.quest.photo.key, height: 400, width: 400, crop: :fill %></div>
+
+      </div>
+
+      <div class="relative px-4 -mt-12 text-left">
+        <div class="bg-white rounded-lg px-4 py-3 transition duration-200 sm:group-hover:shadow-2xl shadow-md">
+          <div class="text-xs text-gray-600 font-semibold"><span class="uppercase"><%= guild.quest.resolved ? "Quête résolue" : "Quête en cours" %></span> </div>
+
+            <p class=" text-gray-900 text-sm leading-tight my-1">La guilde <em><%= guild.name %></em> est consacrée à la quête <strong><%= guild.quest.title %></strong></p>
+            <div class="m-3" >
+
+            </div>
+        <% end %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    </li>
     <% end %>
-  <% end %>
+    <% end %>
+  </ul>
 </div>
+<!-- CARDS FIN -->
