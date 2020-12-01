@@ -1,18 +1,15 @@
 <!-- INDEX DES PISTES -->
 <div class="container">
-  <br>
-
-<!-- LISTE DES PISTES -->
-  <h1>Voici les pistes</h1>
 
 <!-- BOUCLE QUI AFFICHES CHAQUE PISTE -->
 
-  <div class="min-w-0 p-4 bg-white rounded-xl h-96 overflow-auto">
-    <h2 class="text-xl text-center pb-1">Les pistes pour la quête <%= @guild.quest.title %></h2>
+  <h2 class="text-xl text-center p-5">Les pistes pour la quête <em><%= @guild.quest.title %></em></h2>
+  <div class="min-w-0 p-4 bg-white rounded-xl h-auto">
     <% i = 0 %>
       <% @pistes.each do |piste| %>
         <% if piste.guild == @guild %>
-        <div class="p-3 rounded-xl bg-gray-50 my-2">
+        <% i += 1 %>
+        <div class="p-4 rounded-xl bg-gray-50 mb-4">
           <div class="flex items-center">
             <%= image_tag piste.user.photo, class: "avatar-mini"%>
             <h3 class="text-lg pl-2">Piste n°<%= i %> : <%= piste.title %></h3>
@@ -36,8 +33,8 @@
                 <%= button_tag type: 'submit', class: 'btn-dash py-2 px-3 rounded-sm ml-3' do %>
                   <i class="fas fa-paper-plane"></i>
                 <% end %>
-              </div>
               <% end %>
+              </div>
             </p>
 
           <div class="ml-100">
@@ -49,10 +46,10 @@
           </div>
       </div>
 
-          </div>
         <% end %>
 
       <% end %>
+          </div>
     </div>
 
 
