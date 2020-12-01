@@ -1,28 +1,27 @@
 
 
-<div class="body-bg md:p-10  md:px-0 items-center flex flex-col">
+<div class=" md:p-10  md:px-0 items-center flex flex-col">
 
-    <div class="bg-white max-w-lg md:p-12 my-8 rounded-lg shadow-2xl">
+    <div class=" max-w-lg md:p-12 my-8 shadow-2xl body-bg rounded-md">
         <div class="text-center">
-            <h2>Créer ma guilde</h2>
-            <p class="text-gray-600 pt-2">Prêt à vivre des aventures totalement folles ?</p>
-        </div>
+            <h2 class="font-bold text-3xl">Créer ma guilde</h2>
 
-        <div class="mt-10 ">
+
+        <div class="mt-8 ">
 
             <%= simple_form_for [@quest, @guild] do |f| %>
 
 
             <form class="flex flex-col" method="POST" action="#">
-                <div class="border-black-100 rounded w-full text-black-700 focus:outline-none focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
+                <div class=" border-black-100 rounded w-full text-black-900 focus:outline-none focus:border-purple-600 transition duration-500 p-1 mb-1 champ-form">
                     <%= f.input :name, label: 'Nom de la guilde'  %>
                 </div>
 
-                <div class="border-black-100 rounded w-full text-black-700 focus:outline-none focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
+                <div class=" border-black-100 rounded w-full text-black-900 focus:outline-none focus:border-purple-600 transition duration-500 p-1 mb-1 champ-form">
                     <%= f.input :description, label: 'Description'  %>
                 </div>
 
-                <div class="flex flex-col items-center mt-4 px-12">
+                <div class=" border-black-100 rounded w-full text-black-900 focus:outline-none focus:border-purple-600 transition duration-500 p-1 mb-1 champ-form">
                   <% if @guild.new_record? %>
                     <%= f.button :submit, 'Créer ma guilde', class: 'button-create-quest'  %>
                   <% else %>
@@ -34,6 +33,5 @@
             </form>
         </div>
     </div>
-<%= link_to 'Retour', root_path, class: 'button-create-quest' %>
 
 </div>

@@ -1,27 +1,26 @@
-<div class="body-bg md:p-10  md:px-0 items-center flex flex-col">
+<div class=" md:p-10  md:px-0 items-center flex flex-col">
 
-    <div class="bg-white max-w-lg md:p-12 my-8 rounded-lg shadow-2xl">
+    <div class=" max-w-lg md:p-12 my-8 shadow-2xl body-bg rounded-md">
         <div class="text-center">
-            <h3 class="font-bold text-2xl">Créer ma super quête</h3>
-            <p class="text-gray-600 pt-2">Prêt à vivre des aventures totalement folles ?</p>
+            <h3 class="font-bold text-3xl">Créer ma super quête</h3>
         </div>
 
-        <div class="mt-10 ">
+        <div class="mt-8  ">
 
           <%= simple_form_for @quest do |f| %>
 
             <form class="flex flex-col" method="POST" action="#">
-                <div class="border-black-100 rounded w-full text-black-700 focus:outline-none focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
+                <div class=" border-black-100 rounded w-full text-black-900 focus:outline-none focus:border-purple-600 transition duration-500 p-1 mb-1 champ-form">
                     <%= f.input :title, label: 'Nom de la quête'  %>
                 </div>
-                <div class="rounded w-full text-black-700 focus:outline-none  focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
+                <div class="rounded w-full text-black-900 focus:outline-none  focus:border-purple-600 transition duration-500 p-1 mb-1 champ-form ">
                     <%= f.input :description, label: 'Description'  %>
                 </div>
-                <div class="rounded w-full text-black-700 focus:outline-none  focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
+                <div class="rounded w-full text-black-900 focus:outline-none  focus:border-purple-600 transition duration-500 p-1 mb-1 champ-form ">
                     <%= f.input :location, label: 'Adresse' %>
                 </div>
 
-                <div class="rounded w-full text-black-700 focus:outline-none  focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
+                <div class="rounded w-full text-black-900 focus:outline-none  focus:border-purple-600 transition duration-500 p-1 mb-1 champ-form ">
                     <%= f.input :photo, as: :file, required: true %>
                 </div>
 
