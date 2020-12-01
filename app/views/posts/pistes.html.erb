@@ -6,56 +6,67 @@
   <h1>Voici les pistes</h1>
 
 <!-- BOUCLE QUI AFFICHES CHAQUE PISTE -->
-  <% i = 0 %>
-  <% @pistes.each do |piste| %>
-  <% if piste.guild == @guild %>
-    <div class="rounded-xl bg-gray-50 m-10 p-10">
-      <div class="bg-gray-50 p-2 border">
-        <% i += 1 %>
-        <h2>Piste n°<%= i %> : <%= piste.title %></h2>
-        <%= piste.description %>
 
-      <% piste.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-      <% end %>
+  <div class="min-w-0 p-4 bg-white rounded-xl h-96 overflow-auto">
+    <h2 class="text-xl text-center pb-1">Les pistes pour la quête <%= @guild.quest.title %></h2>
+    <% i = 0 %>
+      <% @pistes.each do |piste| %>
+        <% if piste.guild == @guild %>
+        <div class="p-3 rounded-xl bg-gray-50 my-2">
+          <div class="flex items-center">
+            <%= image_tag piste.user.photo, class: "avatar-mini"%>
+            <h3 class="text-lg pl-2">Piste n°<%= i %> : <%= piste.title %></h3>
+          </div>
+            <p><%= piste.description %></p>
+            <% piste.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+            <% end %>
+
+          <div class="p-2 comments">
+            <% if piste.category != "piste_publiee" %>
+              <% piste.comments.each do |comment| %>
+                <%= render 'comments/comment_section', comment: comment %>
+              <% end %>
+            <% end %>
+          </div>
+
+            <p><%= simple_form_for [piste, @comment_new], remote: true do |f| %>
+              <div class="flex items-center">
+                <%= f.input_field :content, label: false, placeholder: "Votre commentaire", class: 'pr-3 block w-full pl-2 pr-12 sm:text-sm border-gray-300 rounded-md' %>
+                <%= button_tag type: 'submit', class: 'btn-dash py-2 px-3 rounded-sm ml-3' do %>
+                  <i class="fas fa-paper-plane"></i>
+                <% end %>
+              </div>
+              <% end %>
+            </p>
+
+          <div class="ml-100">
+            <% if piste.category == 'piste' %>
+              <a class=""><%= link_to "Poster une avancée", new_avancee_from_post_post_path(piste), class: "btn btn-primary mx-96 mt-10"  %></a>
+            <% elsif piste.category == 'piste_publiee' %>
+              <p class= "btn mt-10">Avancée déjà publiée</p>
+            <% end %>
+          </div>
       </div>
 
-
-      <% if piste.category != "piste_publiee" %>
-        <div class="flex">
-        <%= simple_form_for [piste, @comment_new] do |f| %>
-          <%= f.input_field :content, label: false, placeholder: "Votre commentaire" %>
-          <%= f.button :submit, '>', class: 'btn btn-primary' %>
-          <% end %>
-          </div>
-      <% end %>
-
-      <div class="p-2 flex-grow-0">
-        <% piste.comments.each do |comment| %>
-          <div class="bg-gray-100 my-1 rounded-xl pl-2 -pb-2">
-            <p><m class="italic text-sm"><%= comment.user.username %> : </m><%= comment.content %></p>
           </div>
         <% end %>
-      </div>
 
-  <!-- ETAT DE LA PISTE POSTEE/NON POSTEE -->
-      <div class="ml-100">
-        <% if piste.category == 'piste' %>
-          <a class=""><%= link_to "Poster une avancée", new_avancee_from_post_post_path(piste), class: "btn btn-primary mx-96 mt-10"  %></a>
-        <% elsif piste.category == 'piste_publiee' %>
-          <p class= "btn mt-10">Avancée déjà publiée</p>
-        <% end %>
-      </div>
-
+      <% end %>
     </div>
-    <% end %>
-    <% end %>
 
-    </div>
-  <br>
+
+
+
+
+
+
+
+
+
 <!-- FIN DE BOUCLE -->
 
-
+<div class= "autre">
 <!-- BUTTONS NEW PISTE & RETOUR -->
   <%= link_to "Explorer une nouvelle piste", new_guild_post_path(@guild), class: "btn btn-primary mt-10 mb-10" %>
 
