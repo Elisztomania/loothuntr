@@ -1,8 +1,10 @@
 
 <%= link_to quest_path(quest) do %>
+  <% if quest.photo.attached? %>
     <div class="card-img">
       <%= cl_image_tag quest.photo.key %>
     </div>
+    <% end %>
     <div class="card-info-marker">
       <p><%= quest.title %></p>
     </div>
