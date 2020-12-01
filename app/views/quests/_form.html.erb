@@ -20,8 +20,9 @@
                 <div class="rounded w-full text-black-700 focus:outline-none  focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
                     <%= f.input :location, label: 'Adresse' %>
                 </div>
+
                 <div class="rounded w-full text-black-700 focus:outline-none  focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
-                    <%= f.input :photo, as: :file %>
+                    <%= f.input :photo, as: :file, required: true %>
                 </div>
 
                 <div class="flex flex-col items-center mt-4 px-12">
