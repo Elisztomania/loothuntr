@@ -44,6 +44,7 @@
 
       <% if quest.photo.attached? %>
         <div class="transition duration-200 group-hover:shadow-2xl w-full h-full rounded-lg shadow-md object-cover"><%= cl_image_tag quest.photo.key, height: 400, width: 400, crop: :fill %></div>
+        <div class="transition duration-200 group-hover:shadow-2xl h-64 w-full rounded-lg shadow-md object-cover"><%= image_tag "coins.jpg", height: 400, width: 400, crop: :fill %></div>
       <% end %>
        <!--  <img loading="lazy" src="https://pyxis.nymag.com/v1/imgs/027/cf0/d4c718a6f46b8fb48a5cb4d54c98b771c5-23-firewatch.rsquare.w700.jpg"
         srcset="https://pyxis.nymag.com/v1/imgs/027/cf0/d4c718a6f46b8fb48a5cb4d54c98b771c5-23-firewatch.rsquare.w700.jpg 1x, https://pyxis.nymag.com/v1/imgs/027/cf0/d4c718a6f46b8fb48a5cb4d54c98b771c5-23-firewatch.rsquare.w700.jpg 2x"
