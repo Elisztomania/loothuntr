@@ -12,7 +12,8 @@
         <div class="p-4 rounded-xl bg-gray-50 mb-4">
           <div class="flex items-center">
             <%= image_tag piste.user.photo, class: "avatar-mini"%>
-            <h3 class="text-lg pl-2">Piste n°<%= i %> : <%= piste.title %></h3><h3 class="text-lg text-gray pl-2"> - <%= piste.created_at.to_date %></h3>
+            <h3 class="text-lg pl-2">Piste n°<%= i %> : <%= piste.title %></h3>
+            <p class="flex text-sm italic text-gray-800"> <%= piste.created_at.strftime("%d %b. %Y") %></p>
           </div>
             <p><%= piste.description %></p>
             <% piste.photos.each do |photo| %>
