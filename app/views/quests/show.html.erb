@@ -73,6 +73,7 @@
 <!--Container-->
 
   <div class="container">
+    <% if @quest.avancees.count != 0 %>
 
   <h2 class="m-10 p-10 text-center text-xl">Les avancées : <%= @quest.title %></h2>
 
@@ -92,12 +93,12 @@
       </div>
     </div>
 
-  <!-- POST DES AVANCEES BOUCLE-->
+  <!-- FIN POST DES AVANCEES BOUCLE-->
 
-
-
-
-
+    <% else %>
+      <h2 class="m-5 p-5 text-center text-xl"><%= @quest.title %> n'a pas encore d'avancée, rejoignez sa guilde pour trouver le trésor !</h2>
+      <center class= "mb-10"><%= image_tag 'no_avancee_background.png', width: 500 %></center>
+    <% end %>
 
   <!-- Code de la team BACK -->
 
