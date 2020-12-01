@@ -9,8 +9,8 @@
   <% i = 0 %>
   <% @pistes.each do |piste| %>
   <% if piste.guild == @guild %>
-    <div class="flex rounded-xl bg-gray-50 m-10 p-10">
-      <div class="flex-grow bg-gray-50 p-2 border">
+    <div class="rounded-xl bg-gray-50 m-10 p-10">
+      <div class="bg-gray-50 p-2 border">
         <% i += 1 %>
         <h2>Piste n°<%= i %> : <%= piste.title %></h2>
         <%= piste.description %>
