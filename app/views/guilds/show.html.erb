@@ -28,16 +28,16 @@
 
 
 <!-- DEBUT LISTE MEMBRES DE LA GUIDE -->
-  <div class="min-w-0 p-4 bg-white rounded-xl h-80 overflow-auto">
+  <div class="min-w-0 px-5 py-4 bg-white rounded-xl h-80 overflow-auto">
     <h2 class="text-xl text-center pb-3">La guilde</h2>
         <% @guild.members.each do |member| %>
-          <div class="pb-2">
+          <div class="pb-4">
             <% if member.accepted == true %>
             <div class="flex items-center justify-center pb-1">
-              <p class="pr-1"><%= image_tag member.user.photo, class: "avatar"%></p>
-              <p class="font-medium"><%= member.user.username %></p>
+              <p class="pr-2"><%= image_tag member.user.photo, class: "avatar-mid"%></p>
+              <p class="font-semibold"><%= member.user.username %></p>
             </div>
-              <p class="text-center"><%= member.user.bio %></p>
+              <p class="text-center italic text-sm"><%= member.user.bio %></p>
             <% end %>
           </div>
         <% end %>
@@ -65,7 +65,7 @@
 
             <p><%= simple_form_for [post, @comment_new], remote: true do |f| %>
               <div class="flex items-center">
-                <%= f.input_field :content, label: false, placeholder: "Votre commentaire", class: 'pr-3 block w-full pl-2 pr-12 sm:text-sm border-gray-300 rounded-md' %>
+                <%= f.input_field :content, label: false, placeholder: "Votre commentaire", class: 'block w-full pl-2 pr-12 text-sm border-gray-300 rounded-md' %>
                 <%= button_tag type: 'submit', class: 'btn-dash py-2 px-3 rounded-sm ml-3' do %>
                   <i class="fas fa-paper-plane"></i>
                 <% end %>
@@ -84,15 +84,15 @@
   <div class="space-y-6">
 <!-- CARD PISTE-->
   <%= link_to pistes_guild_posts_path(@guild) do %>
-    <div class="block min-w-0 mb-4 p-4 bg-white rounded-xl h-40 flex items-center justify-center"
-    style="background-image:url('https://image.freepik.com/free-vector/vintage-monochrome-treasure-map_225004-986.jpg'); background-position: center; box-shadow: inset 0 0 0 100vw rgba(7, 25, 43, 0.4)">
+    <div class="block min-w-0 mb-4 p-4 bg-white rounded-xl h-44 flex items-center justify-center"
+    style="background-image:url('https://cdn.dribbble.com/users/152487/screenshots/5376334/map_dribbble_1.jpg'); background-position: center; background-size: 100%; box-shadow: inset 0 0 0 100vw rgba(7, 25, 43, 0.4)">
       <h2 class="text-xl text-white">Les différentes pistes en cours 👀</h2>
     </div>
   <% end %>
 
 <!-- CARD QUEST-->
   <%= link_to quest_path(@guild.quest) do %>
-    <div class="block min-w-0 p-4 bg-white rounded-xl h-40 flex items-center justify-center"
+    <div class="block min-w-0 p-4 bg-white rounded-xl h-44 flex items-center justify-center"
       style="background-image:url('https://cdn.dribbble.com/users/59947/screenshots/12002099/media/35047050a52b5a57b806004e537b293b.jpg'); background-position: center; background-size: 100%; box-shadow: inset 0 0 0 100vw rgba(7, 25, 43, 0.4)">
       <h2 class="text-xl text-white">Voir les avancées de la quête 🔥</h2>
     </div>

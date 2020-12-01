@@ -1,7 +1,9 @@
 <!--Header-->
 <div class="font-sans leading-normal tracking-normal">
   <% if @quest.photo.attached? %>
-  <div class="w-full m-0 p-0 bg-cover bg-bottom" style="background-image:url('<%= cl_image_path @quest.photo.key %>'); background-position: center; height: 60vh; max-height:460px; box-shadow: inset 0 0 0 100vw rgba(7, 25, 43, 0.4)">
+    <div class="w-full m-0 p-0 bg-cover bg-bottom" style="background-image:url('<%= cl_image_path @quest.photo.key %>'); background-position: center; height: 60vh; max-height:460px; box-shadow: inset 0 0 0 100vw rgba(7, 25, 43, 0.4)">
+  <% else %>
+    <div class="w-full m-0 p-0 bg-cover bg-bottom" style="background-image:url('https://images.unsplash.com/photo-1521897258701-21e2a01f5e8b?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGNvaW5zfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60'); background-position: center; height: 60vh; max-height:460px; box-shadow: inset 0 0 0 100vw rgba(7, 25, 43, 0.4)">
   <% end %>
     <div class="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
       <!--Title-->
