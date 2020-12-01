@@ -51,14 +51,14 @@
 
           <div class="p-2 comments">
             <% post.comments.each do |comment| %>
-              <%= render 'comments/comments_section' %>
+              <%= render 'comments/comment_section', comment: comment %>
             <% end %>
+          </div>
 
-            <p><%= simple_form_for [post, @comment_new] do |f| %>
+            <p><%= simple_form_for [post, @comment_new], remote: true do |f| %>
               <%= f.input_field :content, label: false, placeholder: "Votre commentaire" %>
               <%= f.button :submit, '>', class: 'btn-dash commentaire' %>
             <% end %></p>
-          </div>
         </div>
         <% end %>
       <% end %>

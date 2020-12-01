@@ -1,0 +1,13 @@
+html = "<%= j render 'comments/comment_section', comment: @comment %>"
+
+document.querySelector(".comments").insertAdjacentHTML('beforeend', html)
+document.querySelector('#comment_content').value=''
+
+
+// if commentaire pas d'id, regénérer le formulaire
+//   end
+// rendre ça dynamique
+// insert le nouveau commentaire et nettoyer le formualire
+// si ça marche pas, rendre le formulaire avec une erreur (content is needed -> pas obligatoire)
+
+// le j ça échappe le contenu bc c'est du js
