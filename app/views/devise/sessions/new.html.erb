@@ -1,29 +1,30 @@
-<div class="body-bg md:p-10  md:px-0 items-center flex flex-col">
+<div class=" md:p-10  md:px-0 items-center flex flex-col">
 
-    <div class="bg-white max-w-lg md:p-12 my-8 rounded-lg shadow-2xl">
+    <div class=" max-w-lg md:p-12 my-8 shadow-2xl body-bg rounded-md">
         <div class="text-center">
-            <h3 class="font-bold text-2xl">Se connecter</h3>
-            <p class="text-gray-600 pt-2">Prêt à vivre des aventures totalement folles ?</p>
+            <h2 class="font-bold text-3xl">Se connecter</h2>
         </div>
+            <p class="text-gray-600 pt-2">Prêt à vivre des aventures totalement folles ?</p>
 
-        <div class="mt-10 ">
+
+        <div class="mt-8 ">
           <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
 
 
             <div class="flex flex-col" >
-                <div class="border-black-100 rounded w-full text-black-700 focus:outline-none focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
+                <div class=" border-black-100 rounded w-full text-black-900 focus:outline-none focus:border-purple-600 transition duration-500 p-1 mb-1 champ-form">
                     <%= f.input :email,
                                 required: false,
                                 autofocus: true,
                                 input_html: { autocomplete: "email" } %>
                 </div>
-                <div class="border-black-100 rounded w-full text-black-700 focus:outline-none focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
+                <div class=" border-black-100 rounded w-full text-black-900 focus:outline-none focus:border-purple-600 transition duration-500 p-1 mb-1 champ-form">
                     <%= f.input :password,
                                 required: false,
                                 input_html: { autocomplete: "current-password" } %>
                 </div>
-                <div class="border-black-100 rounded w-full text-black-700 focus:outline-none focus:border-purple-600 transition duration-500 p-3 mb-3 champ-form">
+                <div class=" border-black-100 rounded w-full text-black-900 focus:outline-none focus:border-purple-600 transition duration-500 p-1 mb-1 champ-form">
                         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
 
                 </div>
