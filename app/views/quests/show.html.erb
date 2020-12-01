@@ -77,10 +77,10 @@
   <h2 class="m-10 p-10 text-center text-xl">Les avancées : <%= @quest.title %></h2>
 
   <!-- POST DES AVANCEES BOUCLE-->
-      <div class="grid gap-6 mb-8 md:grid-cols-2">
+      <div class="grid gap-6 mb-8 md:grid-cols-2 ">
         <% @quest.avancees.each do |avancee| %>
-        <div class="m-6 p-6 min-w-0 p-4 bg-white rounded-m shadow-lg dark:bg-gray-800">
-          <h3 class="pb-0.5 font-semibold text-lg"><%= avancee.title %></h3><br>
+        <div class="m-6 p-6 min-w-0 p-4 rounded-m shadow-lg dark:bg-gray-800 bg-show-quest">
+          <h3 class="pb-0.5 font-semibold text-3xl"><%= avancee.title %></h3><br>
           <p class="text-justify"><%= avancee.description %></p>
           <div class="inline-flex space-x-4 p-6 center">
           <% avancee.photos.each do |photo| %>
@@ -93,8 +93,6 @@
     </div>
 
   <!-- POST DES AVANCEES BOUCLE-->
-
-
 
 
 
