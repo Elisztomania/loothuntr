@@ -10,6 +10,7 @@ class GuildsController < ApplicationController
     @members = User.where(:acccepted == true)
     @post_new = Post.new
     @comment_new = Comment.new
+    @pistes = Post.where(category: ["piste", "piste_publiee"], guild: @guild)
   end
 
   def new
@@ -40,8 +41,8 @@ class GuildsController < ApplicationController
   end
 
   def resolved
-    @guild.quest.resolved = true
     @post_new = Post.new
+    @guild.quest.resolved = true
     @guild.quest.save
   end
 
