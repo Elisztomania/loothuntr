@@ -5,29 +5,19 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.post = @post
     @comment.user = current_user
-    if @comment.save && @post.category == "piste"
-      redirect_to pistes_guild_posts_path(@post.guild)
-    elsif @comment.save && @post.category == "orga"
-      redirect_to guild_path(@post.guild)
+    if @comment.save && @post.category == "orga" || @post.category == "piste"
     else
-      render :new
+      # render :new
+      redirect_to guild_path(@post.guild)
     end
+    # if @comment.save && @post.category == "piste"
+    #   redirect_to pistes_guild_posts_path(@post.guild)
+    # elsif @comment.save && @post.category == "orga"
+    #   redirect_to guild_path(@post.guild)
+    # else
+    #   render :new
+    # end
   end
-
-  # def edit
-  #   @post = Post.find(params[:id])
-  #   @comment = comment.find(params[:post_id])
-  # end
-
-  # def update
-  #   @post = Post.find(params[:post_id])
-  #   @comment = Comment.find(params[:id])
-  #   if @comment.update(comment_params)
-  #     redirect_to @post, notice: 'Votre avis a été correctement modifié.'
-  #   else
-  #     render :edit
-  #   end
-  # end
 
   private
 
