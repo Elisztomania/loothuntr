@@ -51,9 +51,7 @@
 
           <div class="p-2 comments">
             <% post.comments.each do |comment| %>
-            <div class="bg-gray-100 my-1 rounded-xl p-2 flex">
-              <p><%= image_tag comment.user.photo, class: "avatar-mini"%><m class="italic text-sm username"><%= comment.user.username %> : </m><g class="content"><%= comment.content %></g></p>
-            </div>
+              <%= render 'comments/comments_section' %>
             <% end %>
 
             <p><%= simple_form_for [post, @comment_new] do |f| %>
