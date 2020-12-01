@@ -24,7 +24,7 @@
             <p class="text-gray-800 font-serif text-base px-10 mb-5 ">
               <%= @quest.description %>
             </p>
- </div>
+          </div>
         </div>
 
         <div class="w-full md:w-1/2 rounded-t group transition-transform duration-200 transform sm:hover:-translate-y-1">
@@ -32,12 +32,10 @@
             <h2 class="w-full font-bold text-xl text-gray-900 px-6 mt-4 mb-4 ">🤩 Informations clés</h2>
               <div class="text-gray-800 font-serif text-base px-10 justify-self-center">
                  <p> 📍 <%= @quest.location %> </p>
-
                  <p> ➡️ <%= @quest.resolved ? "Résolue" : "Non résolue" %> </p>
-
                  <p> 🕺 <%= @quest.creator.username %> </p>
-
               </div>
+
 
 <!--  INFO SI GUILDE ET LA REJOINDRE / TABLEAU DE BORD -->
     <div class="mx-10 my-6 text-center text-sm">
@@ -69,27 +67,36 @@
               </div>
           </div>
         </div>
-
-  <h2 class="m-10 p-10 text-center text-xl">Les avancées : <%= @quest.title %></h2>
-  <!-- POST DES AVANCEES BOUCLE-->
-
-    <div class="grid gap-6 mb-8 md:grid-cols-2">
-      <div>
-          <% @quest.avancees.each do |avancee| %>
-            <div class="m-6 p-6 min-w-0 p-4 bg-white rounded-xl shadow-xs dark:bg-gray-800">
-              <h3 class="pb-0.5 font-semibold text-lg"><%= avancee.title %></h3><br>
-              <p class="text-justify"><%= avancee.description %></p>
-                <div class="inline-flex space-x-4 p-6 center">
-                  <% avancee.photos.each do |photo| %>
-                    <div class="flex-1 self-center"><%= cl_image_tag photo.key, height: 300, width: 400 %>
-                  </div>
-                <% end %>
-            </div>
-          <% end %>
       </div>
     </div>
   </div>
+<!--Container-->
+
+  <div class="container">
+
+  <h2 class="m-10 p-10 text-center text-xl">Les avancées : <%= @quest.title %></h2>
+
   <!-- POST DES AVANCEES BOUCLE-->
+      <div class="grid gap-6 mb-8 md:grid-cols-2">
+        <% @quest.avancees.each do |avancee| %>
+        <div class="m-6 p-6 min-w-0 p-4 bg-white rounded-m shadow-lg dark:bg-gray-800">
+          <h3 class="pb-0.5 font-semibold text-lg"><%= avancee.title %></h3><br>
+          <p class="text-justify"><%= avancee.description %></p>
+          <div class="inline-flex space-x-4 p-6 center">
+          <% avancee.photos.each do |photo| %>
+              <div class="flex-1 self-center"><%= cl_image_tag photo.key, height: 300, width: 400 %></div>
+          <% end %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+  <!-- POST DES AVANCEES BOUCLE-->
+
+
+
+
 
 
   <!-- Code de la team BACK -->
