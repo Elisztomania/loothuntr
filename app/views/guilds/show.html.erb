@@ -28,10 +28,10 @@
 
 
 <!-- DEBUT LISTE MEMBRES DE LA GUIDE -->
-  <div class="min-w-0 p-4 bg-white rounded-xl h-auto">
+  <div class="min-w-0 p-4 bg-white rounded-xl h-80 overflow-auto">
     <h2 class="text-xl text-center pb-3">La guilde</h2>
         <% @guild.members.each do |member| %>
-          <div class="pb-4">
+          <div class="pb-2">
             <% if member.accepted == true %>
             <div class="flex items-center justify-center pb-1">
               <p class="pr-1"><%= image_tag member.user.photo, class: "avatar"%></p>
@@ -46,7 +46,7 @@
 
 
 <!-- AFFICHAGE POSTS ORGA -->
-  <div class="min-w-0 p-4 bg-white rounded-xl h-96 overflow-auto -mt-16">
+  <div class="min-w-0 p-4 bg-white rounded-xl h-96 overflow-auto">
     <h2 class="text-xl text-center pb-1">Les dernières publications</h2>
       <% @guild.posts.reverse_each do |post| %>
         <% if post.category == "orga" %>
@@ -57,29 +57,28 @@
           </div>
             <p><%= post.description %></p>
 
-          <div class="p-2">
+          <div class="p-2 comments">
             <% post.comments.each do |comment| %>
-            <div class="bg-gray-100 my-1 rounded-xl p-2 flex items-center">
-              <%= image_tag comment.user.photo, class: "avatar-mini"%>
-              <p class="pl-2"><%= comment.content %></p>
-            </div>
+              <%= render 'comments/comment_section', comment: comment %>
             <% end %>
+          </div>
 
-            <p><%= simple_form_for [post, @comment_new] do |f| %>
+            <p><%= simple_form_for [post, @comment_new], remote: true do |f| %>
               <div class="flex items-center">
                 <%= f.input_field :content, label: false, placeholder: "Votre commentaire", class: 'pr-3 block w-full pl-2 pr-12 sm:text-sm border-gray-300 rounded-md' %>
                 <%= button_tag type: 'submit', class: 'btn-dash py-2 px-3 rounded-sm ml-3' do %>
                   <i class="fas fa-paper-plane"></i>
                 <% end %>
-              <% end %>
               </div>
+              <% end %>
             </p>
 
           </div>
-        </div>
         <% end %>
+
       <% end %>
     </div>
+
 
 <!-- DUO DIV CARDS-->
   <div class="space-y-6">
