@@ -5,7 +5,11 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.post = @post
     @comment.user = current_user
-    render :new unless @comment.save
+    if @comment.save && @post.category == "orga" || @post.category == "piste"
+    else
+      # render :new
+      redirect_to guild_path(@post.guild)
+    end
     # if @comment.save && @post.category == "piste"
     #   redirect_to pistes_guild_posts_path(@post.guild)
     # elsif @comment.save && @post.category == "orga"
@@ -14,7 +18,6 @@ class CommentsController < ApplicationController
     #   render :new
     # end
   end
-
 
   private
 
