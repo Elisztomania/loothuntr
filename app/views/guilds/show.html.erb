@@ -107,8 +107,11 @@
       <br>
       <% @guild.members.waiting.each do |member| %>
         <div class="px-4 py-2 rounded-xl bg-gray-50 my-2">
-          <strong><h3 class="text-lg"><%= member.user.username %></h3></strong>
-          <p class="py-1 text-justify"><%= member.cover_letter %></p>
+          <div class="flex items-center text-center">
+            <%= image_tag member.user.photo, class: "avatar-mid"%>
+            <strong><h3 class="text-lg pl-2"><%= member.user.username %></h3></strong>
+          </div>
+          <p class="py-1 text-justify text-center"><%= member.cover_letter %></p>
 
           <div class="text-center">
             <%= link_to "", accepted_member_path(member), class: "fas fa-check-circle", style: "color: green; font-size: 20px;" %>
