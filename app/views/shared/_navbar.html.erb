@@ -1,8 +1,11 @@
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 lg:bg-transparent text-black p-1 lg:p-0 z-20 bg-gray-100" >
     <div class="pl-4 flex items-center"></div>
-    <%= link_to root_path, class: "navbar-brand toggleColour no-underline hover:no-underline font-bold text-2xl lg:text-4xl text-black" do %>
-      <h1>LootHuntr</h1>
+      <%= link_to root_path, class: "navbar-brand toggleColour no-underline hover:no-underline font-bold text-2xl lg:text-4xl text-black" do %>
+        <div class="flex w-auto space-x-2">
+
+          <h1 class="flex align-items-center"><%= image_tag "logotype_1_map.png", class: "mr-1", style: 'height:50px;width:auto;' %> LootHuntr</h1>
+        </div>
       <% end %>
     </div>
 
