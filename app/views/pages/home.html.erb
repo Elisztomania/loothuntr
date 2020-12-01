@@ -36,7 +36,7 @@
 
   <ul class="my-8 sm:my-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="text_decoration_card_quest">
 
-    <% @quests.sample(4).each do |quest| %>
+    <% @quests_terminees.sample(4).each do |quest| %>
     <%= link_to quest do %>
 
     <li class="group transition-transform duration-200 transform sm:hover:-translate-y-1">
@@ -56,7 +56,12 @@
 
       <div class="relative px-4 -mt-12 text-left">
         <div class="bg-white rounded-lg px-4 py-3 transition duration-200 sm:group-hover:shadow-2xl shadow-md">
-          <div class="text-xs text-gray-600 font-semibold"><span class="uppercase"><%= quest.resolved ? "TERMINEE" : "EN COURS" %></span> </div>
+          <div class="text-xs text-gray-600 font-semibold"><span class="uppercase"><% if quest.resolved %>
+            <p class="text-yellow-400"><i class="far fa-check-circle"></i> TERMINEE</p>
+          <% else %>
+            <p><i class="far fa-clock"></i> EN COURS</p>
+          <% end %>
+          </span></div>
 
             <h1 class="truncate text-gray-900 font-bold text-lg leading-tight my-1"><%= quest.title %></h1>
             <div class="m-3" >
