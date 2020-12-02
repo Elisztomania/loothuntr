@@ -16,14 +16,14 @@ class PagesController < ApplicationController
         lat: quest.latitude,
         lng: quest.longitude,
         infoWindow: render_to_string(partial: "shared_bastien/info_window", locals: { quest: quest }),
-        image_url: helpers.asset_url('pin-terminee.png')
+        image_url: helpers.asset_url('pin-terminee_gris.png')
       }
     else
             {
         lat: quest.latitude,
         lng: quest.longitude,
         infoWindow: render_to_string(partial: "shared_bastien/info_window", locals: { quest: quest }),
-        image_url: helpers.asset_url('location1.png')
+        image_url: helpers.asset_url('pin-terminee_jaune.png')
       }
     end
     end
