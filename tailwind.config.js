@@ -6,6 +6,10 @@ module.exports = {
       fontSize: {
         'xxs': '.65rem',
       },
+      colors: {
+        'beige-la': '#f3dfca',
+        't-purple': '#4A0B2E', 
+      }
     },
   },
 
