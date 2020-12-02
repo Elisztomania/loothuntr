@@ -6,7 +6,7 @@
 
   <h2 class="text-center pt-16 pb-8 text-2xl">Les pistes pour la quête <em><%= @guild.quest.title %></em></h2>
 
-    <div class="mx-40 text-center">
+    <div class="mx-40 text-center py-4">
       <%= link_to "Explorer une nouvelle piste", new_guild_post_path(@guild), class: "btn-rejoindre font-extrabold rounded mt-10 mb-10 py-2 px-4" %>
     </div>
 
@@ -16,19 +16,22 @@
         <div class="min-w-0 p-4 m-4 bg-white rounded-xl h-auto">
           <% i += 1 %>
             <div class="p-3 rounded-xl bg-gray-50 mb-4" id= "<%= piste.id %>">
-              <div class="flex items-center">
+              <div class="flex items-center pb-1">
                 <%= image_tag piste.user.photo, class: "avatar-mini"%>
-                <h3 class="text-lg pl-2">Piste n°<%= i %> : <%= piste.title %></h3>
-                <p class="flex text-sm italic text-gray-800"> <%= piste.created_at.strftime("%d %b. %Y") %></p>
+                <h3 class="flex text-lg pl-2 items-center">Piste n°<%= i %> : <%= piste.title %>
+                <p class="flex text-xxs italic text-gray-600 pl-2 pt-1"> <%= piste.created_at.strftime("%d %b. %y") %></p></h3>
               </div>
-                <p><%= piste.description %></p>
-              <div class="flex items-center justify-center m-2">
+                <p class="px-2 text-justify"><%= piste.description %></p>
+
+              <div class="flex items-center justify-center m-2 pb-2">
                 <% piste.photos.each do |photo| %>
                   <div class="p-1"><%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %></div>
                 <% end %>
               </div>
 
-              <div class="comments pb-2">
+              <hr>
+
+              <div class="comments py-2">
                 <% if piste.category != "piste_publiee" %>
                   <% piste.comments.each do |comment| %>
                     <%= render 'comments/comment_section', comment: comment %>
@@ -38,7 +41,7 @@
 
                 <p><%= simple_form_for [piste, @comment_new], remote: true do |f| %>
                   <div class="flex items-center">
-                    <%= f.input_field :content, label: false, placeholder: "Votre commentaire", class: 'pr-3 block w-full pl-2 pr-12 sm:text-sm border-gray-300 rounded-md' %>
+                    <%= f.input_field :content, as: :string, label: false, placeholder: "Votre commentaire", class: 'pr-3 block w-full pl-2 pr-12 py-2.5 sm:text-sm border-gray-300 rounded-md' %>
                     <%= button_tag type: 'submit', class: 'btn-dash py-2 px-3 rounded-sm ml-3' do %>
                       <i class="fas fa-paper-plane"></i>
                     <% end %>

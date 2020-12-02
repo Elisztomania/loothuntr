@@ -3,7 +3,7 @@ $pinky: #ba3841;
 $darkp: #4a0b2e;
 
 .button-create-quest {
-  background-color: $corail;
+  background-color: #ba3841;
   color: white;
   border-radius: 2px;
   padding-left: 16px;
@@ -11,21 +11,32 @@ $darkp: #4a0b2e;
   padding-top: 12px;
   padding-bottom: 12px;
   font-weight: 600;
-}
-
-.button-create-quest:hover {
-  background-color: $pinky;
-  color: white;
-}
-
- // C'est une classe dans les div des champs des forms (enfin pour l'instant dans celui du form de creation de quest)
-.champ-form {
-  color: black;
-  font-weight: bold;
   font-family: 'Montserrat', sans-serif;
 }
 
+.button-create-quest:hover {
+  background-color: #731431;
+  color: white;
+}
+
+.button-index-home {
+  background-color: #ba3841;
+  color: white;
+  border-radius: 2px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+}
+
  // C'est une classe dans les div des champs des forms (enfin pour l'instant dans celui du form de creation de quest)
+
+
+ // C'est une classe dans les div des champs des forms (enfin pour l'instant dans celui du form de creation de quest)
+
 .btn-dash {
   background-color: $corail;
   color: white;
