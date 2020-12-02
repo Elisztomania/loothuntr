@@ -6,13 +6,13 @@
         <p class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8"> Envie de vivre une aventure incroyable ?</p>
         <% if current_user == nil %>
 
-        <button class="mr-2 no-underline">
-          <%= link_to "S'inscrire", new_user_registration_path, class:"mx-auto lg:mx-0 text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48 no-underline hover:text-black" %>
+        <button class="mr-2 no-underline hover:scale-110 hover-button">
+          <%= link_to "S'inscrire", new_user_registration_path, class:"mx-auto lg:mx-0 text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg  no-underline hover:text-white hover-button" %>
           </button>
         <% else %>
         <% end %>
-        <button class="ml-2 no-underline">
-          <%= link_to "Voir toutes les quêtes", quests_path, class:"mx-auto lg:mx-0 text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48n no-underline hover:text-black" %>
+        <button class="ml-2 no-underline hover:scale-110 hover-button">
+          <%= link_to "Voir toutes les quêtes", quests_path, class:"mx-auto lg:mx-0 text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg  no-underline hover:text-white hover-button"  %>
         </button>
       </div>
     </div>
@@ -85,7 +85,7 @@
 
 
 <!-- MAP DEBUT -->
-<center><h1 class="h1-mapbox">Découvrez toutes les quêtes en cours sur notre carte interactive !</h1></center>
+<center><h1 class="h1-mapbox text-3xl">Naviguez sur notre carte de trésors !</h1></center>
 <%= render 'shared_bastien/mapbox' %>
 
 <!-- MAP FIN -->
