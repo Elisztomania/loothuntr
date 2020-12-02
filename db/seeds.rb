@@ -132,18 +132,19 @@ puts 'Creating guilds...'
 puts 'Creating members...'
 
   Member.create!(guild: hunters_de_loot, user: indiana, accepted: true, cover_letter: "j'ai de l'expérienceeee")
-  Member.create!(guild: fiers_de_hache, user: benjamin, accepted: true, cover_letter: "j'ai beaucoup d'expérience")
-  Member.create!(guild: fiers_de_hache, user: ella, accepted: true, cover_letter: "j'ai plus d'expérienceeee")
-  Member.create!(guild: les_backeuses, user: indiana, accepted: true, cover_letter: "j'ai de fou de l'expérienceee")
-  Member.create!(guild: les_backeuses, user: ella, accepted: true, cover_letter: "j'ai masse l'expérienceee")
-  Member.create!(guild: les_chouetteurs, user: ella, accepted: true, cover_letter: "J'ai plus d'expérienceeee")
-  Member.create!(guild: les_chouetteurs, user: indiana, accepted: true, cover_letter: "Je suis Indiana Jones pas besoin de lettre de motivation!")
   Member.create!(guild: les_flexeurs, user: benjamin, accepted: true, cover_letter: "Je flex du lundi au dimanche")
   Member.create!(guild: les_flexeurs, user: lara, accepted: true, cover_letter: "Je suis une flexbox lalalilalèèèère")
+  Member.create!(guild: les_backeuses, user: indiana, accepted: true, cover_letter: "j'ai de fou de l'expérienceee")
+  Member.create!(guild: les_backeuses, user: ella, accepted: true, cover_letter: "j'ai masse l'expérienceee")
+  Member.create!(guild: fiers_de_hache, user: benjamin, accepted: true, cover_letter: "j'ai beaucoup d'expérience")
+  Member.create!(guild: fiers_de_hache, user: ella, accepted: true, cover_letter: "j'ai plus d'expérienceeee")
+  Member.create!(guild: les_chouetteurs, user: ella, accepted: true, cover_letter: "J'ai plus d'expérienceeee")
+  Member.create!(guild: les_chouetteurs, user: indiana, accepted: true, cover_letter: "Je suis Indiana Jones pas besoin de lettre de motivation!")
   Member.create!(guild: pirates_d_attaque, user: benjamin, accepted: true, cover_letter: "J'ai faim feed meeeeeeeeeee")
   Member.create!(guild: pirates_d_attaque, user: indiana, accepted: true, cover_letter: "acceptez-moi plssssssssss")
   Member.create!(guild: a_l_abordage, user: ella, accepted: true, cover_letter: "stp stp stp stp stp stp stp stp stp")
 
+  # Member.create!(guild: , user: , accepted: , cover_letter: "")
 
 puts "Creating La Chouette d'Or..."
 
