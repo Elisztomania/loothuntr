@@ -59,10 +59,10 @@
   <%= link_to pistes_guild_posts_path(@guild) do %>
     <div class="block min-w-0 mb-4 p-4 bg-white rounded-xl h-44 flex items-center justify-center"
     style="background-image:url('https://cdn.dribbble.com/users/152487/screenshots/5376334/map_dribbble_1.jpg'); background-position: center; background-size: 100%; box-shadow: inset 0 0 0 100vw rgba(7, 25, 43, 0.4)">
-      <% if @pistes.count > 1 %>
-        <h2 class="text-xl text-white"><%= @pistes.count %> pistes en cours 👀</h2>
-      <% elsif @pistes.count == 1 %>
-        <h2 class="text-xl text-white"><%= @pistes.count %> piste en cours 👀</h2>
+      <% if @pistes_en_cours.count > 1 %>
+        <h2 class="text-xl text-white"><%= @pistes_en_cours.count %> pistes en cours 👀</h2>
+      <% elsif @pistes_en_cours.count == 1 %>
+        <h2 class="text-xl text-white"><%= @pistes_en_cours.count %> piste en cours 👀</h2>
       <% else %>
         <h2 class="text-xl text-white">Pas encore de piste en cours 👀</h2>
       <% end %>
