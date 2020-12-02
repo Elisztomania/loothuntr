@@ -7,7 +7,7 @@
 
   <ul class="my-8 sm:my-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="text_decoration_card_quest">
 
-    <% @guilds.each do |guild| %>
+    <% @guilds.sort(:category).each do |guild| %>
     <% if current_user.is_member_of?(guild) %>
 
     <li class="group transition-transform duration-200 transform sm:hover:-translate-y-1">
@@ -25,9 +25,13 @@
             <p><i class="far fa-clock"></i> EN COURS</p>
           <% end %>
         </span></div>
-            <p class=" text-gray-900 text-sm leading-tight my-1">La guilde <em><%= guild.name %></em> est consacrée à la quête <strong><%= guild.quest.title %></strong></p>
-            <div class="m-3" >
-
+            <p class=" text-gray-900 text-sm leading-tight my-1"><strong><%= guild.name %></strong><em> - <%= guild.quest.title %></em></p>
+            <div class="flex item-center" >
+              <% guild.members.each do |member| %>
+                <% if member.accepted? %>
+                <div class="flex item-center px-1"><%= image_tag member.user.photo, class: "avatar-mini"%></div>
+                <% end %>
+              <% end %>
             </div>
         <% end %>
         </div>
