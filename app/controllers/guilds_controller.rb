@@ -11,6 +11,7 @@ class GuildsController < ApplicationController
     @post_new = Post.new
     @comment_new = Comment.new
     @pistes = Post.where(category: ["piste", "piste_publiee"], guild: @guild)
+    @pistes_en_cours = Post.where(category: ["piste"], guild: @guild)
   end
 
   def new
