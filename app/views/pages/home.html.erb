@@ -2,7 +2,7 @@
 <div class="gradient leading-relaxed tracking-wide flex flex-col space-y-0">
     <div class="container mx-auto mt-8 ">
       <div class="text-center px-3 lg:px-0">
-        <h1 class="my-4 text-2xl md:text-3xl lg:text-5xl font-black leading-tight"> Passez votre recherche de trésor au niveau supérieur !</h1>
+        <h1 class="mt-10 mb-4 text-2xl md:text-3xl lg:text-5xl font-black leading-tight"> Passez votre recherche de trésor au niveau supérieur !</h1>
         <p class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8"> Organisez vos quêtes. Créez vos guildes.</p>
         <% if current_user == nil %>
 
@@ -11,7 +11,7 @@
           </button>
         <% else %>
         <% end %>
-        <button class="ml-2 no-underline hover:scale-110 hover-button">
+        <button class="mt-4 ml-2 no-underline hover:scale-110 hover-button">
           <%= link_to "Voir toutes les quêtes", quests_path, class:"mx-auto lg:mx-0 text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg  no-underline hover:text-white hover-button"  %>
         </button>
       </div>

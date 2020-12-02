@@ -120,7 +120,7 @@
 
 <!-- DEBUT CANDIDATURES POUR REJOINDRE VISIBLE QUE PAR CREATOR -->
     <% if @guild.creator == current_user && @guild.members.waiting.present? %>
-    <div class="min-w-0 p-4 bg-white rounded-xl h-auto overflow-auto col-end-3 col-span-1">
+    <div class="min-w-0 p-4 -mt-12 bg-white rounded-xl h-auto overflow-auto col-end-3 col-span-1">
       <% if @guild.members.waiting.count > 1 %>
         <h2 class="text-xl text-center">Ils veulent rejoindre votre guilde</h2>
       <% else %>
