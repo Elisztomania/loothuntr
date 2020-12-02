@@ -7,21 +7,21 @@
 
   <ul class="my-8 sm:my-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="text_decoration_card_quest">
 
-    <% @guilds.each do |guild| %>
-    <% if current_user.is_member_of?(guild) %>
+    <% @quests.each do |quest| %>
+    <% if current_user.is_member_of?(quest.guild) %>
 
     <li class="group transition-transform duration-200 transform sm:hover:-translate-y-1">
       <div class="relative flex-shrink-0">
-        <%= link_to guild_path(guild) do %>
-        <div class="transition duration-200 group-hover:shadow-2xl w-full h-full rounded-lg shadow-md object-cover"><%= cl_image_tag guild.quest.photo.key, height: 400, width: 400, crop: :fill %></div>
+        <%= link_to guild_path(quest.guild) do %>
+        <div class="transition duration-200 group-hover:shadow-2xl w-full h-full rounded-lg shadow-md object-cover"><%= cl_image_tag quest.photo.key, height: 400, width: 400, crop: :fill %></div>
 
       </div>
 
       <div class="relative px-4 -mt-12 text-left">
         <div class="bg-white rounded-lg px-4 py-3 transition duration-200 sm:group-hover:shadow-2xl shadow-md">
-          <div class="text-xs text-gray-600 font-semibold"><span class="uppercase"><%= guild.quest.resolved ? "Quête résolue" : "Quête en cours" %></span> </div>
+          <div class="text-xs text-gray-600 font-semibold"><span class="uppercase"><%= quest.resolved ? "Quête résolue" : "Quête en cours" %></span> </div>
 
-            <p class=" text-gray-900 text-sm leading-tight my-1">La guilde <em><%= guild.name %></em> est consacrée à la quête <strong><%= guild.quest.title %></strong></p>
+            <p class=" text-gray-900 text-sm leading-tight my-1">La guilde <em><%= quest.guild.name %></em> est consacrée à la quête <strong><%= quest.title %></strong></p>
             <div class="m-3" >
 
             </div>
