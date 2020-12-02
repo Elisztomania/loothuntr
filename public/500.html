@@ -1,66 +1,124 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
+  <title>Quelque chose ne va pas - LootHuntr</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" charset=utf-8>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+    <style>
+      body {
+        font-family: 'Montserrat', sans-serif;
+        color:#444444;
+        margin: 0;
+        text-align: center;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+      }
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+        flex-shrink: 0;
+        background-color: white;
+        box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+      }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
+      .logo {
+        text-align: center;
+        width: 100%;
+      }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-  </style>
-</head>
+      .logo img {
+        width: 70px;
+      }
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
+      main {
+        flex-grow: 1;
+        display: flex;
+        padding: 0 10px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      a.underlined {
+        color:#444444;
+        text-decoration: none;
+        display: inline-block;
+        padding-bottom: 1px;
+        border-bottom: 1px solid #444444;
+      }
+
+      a.title {
+        font-family: 'Montserrat', sans-serif;
+        color: black;
+        text-decoration: none;
+        margin-bottom: 5px;
+        display: inline-block;
+        padding-bottom: 1px;
+      }
+
+      .leafy {
+        flex-grow: 1;
+        max-width: 45%;
+      }
+
+      .four {
+        flex-grow: 1;
+        max-width: 40%;
+      }
+
+      main > div {
+        margin-bottom: 100px;
+      }
+
+      .flex {
+        display: flex;
+      }
+
+      .justify-center {
+        justify-content: center;;
+      }
+
+      .mb-8 {
+        margin-bottom: 2rem;
+      }
+
+      h1 {
+        font-family: 'Montserrat', sans-serif;
+        margin-bottom: 20px;
+        margin-top: 100px;
+        font-weight: 100;
+      }
+      @media (min-width: 1024px) {
+        body {
+          text-align: center;
+        }
+
+        a.underlined {
+          padding-bottom: 3px;
+        }
+      }
+    </style>
+
+  </head>
+
+  <body>
+      <div class= "logo">
+        <a class="title" href="/"><img src="logotype_2_map.png" alt="LootHuntr">LootHuntr</a>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
-  </div>
-</body>
+
+    <main>
+      <div>
+        <h1>Oups, quelque chose ne va pas 🤕🔎</h1>
+        <div class="flex justify-center mb-8">
+          <img class="four" src="404_orange.png" alt="error 404">
+        </div>
+        <p>À la place, nous vous invitons à investiger toutes les <a class="underlined" href="/quests">quêtes</a></p>
+      </div>
+    </main>
+  </body>
 </html>

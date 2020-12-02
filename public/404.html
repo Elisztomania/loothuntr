@@ -7,7 +7,7 @@
 
     <style>
       body {
-        font-family: 'Raleway', sans-serif;
+        font-family: 'Montserrat', sans-serif;
         color:#444444;
         margin: 0;
         text-align: center;
@@ -33,7 +33,7 @@
       }
 
       .logo img {
-        width: 200px;
+        width: 70px;
       }
 
       main {
@@ -52,6 +52,15 @@
         border-bottom: 1px solid #444444;
       }
 
+      a.title {
+        font-family: 'Montserrat', sans-serif;
+        color: black;
+        text-decoration: none;
+        margin-bottom: 5px;
+        display: inline-block;
+        padding-bottom: 1px;
+      }
+
       .leafy {
         flex-grow: 1;
         max-width: 45%;
@@ -59,7 +68,7 @@
 
       .four {
         flex-grow: 1;
-        max-width: 47%;
+        max-width: 40%;
       }
 
       main > div {
@@ -79,7 +88,9 @@
       }
 
       h1 {
-        margin-bottom: 50px;
+        font-family: 'Montserrat', sans-serif;
+        margin-bottom: 20px;
+        margin-top: 100px;
         font-weight: 100;
       }
       @media (min-width: 1024px) {
@@ -96,19 +107,17 @@
   </head>
 
   <body>
-    <div class="navbar">
       <div class= "logo">
-        <a href="/"><img src="/wedressfair-logo.svg" alt="LootHuntr"></a>
-      </div>
+        <a class="title" href="/"><img src="logotype_2_map.png" alt="LootHuntr">LootHuntr</a>
     </div>
 
     <main>
       <div>
-        <h1>Nous n'avons pas trouvé ce que vous cherchez 🤕</h1>
+        <h1>Oups, nous n'avons pas trouvé ce que vous cherchez 🤕🔎</h1>
         <div class="flex justify-center mb-8">
           <img class="four" src="404_orange.png" alt="error 404">
         </div>
-        <p>On vous invite à faire un tour sur <a class="underlined" href="/blog">notre blog</a> ou à jeter un oeil à notre <a class="underlined" href="/catalogue">collection</a></p>
+        <p>À la place, nous vous invitons à investiger toutes les <a class="underlined" href="/quests">quêtes</a></p>
       </div>
     </main>
   </body>
