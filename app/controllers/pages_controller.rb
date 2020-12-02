@@ -11,12 +11,21 @@ class PagesController < ApplicationController
     # @quests = policy_scope(Quest).order(created_at: :desc)
 
     @markers = @quests.geocoded.map do |quest|
+      if quest.resolved
       {
         lat: quest.latitude,
         lng: quest.longitude,
         infoWindow: render_to_string(partial: "shared_bastien/info_window", locals: { quest: quest }),
-        image_url: helpers.asset_url('treasure-chest.png')
+        image_url: helpers.asset_url('pin-terminee.png')
       }
+    else
+            {
+        lat: quest.latitude,
+        lng: quest.longitude,
+        infoWindow: render_to_string(partial: "shared_bastien/info_window", locals: { quest: quest }),
+        image_url: helpers.asset_url('location1.png')
+      }
+    end
     end
   end
 end
