@@ -43,12 +43,12 @@
     <div class="mx-10 my-6 text-center text-sm">
       <% if @quest.guild.present? %>
         <% if current_user != nil && @quest.resolved == true %>
-          <p class="text-lg">La guilde <strong><%= @quest.guild.name %></strong> a résolu la quête</p>
-          <p class="italic mb-10">« <%=@quest.guild.description  %> »</p>
-          <div class="flex item-center mx-auto" >
+          <p class="text-lg mb-2">La guilde <strong><%= @quest.guild.name %></strong> a résolu la quête</p>
+          <p class="italic mb-3">« <%=@quest.guild.description  %> »</p>
+          <div class="flex items-center justify-center" >
             <% @quest.guild.members.each do |member| %>
               <% if member.accepted? %>
-                <div class="flex item-center px-1"><%= image_tag member.user.photo, class: "avatar" %></div>
+                <div class="px-1"><%= image_tag member.user.photo, class: "avatar" %></div>
               <% end %>
             <% end %>
           </div>
