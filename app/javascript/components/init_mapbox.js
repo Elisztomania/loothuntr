@@ -16,6 +16,8 @@ const initMapbox = () => {
       style: 'mapbox://styles/mapbox/satellite-streets-v11'
 
     });
+
+
     const markers = JSON.parse(mapElement.dataset.markers);
     if (markers) {
     markers.forEach((marker) => {
