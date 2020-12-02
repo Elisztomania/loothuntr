@@ -3,6 +3,7 @@ class GuildsController < ApplicationController
 
   def show_my_guilds
     @guilds = Guild.all
+    @quests = Quest.joins(:guild).where(guilds: { id: @guilds.pluck(:id) }).order("resolved ASC")
   end
 
   def show
