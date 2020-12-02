@@ -1,13 +1,35 @@
 <!-- FORMULAIRE QUI CREER UNE NOUVELLE PISTE -->
+<div class=" md:p-10  md:px-0 items-center flex flex-col">
 
-<div class="container">
+    <div class=" max-w-lg md:p-12 my-8 shadow-2xl body-bg rounded-md">
+        <div class="text-center">
+            <h3 class="font-bold text-3xl">Créer ma super piste</h3>
+        </div>
+    <div class="mt-8  ">
+
   <%= simple_form_for [@guild, @post] do |f| %>
-      <%= f.hidden_field :category, value: 'piste' %>
-      <%= f.input :title, label: 'Titre'  %>
-      <%= f.input :description, label: 'Description'  %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <form class="flex flex-col" method="POST" action="#">
+    <div class=" border-black-100 rounded w-full text-black-900 focus:outline-none focus:border-purple-600 transition duration-500 p-1 mb-1 champ-form">
+        <%= f.hidden_field :category, value: 'piste' %>
+    </div>
+    <div class=" border-black-100 rounded w-full text-black-900 focus:outline-none focus:border-purple-600 transition duration-500 p-1 mb-1 champ-form">
+    <%= f.input :title, label: 'Titre'  %>
+    </div>
+    <div class=" border-black-100 rounded w-full text-black-900 focus:outline-none focus:border-purple-600 transition duration-500 p-1 mb-1 champ-form">
+    <%= f.input :description, label: 'Description'  %>
+    </div>
+    <div class=" border-black-100 rounded w-full text-black-900 focus:outline-none focus:border-purple-600 transition duration-500 p-1 mb-1 champ-form">
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    </div>
+    <div class="flex flex-col items-center mt-4 px-12">
+
+
       <!--     <% if @post.new_record? %> -->
-        <%= f.button :submit, 'Créer ma piste', class: 'btn btn-primary'  %>
+        <%= f.button :submit, 'Créer ma piste', class: 'button-create-quest'   %>
       <!--    <% end %> -->
+    </div>
   <% end %>
+</form>
+</div>
+</div>
 </div>
