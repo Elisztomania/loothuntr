@@ -142,6 +142,7 @@ puts 'Creating members...'
   Member.create!(guild: les_chouetteurs, user: indiana, accepted: true, cover_letter: "Je suis Indiana Jones pas besoin de lettre de motivation!")
   Member.create!(guild: pirates_d_attaque, user: benjamin, accepted: true, cover_letter: "J'ai faim feed meeeeeeeeeee")
   Member.create!(guild: pirates_d_attaque, user: indiana, accepted: true, cover_letter: "acceptez-moi plssssssssss")
+  Member.create!(guild: aventurados, user: lara, accepted: true, cover_letter: "j'adore les avocats, j'en cultive")
   Member.create!(guild: a_l_abordage, user: ella, accepted: true, cover_letter: "stp stp stp stp stp stp stp stp stp")
 
   # Member.create!(guild: , user: , accepted: , cover_letter: "")
