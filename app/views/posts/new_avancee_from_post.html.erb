@@ -4,14 +4,14 @@
 
     <div class=" max-w-lg md:p-12 my-8 shadow-2xl body-bg rounded-md">
         <div class="text-center">
-            <h3 class="font-bold text-3xl">Créer ma super quête</h3>
+            <h3 class="font-bold text-3xl">Publier l'avancée sur la quête</h3>
         </div>
 
         <div class="mt-8  ">
 
   <!-- @post.photos -->
   <% @post.photos.each do |photo| %>
-      <div class="flex-1 self-center"><%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %></div>
+      <div class="flex-1 self-center p-1"><%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %></div>
   <% end %>
 
   <%= simple_form_for @avancee, url:create_avancee_from_post_post_path do |f| %>
@@ -23,7 +23,7 @@
       <%= f.input :description, label: 'Description'  %>
   </div>
   <div class="flex flex-col items-center mt-4 px-12">
-      <%= f.button :submit, 'Poster mon avancée sur la quête', class: 'button-create-quest' %>
+      <%= f.button :submit, "Publier", class: 'button-create-quest' %>
   </div>
   <% end %>
 

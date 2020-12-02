@@ -2,7 +2,7 @@
 
     <div class=" max-w-lg md:p-12 my-8 shadow-2xl body-bg rounded-md">
         <div class="text-center">
-            <h3 class="font-bold text-3xl">Créer ma super quête</h3>
+            <h3 class="font-bold text-3xl">Créer une super quête</h3>
         </div>
 
         <div class="mt-8  ">
@@ -26,9 +26,9 @@
 
                 <div class="flex flex-col items-center mt-4 px-12">
                   <% if @quest.new_record? %>
-                  <%= f.button :submit, 'Créer ma super quête', class: 'button-create-quest'  %>
+                  <%= f.button :submit, 'Créer', class: 'button-create-quest'  %>
                   <% else %>
-                  <%= f.button :submit, 'Mettre à jour ma super quête', class: 'button-create-quest'  %>
+                  <%= f.button :submit, 'Mettre à jour', class: 'button-create-quest'  %>
                   <% end %>
                 </div>
                 <% end %>
