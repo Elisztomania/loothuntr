@@ -2,7 +2,7 @@
   <% if @quest.photo.attached? %>
     <div class="w-full m-0 p-0 bg-cover bg-bottom" style="background-image:url('<%= cl_image_path @quest.photo.key %>'); background-position: center; height: 60vh; max-height:460px; box-shadow: inset 0 0 0 100vw rgba(7, 25, 43, 0.4)">
   <% else %>
-    <div class="w-full m-0 p-0 bg-cover bg-bottom" style="background-image:url('https://images.unsplash.com/photo-1521897258701-21e2a01f5e8b?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGNvaW5zfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60'); background-position: center; height: 60vh; max-height:460px; box-shadow: inset 0 0 0 100vw rgba(7, 25, 43, 0.4)">
+    <div class="w-full m-0 p-0 bg-cover bg-bottom" style="background-image:url('https://www.gtreview.com/wp-content/uploads/2014/11/Gold-coins-treasure-stacks.jpg'); background-position: center; height: 60vh; max-height:460px; box-shadow: inset 0 0 0 100vw rgba(7, 25, 43, 0.4)">
   <% end %>
     <div class="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
       <!--Title-->
@@ -34,7 +34,7 @@
             <h2 class="w-full font-bold text-xl text-gray-900 px-6 mt-4 mb-4 ">🤩 Informations clés</h2>
               <div class="text-gray-800 font-serif text-base px-10 justify-self-center">
                  <p> 📍 <%= @quest.location %> </p>
-                 <p> ➡️ <%= @quest.resolved ? "Résolue" : "Non résolue" %> </p>
+                 <p> ➡️ <%= @quest.resolved ? "Terminée" : "En cours" %> </p>
                  <p> 🕺 <%= @quest.creator.username %> </p>
               </div>
 

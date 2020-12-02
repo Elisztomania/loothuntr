@@ -25,9 +25,9 @@
         <div class="bg-white rounded-lg px-4 py-3 transition duration-200 sm:group-hover:shadow-2xl shadow-md">
 
           <div class="text-xs text-gray-600 font-semibold"><span class="uppercase"><% if quest.resolved %>
-            <p class="text-yellow-400"><i class="far fa-check-circle"></i> TERMINEE</p>
+            <p><i class="far fa-check-circle"></i> TERMINEE</p>
           <% else %>
-            <p><i class="far fa-clock"></i> EN COURS</p>
+            <p class="text-yellow-400"><i class="far fa-clock"></i> EN COURS</p>
           <% end %>
         </span></div>
             <p class=" text-gray-900 text-sm leading-tight my-1"><strong><%= quest.guild.name %></strong><em> - <%= quest.title %></em></p>
