@@ -9,6 +9,9 @@ module.exports = {
       colors: {
         'beige-la': '#f3dfca',
         't-purple': '#4A0B2E', 
+      },
+      spacing: {
+        '18': '4.5rem'
       }
     },
   },
