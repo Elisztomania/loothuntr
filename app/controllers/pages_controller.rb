@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
+    @quests_terminees = Quest.where(resolved: true)
     @quests = Quest.all
     @guild = Guild.first
     @member = Member.first
