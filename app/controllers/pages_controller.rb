@@ -15,6 +15,7 @@ class PagesController < ApplicationController
         lat: quest.latitude,
         lng: quest.longitude,
         infoWindow: render_to_string(partial: "shared_bastien/info_window", locals: { quest: quest }),
+        image_url: helpers.asset_url('treasure-chest.png')
       }
     end
   end

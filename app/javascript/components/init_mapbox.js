@@ -22,14 +22,23 @@ const initMapbox = () => {
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
 
   // Create a HTML element for your custom marker
+      const element = document.createElement('div');
+      element.className = 'marker';
 
+      element.style.backgroundImage = `url('${marker.image_url}')`;
 
-      new mapboxgl.Marker()
+      element.style.backgroundSize = 'cover';
+      element.style.width = '30px';
+      element.style.height = '45px';
+
+      new mapboxgl.Marker(element)
         .setLngLat([ marker.lng, marker.lat ])
+
         .setPopup(popup)
         .addTo(map);
     });
     fitMapToMarkers(map, markers);
+    console.log(markers);
    }}
 };
 
