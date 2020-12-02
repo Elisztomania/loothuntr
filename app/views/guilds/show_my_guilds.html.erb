@@ -14,8 +14,8 @@
       <div class="relative flex-shrink-0">
 
         <%= link_to guild_path(quest.guild) do %>
-        <% if guild.quest.photo.attached? %>
-          <div class="transition duration-200 group-hover:shadow-2xl w-full h-full rounded-lg shadow-md object-cover"><%= cl_image_tag guild.quest.photo.key, height: 400, width: 400, crop: :fill %></div>
+        <% if quest.photo.attached? %>
+          <div class="transition duration-200 group-hover:shadow-2xl w-full h-full rounded-lg shadow-md object-cover"><%= cl_image_tag quest.photo.key, height: 400, width: 400, crop: :fill %></div>
         <% else %>
           <div class="transition duration-200 group-hover:shadow-2xl w-full h-full rounded-lg shadow-md object-cover"><%= image_tag "coins.jpg", height: 400, width: 400, crop: :fill %></div>
         <% end %>
