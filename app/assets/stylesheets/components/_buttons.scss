@@ -2,6 +2,54 @@ $corail: #ed6449;
 $pinky: #ba3841;
 $darkp: #4a0b2e;
 
+.button-create-quest-orange-beige {
+  background-color: #633E1C;
+  color: white;
+  border-radius: 2px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.button-create-quest-orange-beige:hover {
+  background-color: #633E1C;
+  color: white;
+  border-radius: 2px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.button-create-quest-orange {
+  background-color: #f3dfca;
+  color: black;
+  border-radius: 2px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.button-create-quest-orange:hover {
+  background-color: #ed6449;
+  color: white;
+  border-radius: 2px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+
 .button-create-quest {
   background-color: #ba3841;
   color: white;
@@ -70,4 +118,9 @@ $darkp: #4a0b2e;
 .btn-find {
   background-color: $pinky;
   color: white;
+}
+
+.hover-button:hover {
+  background-color: #ed6449;
+  color:white;
 }

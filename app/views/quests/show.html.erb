@@ -65,7 +65,7 @@
         <% end %>
 
       <% elsif @quest.creator == current_user %>
-          <%= link_to 'Créer une guilde', new_quest_guild_path(@quest), class: "" %>
+          <%= link_to 'Créer une guilde', new_quest_guild_path(@quest), class: "button-create-quest" %>
 
       <% else %>
           <p>Pas de guilde active sur la quête</p>
