@@ -44,13 +44,26 @@
       <% if @quest.guild.present? %>
         <% if current_user != nil && @quest.resolved == true %>
           <p class="text-lg">La guilde <strong><%= @quest.guild.name %></strong> a résolu la quête</p>
+          <p class="italic">" <%=@quest.guild.description  %> "</p>
+          <div class="flex item-center mx-auto" >
+            <% @quest.guild.members.each do |member| %>
+              <% if member.accepted? %>
+                <div class="flex item-center px-1"><%= image_tag member.user.photo, class: "avatar" %></div>
+              <% end %>
+            <% end %>
+          </div>
+
         <% elsif current_user != nil && current_user.is_member_of?(@quest.guild) %>
           <p class="text-base font-semibold mt-10"> Guilde active sur la quête : <%= @quest.guild.name %> </p><br>
+          <p class="italic">" <%=@quest.guild.description  %> "</p>
           <%= link_to "Tableau de bord de guilde", guild_path(@quest.guild), class: "btn-dash mx-auto lg:mx-0 font-extrabold rounded mt-20 md:my-6 py-2 px-4 w-48n no-underline" %>
+
         <% elsif current_user != nil && !current_user.has_apply_to?(@quest.guild) %>
           <p class="text-base font-semibold mt-10"> Guilde active sur la quête : <%= @quest.guild.name %> </p><br>
+          <p class="italic">" <%=@quest.guild.description  %> "</p>
           <%= link_to "Postuler pour les rejoindre", new_guild_member_path(@quest.guild), class: "btn-rejoindre mx-auto lg:mx-0 font-extrabold rounded mt-20 md:my-6 py-2 px-4 w-48n no-underline" %>
-           <% end %>
+        <% end %>
+
       <% elsif @quest.creator == current_user %>
           <%= link_to 'Créer une guilde', new_quest_guild_path(@quest), class: "" %>
 
@@ -83,8 +96,9 @@
       <div class="grid gap-6 mb-8 md:grid-cols-2 ">
         <% @quest.avancees.each do |avancee| %>
         <div class="m-6 p-6 min-w-0 p-4 rounded-m shadow-lg dark:bg-gray-800 bg-show-quest">
-          <h3 class="pb-0.5 font-semibold text-3xl"><%= avancee.title %></h3>
-          <p class="flex text-sm italic text-gray-800"> <%= avancee.created_at.strftime("%d %b. %Y") %></p><br>
+          <div class="flex item-center px-1"><%= image_tag avancee.user.photo, class: "avatar"%>
+          <h3 class="pl-2 font-semibold text-3xl"><%= avancee.title %></h3></div>
+          <p class="flex text-sm italic pl-5 text-gray-800"> <%= avancee.created_at.strftime("%d %b. %Y") %></p><br>
           <p class="text-justify"><%= avancee.description %></p>
           <div class="inline-flex space-x-4 p-6 center">
           <% avancee.photos.each do |photo| %>
