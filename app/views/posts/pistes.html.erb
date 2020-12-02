@@ -51,11 +51,11 @@
 
           </div>
 
-              <div class="ml-100">
+              <div class="">
                 <% if piste.category == 'piste' %>
                   <div class="mt-2 items-right"><%= link_to "Poster l'avancée", new_avancee_from_post_post_path(piste), class: "btn btn-dash"  %></div>
                 <% elsif piste.category == 'piste_publiee' %>
-                  <p class= "btn mt-10">Avancée déjà publiée</p>
+                  <p class= "text-lg text-right italic text-t-purple">Avancée déjà publiée 🏴‍☠️</p>
                 <% end %>
               </div>
         </div>

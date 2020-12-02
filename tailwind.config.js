@@ -7,7 +7,8 @@ module.exports = {
         'xxs': '.65rem',
       },
       colors: {
-        'beige-la': '#f3dfca', 
+        'beige-la': '#f3dfca',
+        't-purple': '#4A0B2E', 
       }
     },
   },
