@@ -13,7 +13,7 @@ class PagesController < ApplicationController
       {
         lat: quest.latitude,
         lng: quest.longitude,
-        infoWindow: render_to_string(partial: "shared_bastien/info_window", locals: { quest: quest })
+        infoWindow: render_to_string(partial: "shared_bastien/info_window", locals: { quest: quest }),
       }
     end
   end
