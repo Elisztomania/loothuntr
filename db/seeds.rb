@@ -92,7 +92,7 @@ Parmi elles se trouvaient les sœurs Watrin dites 'les vierges de Verdun'. Avant
       source = File.open("app/assets/images/anglet.jpg")
       tresor_anglet.photo.attach(io: source, filename: 'anglet.jpg', content_type: 'image/jpg')
         tresor_anglet.save!
-  tresor_rennes_le_chateau = Quest.create!(title: "L'abbé de Rennes-le-château", description: "Historiquement, la première trace écrite mentionnant le prétendu trésor de l'abbé Saunières date de 1936. Elle réside dans le récit des voyages de Jean Girou dans la haute vallée de l'Aude. Voici ce que l'on peut encore y lire aujourd'hui : « des maisons en ruine, un château féodal délabré surplombent et se confondent avec la falaise calcaire, puis des villas, des tours à véranda, neuves et modernes contrastent étrangement avec ces ruines : c'est la maison d'un curé qui aurait bâti cette demeure somptueuse avec l'argent d'un trésor trouvé».", location:"Rennes-le-château", resolved: false, creator: ella )
+  tresor_rennes_le_chateau = Quest.create!(title: "L'abbé de Rennes-le-château", description: "Historiquement, la première trace écrite mentionnant le prétendu trésor de l'abbé Saunières date de 1936. Elle réside dans le récit des voyages de Jean Girou dans la haute vallée de l'Aude. Voici ce que l'on peut encore y lire aujourd'hui : « des maisons en ruine, un château féodal délabré surplombent et se confondent avec la falaise calcaire, puis des villas, des tours à véranda, neuves et modernes contrastent étrangement avec ces ruines : c'est la maison d'un curé qui aurait bâti cette demeure somptueuse avec l'argent d'un trésor trouvé».", location:"Rennes-le-château", resolved: true, creator: ella )
       tresor_rennes_le_chateau.update(latitude: 42.9333, longitude: 2.2667)
       source = File.open("app/assets/images/rennes_le_chateau.jpg")
       tresor_rennes_le_chateau.photo.attach(io: source, filename: 'rennes_le_chateau.jpg', content_type: 'image/jpg')
@@ -149,7 +149,7 @@ puts 'Creating members...'
 
 puts "Creating La Chouette d'Or..."
 
-  orga_CO_1 = Post.create!(user: lara, guild: les_chouetteurs, title: "Choix de date pour prochaine sortie", description:"Quelle date vous convient le mieux? Le samedi 12 décmebre?", category: "orga")
+  orga_CO_1 = Post.create!(user: lara, guild: les_chouetteurs, title: "Choix de date pour prochaine sortie", description:"Quelle date vous convient le mieux? Le samedi 12 décembre?", category: "orga")
 
   piste_CO_1 = Post.create!(user: lara, guild: les_chouetteurs, title: "Deuxième énigme", description: "Mon Premier, première moitié de la moitié du premier âge,
   Précède mes Second et Troisième, cherchant leur chemin.
