@@ -21,7 +21,7 @@
     <h2 class="text-xl text-center pb-1">Les dernières publications</h2>
       <% @guild.posts.reverse_each do |post| %>
         <% if post.category == "orga" %>
-        <div class="p-3 rounded-xl bg-gray-50 my-2">
+        <div class="p-3 rounded-xl bg-gray-50 my-2" id= "<%= post.id %>">
           <div class="flex items-center">
             <%= image_tag post.user.photo, class: "avatar-mini"%>
             <h3 class="flex text-lg pl-2"><%= post.title %></h3>

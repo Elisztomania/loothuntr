@@ -1,7 +1,8 @@
 html = "<%= j render 'comments/comment_section', comment: @comment %>"
+post_id = "<%= @comment.post.id %>"
 
-document.querySelector(".comments").insertAdjacentHTML('beforeend', html)
-document.querySelector('#comment_content').value=''
+document.getElementById(post_id).querySelector(".comments").insertAdjacentHTML('beforeend', html)
+document.getElementById(post_id).querySelector('#comment_content').value=''
 
 
 // if commentaire pas d'id, regénérer le formulaire
