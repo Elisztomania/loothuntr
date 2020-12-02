@@ -77,7 +77,7 @@ puts 'Creating quests...'
         tresor_abbaye_jumiege.save!
   tresor_vierges_verdun = Quest.create!(title: "La dot des vierges de Verdun", description: "Lorsque pendant la Révolution, la ville de Verdun fut investie par les troupes de Brunswick, la population accueillit l'envahisseur par des liesses et des fêtes. Une cérémonie fut donnée au cours de laquelle, des jeunes filles toutes vêtues de blanc, vinrent remettre des dragées et des bouquets de fleurs au conquérant. Parmi elles, on comptait trois sœurs issues de la classe aisée de Verdun, les sœurs Watrin. La ville fut finalement reprise par les Français et près de quarante des participants à la réception, furent dénoncés par leurs concitoyens et arrêtées.
 Elles restèrent dans leurs geôles jusqu’en 1794, année au cours de laquelle elles furent finalement transférées à Paris pour y être jugées. Les plus jeunes furent condamnées à 20 ans de détention, les autres furent guillotinées.
-Parmi elles se trouvaient les sœurs Watrin dites 'les vierges de Verdun'. Avant d’être arrêtées, elles avaient morcelé leurs dots en 12 dépôts cachés ou enterrés en différents endroits de Verdun. Le montant total de ces dots atteindrait 10 000 livres et 5 000 écus en monnaies ainsi que des bijoux.", location:"Jumièges", resolved: false, creator: benjamin )
+Parmi elles se trouvaient les sœurs Watrin dites 'les vierges de Verdun'. Avant d’être arrêtées, elles avaient morcelé leurs dots en 12 dépôts cachés ou enterrés en différents endroits de Verdun. Le montant total de ces dots atteindrait 10 000 livres et 5 000 écus en monnaies ainsi que des bijoux.", location:"Verdun", resolved: false, creator: benjamin )
       tresor_vierges_verdun.update(latitude: 49.1667, longitude: 5.3833)
       source = File.open("app/assets/images/vierges_verdun.jpg")
       tresor_vierges_verdun.photo.attach(io: source, filename: 'vierges_verdun.jpg', content_type: 'image/jpg')
@@ -92,7 +92,7 @@ Parmi elles se trouvaient les sœurs Watrin dites 'les vierges de Verdun'. Avant
       source = File.open("app/assets/images/anglet.jpg")
       tresor_anglet.photo.attach(io: source, filename: 'anglet.jpg', content_type: 'image/jpg')
         tresor_anglet.save!
-  tresor_rennes_le_chateau = Quest.create!(title: "L'abbé de Rennes-le-château", description: "Historiquement, la première trace écrite mentionnant le prétendu trésor de l'abbé Saunières date de 1936. Elle réside dans le récit des voyages de Jean Girou dans la haute vallée de l'Aude. Voici ce que l'on peut encore y lire aujourd'hui : « des maisons en ruine, un château féodal délabré surplombent et se confondent avec la falaise calcaire, puis des villas, des tours à véranda, neuves et modernes contrastent étrangement avec ces ruines : c'est la maison d'un curé qui aurait bâti cette demeure somptueuse avec l'argent d'un trésor trouvé».", location:"Rennes-le-château", resolved: false, creator: ella )
+  tresor_rennes_le_chateau = Quest.create!(title: "L'abbé de Rennes-le-château", description: "Historiquement, la première trace écrite mentionnant le prétendu trésor de l'abbé Saunières date de 1936. Elle réside dans le récit des voyages de Jean Girou dans la haute vallée de l'Aude. Voici ce que l'on peut encore y lire aujourd'hui : « des maisons en ruine, un château féodal délabré surplombent et se confondent avec la falaise calcaire, puis des villas, des tours à véranda, neuves et modernes contrastent étrangement avec ces ruines : c'est la maison d'un curé qui aurait bâti cette demeure somptueuse avec l'argent d'un trésor trouvé».", location:"Rennes-le-château", resolved: true, creator: ella )
       tresor_rennes_le_chateau.update(latitude: 42.9333, longitude: 2.2667)
       source = File.open("app/assets/images/rennes_le_chateau.jpg")
       tresor_rennes_le_chateau.photo.attach(io: source, filename: 'rennes_le_chateau.jpg', content_type: 'image/jpg')
@@ -114,33 +114,42 @@ Parmi elles se trouvaient les sœurs Watrin dites 'les vierges de Verdun'. Avant
 puts 'Creating guilds...'
 
   hunters_de_loot = Guild.create!(name:"Hunters de Loot", description:"On est des chasseurs de trésoooooors !", creator: user_admin, quest: tresor_LyonVaise)
-  fiers_de_hache = Guild.create!(name: "Les fiers de hache", description:"On va se faire le donjon de Naheulbeuk! OUAIIS!", creator: user_admin, quest: tresor_couvent_port_royal)
-  les_backeuses = Guild.create!(name: "Les backeuses", description:"Du talent dans des boites jaunes", creator: user_admin, quest: tresor_jeanguennego)
-  les_chouetteurs = Guild.create!(name: "Les Chouetteurs", description:"Passionnés par la quête de la Chouette d'or, déterminé à trouver le mystère de Michel Becker !", creator: lara, quest: tresor_chouette_or)
   les_flexeurs = Guild.create!(name: "Les Flexeurs", description:"On flex sur tout le monde et sur les trésors, retrouvenez en live Twitch le mardi à 15h21", creator: user_admin, quest: tresor_mandrin)
+  les_backeuses = Guild.create!(name: "Les backeuses", description:"Du talent dans des boites jaunes", creator: user_admin, quest: tresor_jeanguennego)
+  fiers_de_hache = Guild.create!(name: "Les fiers de hache", description:"On va se faire le donjon de Naheulbeuk! OUAIIS!", creator: user_admin, quest: tresor_couvent_port_royal)
+  les_chouetteurs = Guild.create!(name: "Les Chouetteurs", description:"Passionnés par la quête de la Chouette d'or, déterminé à trouver le mystère de Michel Becker !", creator: lara, quest: tresor_chouette_or)
   pirates_d_attaque = Guild.create!(name: "Pirates d'attaque", description:"Tipiac - Pirates !", creator: ella, quest: tresor_crypto_buse)
+  les_nuls = Guild.create!(name: "Les nuls", description:"[description nulle]", creator: benjamin, quest: tresor_abbaye_jumiege)
+  les_inconnus = Guild.create!(name: "Les inconnus", description:"[description inconnue]", creator: benjamin, quest: tresor_vierges_verdun)
+  aventurados = Guild.create!(name: "Les Aventurados", description:"Fans d'aventures et de guacamoleq", creator: indiana, quest: tresor_anglet )
+  renes_rennais = Guild.create!(name: "Renés les rennais", description:"Guilde avec uniquement des René qui viennent de Rennes-le-Château", creator: ella, quest: tresor_rennes_le_chateau)
   a_l_abordage = Guild.create!(name: "A l'abordage", description:"Tayooooooo", creator: user_admin, quest: tresor_auriol)
+
+
+   # = Guild.create!(name: "", description:"", creator: , quest: )
 
 
 puts 'Creating members...'
 
   Member.create!(guild: hunters_de_loot, user: indiana, accepted: true, cover_letter: "j'ai de l'expérienceeee")
-  Member.create!(guild: fiers_de_hache, user: benjamin, accepted: true, cover_letter: "j'ai beaucoup d'expérience")
-  Member.create!(guild: fiers_de_hache, user: ella, accepted: true, cover_letter: "j'ai plus d'expérienceeee")
-  Member.create!(guild: les_backeuses, user: indiana, accepted: true, cover_letter: "j'ai de fou de l'expérienceee")
-  Member.create!(guild: les_backeuses, user: ella, accepted: true, cover_letter: "j'ai masse l'expérienceee")
-  Member.create!(guild: les_chouetteurs, user: ella, accepted: true, cover_letter: "J'ai plus d'expérienceeee")
-  Member.create!(guild: les_chouetteurs, user: indiana, accepted: true, cover_letter: "Je suis Indiana Jones pas besoin de lettre de motivation!")
   Member.create!(guild: les_flexeurs, user: benjamin, accepted: true, cover_letter: "Je flex du lundi au dimanche")
   Member.create!(guild: les_flexeurs, user: lara, accepted: true, cover_letter: "Je suis une flexbox lalalilalèèèère")
+  Member.create!(guild: les_backeuses, user: indiana, accepted: true, cover_letter: "j'ai de fou de l'expérienceee")
+  Member.create!(guild: les_backeuses, user: ella, accepted: true, cover_letter: "j'ai masse l'expérienceee")
+  Member.create!(guild: fiers_de_hache, user: benjamin, accepted: true, cover_letter: "j'ai beaucoup d'expérience")
+  Member.create!(guild: fiers_de_hache, user: ella, accepted: true, cover_letter: "j'ai plus d'expérienceeee")
+  Member.create!(guild: les_chouetteurs, user: ella, accepted: true, cover_letter: "J'ai plus d'expérienceeee")
+  Member.create!(guild: les_chouetteurs, user: indiana, accepted: true, cover_letter: "Je suis Indiana Jones pas besoin de lettre de motivation!")
   Member.create!(guild: pirates_d_attaque, user: benjamin, accepted: true, cover_letter: "J'ai faim feed meeeeeeeeeee")
   Member.create!(guild: pirates_d_attaque, user: indiana, accepted: true, cover_letter: "acceptez-moi plssssssssss")
+  Member.create!(guild: aventurados, user: lara, accepted: true, cover_letter: "j'adore les avocats, j'en cultive")
   Member.create!(guild: a_l_abordage, user: ella, accepted: true, cover_letter: "stp stp stp stp stp stp stp stp stp")
 
+  # Member.create!(guild: , user: , accepted: , cover_letter: "")
 
 puts "Creating La Chouette d'Or..."
 
-  orga_CO_1 = Post.create!(user: lara, guild: les_chouetteurs, title: "Choix de date pour prochaine sortie", description:"Quelle date vous convient le mieux? Le samedi 12 décmebre?", category: "orga")
+  orga_CO_1 = Post.create!(user: lara, guild: les_chouetteurs, title: "Choix de date pour prochaine sortie", description:"Quelle date vous convient le mieux? Le samedi 12 décembre?", category: "orga")
 
   piste_CO_1 = Post.create!(user: lara, guild: les_chouetteurs, title: "Deuxième énigme", description: "Mon Premier, première moitié de la moitié du premier âge,
   Précède mes Second et Troisième, cherchant leur chemin.
