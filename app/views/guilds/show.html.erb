@@ -10,6 +10,7 @@
         <% end %>
       <% end %>
     </h1>
+    <h1 class="text-center italic text-xl font-light text-gray-500"><%= @guild.quest.title %></h1>
 
 <!-- GRID -->
 <div class="mx-10 py-8">
@@ -21,7 +22,7 @@
     <h2 class="text-xl text-center pb-1">Les dernières publications</h2>
       <% @guild.posts.reverse_each do |post| %>
         <% if post.category == "orga" %>
-        <div class="p-3 rounded-xl bg-gray-50 my-2">
+        <div class="p-3 rounded-xl bg-gray-50 my-2" id= "<%= post.id %>">
           <div class="flex items-center">
             <%= image_tag post.user.photo, class: "avatar-mini"%>
             <h3 class="flex text-lg pl-2 items-center"><%= post.title %>
@@ -58,7 +59,13 @@
   <%= link_to pistes_guild_posts_path(@guild) do %>
     <div class="block min-w-0 mb-4 p-4 bg-white rounded-xl h-44 flex items-center justify-center"
     style="background-image:url('https://cdn.dribbble.com/users/152487/screenshots/5376334/map_dribbble_1.jpg'); background-position: center; background-size: 100%; box-shadow: inset 0 0 0 100vw rgba(7, 25, 43, 0.4)">
-      <h2 class="text-xl text-white"><%= @pistes.count %> pistes en cours 👀</h2>
+      <% if @pistes.count > 1 %>
+        <h2 class="text-xl text-white"><%= @pistes.count %> pistes en cours 👀</h2>
+      <% elsif @pistes.count == 1 %>
+        <h2 class="text-xl text-white"><%= @pistes.count %> piste en cours 👀</h2>
+      <% else %>
+        <h2 class="text-xl text-white">Pas encore de piste en cours 👀</h2>
+      <% end %>
     </div>
   <% end %>
 
@@ -114,7 +121,11 @@
 <!-- DEBUT CANDIDATURES POUR REJOINDRE VISIBLE QUE PAR CREATOR -->
     <% if @guild.creator == current_user && @guild.members.waiting.present? %>
     <div class="min-w-0 p-4 bg-white rounded-xl h-auto overflow-auto col-end-3 col-span-1">
-      <h2 class="text-xl text-center">Des personnes veulent entrer dans votre guilde</h2>
+      <% if @guild.members.waiting.count > 1 %>
+        <h2 class="text-xl text-center">Ils veulent rejoindre votre guilde</h2>
+      <% else %>
+        <h2 class="text-xl text-center">Quelqu'un veut rejoindre votre guilde</h2>
+      <% end %>
       <br>
       <% @guild.members.waiting.each do |member| %>
         <div class="px-4 py-2 rounded-xl bg-gray-50">

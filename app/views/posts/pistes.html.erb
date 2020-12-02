@@ -15,7 +15,7 @@
         <% if piste.guild == @guild %>
         <div class="min-w-0 p-4 m-4 bg-white rounded-xl h-auto">
           <% i += 1 %>
-            <div class="p-3 rounded-xl bg-gray-50 mb-4">
+            <div class="p-3 rounded-xl bg-gray-50 mb-4" id= "<%= piste.id %>">
               <div class="flex items-center pb-1">
                 <%= image_tag piste.user.photo, class: "avatar-mini"%>
                 <h3 class="flex text-lg pl-2 items-center">Piste n°<%= i %> : <%= piste.title %>
