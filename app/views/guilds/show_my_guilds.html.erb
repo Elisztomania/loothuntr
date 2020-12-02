@@ -10,20 +10,31 @@
     <% @guilds.each do |guild| %>
     <% if current_user.is_member_of?(guild) %>
 
-    <li class="group transition-transform duration-200 transform sm:hover:-translate-y-1">
+    <li class="group transition-transform duration-200 transform sm:hover:-translate-y-1 inline-grid item-center">
       <div class="relative flex-shrink-0">
         <%= link_to guild_path(guild) do %>
-        <div class="transition duration-200 group-hover:shadow-2xl w-full h-full rounded-lg shadow-md object-cover"><%= cl_image_tag guild.quest.photo.key, height: 400, width: 400, crop: :fill %></div>
-
+        <% if guild.quest.photo.attached? %>
+          <div class="transition duration-200 group-hover:shadow-2xl w-full h-full rounded-lg shadow-md object-cover"><%= cl_image_tag guild.quest.photo.key, height: 400, width: 400, crop: :fill %></div>
+        <% else %>
+          <div class="transition duration-200 group-hover:shadow-2xl w-full h-full rounded-lg shadow-md object-cover"><%= image_tag "coins.jpg", height: 400, width: 400, crop: :fill %></div>
+        <% end %>
       </div>
 
       <div class="relative px-4 -mt-12 text-left">
         <div class="bg-white rounded-lg px-4 py-3 transition duration-200 sm:group-hover:shadow-2xl shadow-md">
-          <div class="text-xs text-gray-600 font-semibold"><span class="uppercase"><%= guild.quest.resolved ? "Quête résolue" : "Quête en cours" %></span> </div>
-
-            <p class=" text-gray-900 text-sm leading-tight my-1">La guilde <em><%= guild.name %></em> est consacrée à la quête <strong><%= guild.quest.title %></strong></p>
-            <div class="m-3" >
-
+          <div class="text-xs text-gray-600 font-semibold"><span class="uppercase"><% if guild.quest.resolved %>
+            <p class="text-yellow-400"><i class="far fa-check-circle"></i> TERMINEE</p>
+          <% else %>
+            <p><i class="far fa-clock"></i> EN COURS</p>
+          <% end %>
+        </span></div>
+            <p class=" text-gray-900 text-sm leading-tight my-1"><strong><%= guild.name %></strong><em> - <%= guild.quest.title %></em></p>
+            <div class="flex item-center" >
+              <% guild.members.each do |member| %>
+                <% if member.accepted? %>
+                <div class="flex item-center px-1"><%= image_tag member.user.photo, class: "avatar-mini"%></div>
+                <% end %>
+              <% end %>
             </div>
         <% end %>
         </div>
