@@ -19,6 +19,19 @@ $darkp: #4a0b2e;
   color: white;
 }
 
+.button-index-home {
+  background-color: #ba3841;
+  color: white;
+  border-radius: 2px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+}
+
  // C'est une classe dans les div des champs des forms (enfin pour l'instant dans celui du form de creation de quest)
 .champ-form {
   color: black;
