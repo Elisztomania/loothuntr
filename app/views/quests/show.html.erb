@@ -23,7 +23,7 @@
         <div class="w-full md:w-1/2 rounded-t group transition-transform duration-200 transform sm:hover:-translate-y-1">
           <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg h-full">
             <h2 class="w-full font-bold text-xl text-gray-900 px-6 mt-4 mb-4">🤔 Description</h2>
-            <p class="text-gray-800 font-serif text-base px-10 mb-5 ">
+            <p class="text-gray-800 font-serif text-base px-13 mb-5 ">
               <%= @quest.description %>
             </p>
           </div>
@@ -32,15 +32,16 @@
         <div class="w-full md:w-1/2 rounded-t group transition-transform duration-200 transform sm:hover:-translate-y-1">
           <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg h-full">
             <h2 class="w-full font-bold text-xl text-gray-900 px-6 mt-4 mb-4 ">🤩 Informations clés</h2>
-              <div class="text-gray-800 font-serif text-base px-10 justify-self-center">
-                 <p> 📍 <%= @quest.location %> </p>
-                 <p> ➡️ <%= @quest.resolved ? "Terminée" : "En cours" %> </p>
-                 <p> 🕺 <%= @quest.creator.username %> </p>
+              <div class="text-gray-800 font-serif text-base px-13 justify-self-center">
+                 <p class="mb-1"> 📍 <%= @quest.location %> </p>
+                 <p class="mb-1"> ➡️ <%= @quest.resolved ? "Quête terminée" : "Quête en cours" %> </p>
+                 <p class="mb-1"> 👑 Créée par <%= @quest.creator.username %> </p>
+                 <p class="mb-1"> ⏰ Le <%= @quest.created_at.strftime("%d %b. %Y") %></p>
               </div>
 
 
 <!--  INFO SI GUILDE ET LA REJOINDRE / TABLEAU DE BORD -->
-    <div class="mx-10 my-6 text-center text-sm">
+    <div class="mx-13 my-6 text-center text-sm">
       <% if @quest.guild.present? %>
         <% if current_user != nil && @quest.resolved == true %>
           <p class="text-lg mb-2">La guilde <strong><%= @quest.guild.name %></strong> a résolu la quête</p>
@@ -54,13 +55,13 @@
           </div>
 
         <% elsif current_user != nil && current_user.is_member_of?(@quest.guild) %>
-          <p class="text-base font-semibold mt-10"> Guilde active sur la quête : <%= @quest.guild.name %> </p><br>
+          <p class="text-lg font-semibold mt-10 mb-2"> Guilde active sur la quête : <%= @quest.guild.name %> </p>
           <p class="italic mb-10">« <%=@quest.guild.description  %> »</p>
           <%= link_to "Tableau de bord de guilde", guild_path(@quest.guild), class: "btn-dash mx-auto lg:mx-0 font-extrabold rounded mt-20 md:my-6 py-2 px-4 w-48n no-underline" %>
 
         <% elsif current_user != nil && !current_user.has_apply_to?(@quest.guild) %>
-          <p class="text-base font-semibold mt-10"> Guilde active sur la quête : <%= @quest.guild.name %> </p><br>
-          <p class="italic mb-10"> « <%=@quest.guild.description  %> »</p>
+          <p class="text-lg font-semibold mt-8 mb-2"> Guilde active sur la quête : <%= @quest.guild.name %> </p>
+          <p class="italic mb-8"> « <%=@quest.guild.description  %> »</p>
           <%= link_to "Postuler pour les rejoindre", new_guild_member_path(@quest.guild), class: "btn-rejoindre mx-auto lg:mx-0 font-extrabold rounded mt-20 md:my-6 py-2 px-4 w-48n no-underline" %>
         <% end %>
 
@@ -90,7 +91,7 @@
   <div class="container">
     <% if @quest.avancees.count != 0 %>
 
-        <h2 class="mx-36 mt-20 mb-10 pb-7 text-left text-4xl text-t-purple border-b border-gray-300">Ce que l'on sait : <%= @quest.title %></h2>
+      <h2 class="ml-36 mr-40 mt-20 mb-4 pb-3 text-left text-4xl text-t-purple border-b border-gray-300">Les avancées de la quête</h2>
 
   <!-- POST DES AVANCEES BOUCLE-->
       <div class="mx-36 border-l border-gray-300">
@@ -101,18 +102,18 @@
           <div class="flex item-center px-1 mb-3">
             <%= image_tag avancee.user.photo, class: "avatar -ml-18"%>
             <h3 class="flex pl-7 text-2xl items-center"><%= avancee.title %>
-              <p class="flex text-xs italic text-gray-800 pl-1 pt-1.5"> <%= avancee.created_at.strftime("%d %b. %Y") %></p><br>
+              <p class="flex text-xs italic text-gray-800 pl-1 pt-1.5"> <%= avancee.created_at.strftime("%d %b. %y") %></p><br>
             </h3>
           </div>
 
 
           <p class="pl-10 text-justify bg-white rounded-md p-4"><%= avancee.description %></p>
 
+          <div class="flex items-center justify-center">
           <% avancee.photos.each do |photo| %>
-          <div class="inline-flex space-x-4 p-6 center">
-              <div class="flex-1 self-center"><%= cl_image_tag photo.key, height: 300, width: 400 %></div>
-          </div>
+              <div class="p-4"><%= cl_image_tag photo.key, height: 300, width: 400 %></div>
           <% end %>
+          </div>
         </div>
         <% end %>
       </div>

@@ -11,7 +11,8 @@ module.exports = {
         't-purple': '#4A0B2E', 
       },
       spacing: {
-        '18': '4.5rem'
+        '18': '4.5rem',
+        '13': '3.25rem',
       }
     },
   },
