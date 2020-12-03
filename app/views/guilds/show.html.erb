@@ -1,4 +1,4 @@
-<div id="bg-dash" class="pb-20">
+<div id="bg-dash" class="pb-40">
 <div class="container">
 <% if current_user.is_member_of?(@guild) %>
 
@@ -10,7 +10,7 @@
         <% end %>
       <% end %>
     </h1>
-    <h1 class="text-center italic text-xl font-light text-t-purple"><%= @guild.quest.title %></h1>
+    <h1 class="text-center italic text-xl font-light text-t-purple mb-4"><%= @guild.quest.title %></h1>
 
 <!-- GRID -->
 <div class="mx-10 py-8">
