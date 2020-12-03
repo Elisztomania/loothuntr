@@ -19,7 +19,7 @@
 
 <!-- AFFICHAGE POSTS ORGA -->
   <div class="min-w-0 p-4 bg-white rounded-xl h-96 overflow-auto shadow-sm">
-    <h2 class="text-xl text-center pb-1">Les dernières publications 💌</h2>
+    <h2 class="text-xl text-center pb-1">Les dernières publications 📩</h2>
       <% @guild.posts.reverse_each do |post| %>
         <% if post.category == "orga" %>
         <div class="p-3 rounded-xl bg-gray-50 my-2" id= "<%= post.id %>">
@@ -72,7 +72,7 @@
 <!-- CARD QUEST-->
   <%= link_to quest_path(@guild.quest) do %>
     <div class="block min-w-0 p-4 bg-white rounded-xl h-44 flex items-center justify-center"
-      style="background-image:url('https://cdn.dribbble.com/users/59947/screenshots/12002099/media/35047050a52b5a57b806004e537b293b.jpg'); background-position: center; background-size: 100%; box-shadow: inset 0 0 0 100vw rgba(7, 25, 43, 0.4)">
+      style="background-image:url('https://cdn.dribbble.com/users/4654202/screenshots/9805620/media/264de0f72e19e892b1f069dd5ab11f7a.png'); background-position: center; background-size: 100%; box-shadow: inset 0 0 0 100vw rgba(7, 25, 43, 0.5)">
       <h2 class="text-xl text-white">Voir les avancées de la quête 🔥</h2>
     </div>
   <% end %>
