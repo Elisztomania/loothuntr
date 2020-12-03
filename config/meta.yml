@@ -1,4 +1,4 @@
 meta_product_name: "Loothuntr 🏴‍☠️"
 meta_title: "Loothuntr 🏴‍☠️ - L'aventure grandeur nature"
 meta_description: "LootHuntr est LA plateforme qui vous permet de découvrir des quêtes mystérieuses et excitantes, rencontrer les plus grands aventuriers de notre génération et organiser votre prochaine quête !"
-meta_image: "http://www.loothuntr.co/assets/imagebanner-c1d32082594aa033b87b3ab148cdf99bb25232c0bf5ec684aa0f7623519f904e.png" # should exist in `app/assets/images/`
+meta_image: "imagebanner.png" # should exist in `app/assets/images/`
