@@ -29,7 +29,7 @@
             <%= f.input :title, label: 'Titre'  %>
             <%= f.input :description, label: 'Description'  %>
             <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-            <div class="flex items-center"><%= f.button :submit, 'Publier cette fin de quête', class: 'button-resolved center'  %></div>
+            <div class="flex flex-col items-center mt-4 px-12"><%= f.button :submit, 'Publier cette fin de quête', class: 'button-resolved center'  %></div>
         <% end %>
       </div>
     </div>
