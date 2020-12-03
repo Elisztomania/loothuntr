@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LootHuntr</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta name="description" content="Envie de vivre une aventure incroyable ? Ne cherchez plus, LootHuntr est LA plateforme qui vous permet de découvrir des quêtes mystérieuses et excitantes, rencontrer les plus grands aventuriers de notre génération et organiser votre prochaine quête !">
+    <title><%= meta_title %></title>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <meta name="description" content="<%= meta_description %>">
 
-    <meta property="og:title" content="Loothuntr 🏴‍☠️">
-    <meta property="og:image" content="imagebanner.png">
-    <meta property="og:description" content="LootHuntr est LA plateforme qui vous permet de découvrir des quêtes mystérieuses et excitantes, rencontrer les plus grands aventuriers de notre génération et organiser votre prochaine quête !">
-    <meta property="og:site_name" content="LootHuntr"/>
+      <!-- Facebook Open Graph data -->
+      <meta property="og:title" content="<%= meta_title %>" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="<%= request.original_url %>" />
+      <meta property="og:image" content="<%= meta_image %>" />
+      <meta property="og:description" content="<%= meta_description %>" />
+      <meta property="og:site_name" content="<%= meta_title %>" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <!-- Twitter Card data -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
+      <meta name="twitter:title" content="<%= meta_title %>">
+      <meta name="twitter:description" content="<%= meta_description %>">
+      <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
+      <meta name="twitter:image:src" content="<%= meta_image %>">
 
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-     <%= favicon_link_tag asset_path('favicon.png') %>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+      <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= favicon_link_tag asset_path('favicon.png') %>
   </head>
 
 

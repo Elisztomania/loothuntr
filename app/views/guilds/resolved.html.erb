@@ -24,17 +24,16 @@
   <div class="flex flex-col items-center">
 
     <div class="max-w-lg md:p-12 my-8 shadow-2xl gradient-resolved rounded-md">
-        <div class="font-bold uppercase text-center p-1">FÉLICITATIONS VOUS AVEZ TROUVÉ LE TRÉSOR DE <%= @guild.quest.title %> 🎉
+        <div class="font-bold uppercase text-center p-1 text-3xl">FÉLICITATIONS VOUS AVEZ TROUVÉ LE TRÉSOR DE <%= @guild.quest.title %> 🎉
         </div>
 
-      <h1 class="text-md text-center ">Laisser une trace de votre découverte finale</h1>
       <div class="container font-bold pt-8">
         <%= simple_form_for [@guild, @post_new] do |f| %>
             <%= f.hidden_field :category, value: 'avancee' %>
             <%= f.input :title, label: 'Titre'  %>
             <%= f.input :description, label: 'Description'  %>
             <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-            <%= f.button :submit, 'Publier cette fin de quête', class: 'button-create-quest-orange-beige'  %>
+            <%= f.button :submit, 'Publier cette fin de quête', class: 'button-resolved'  %>
         <% end %>
       </div>
     </div>

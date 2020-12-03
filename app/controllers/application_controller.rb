@@ -8,4 +8,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:bio, :username])
   end
 
+  def default_url_options
+    { host: ENV["www.loothuntr.co"] || "localhost:3000" }
+  end
 end

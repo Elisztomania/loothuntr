@@ -4,7 +4,7 @@
       <%= link_to root_path, class: "navbar-brand toggleColour no-underline hover:no-underline font-bold text-2xl lg:text-4xl text-black" do %>
         <div class="flex w-auto space-x-2">
 
-          <h1 class="flex align-items-center"><%= image_tag "logotype_1_map.png", class: "mr-1", style: 'height:50px;width:auto;' %> LootHuntr</h1>
+          <h1 class="flex align-items-center "><%= image_tag "oui.png", class: "mr-1 ", style: 'height:50px;width:auto;' %></h1>
         </div>
       <% end %>
     </div>
@@ -25,7 +25,6 @@
             <%= image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to "Profil", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
               <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
