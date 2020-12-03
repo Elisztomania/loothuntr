@@ -1,28 +1,27 @@
-<div class="container-bird">
+<div class="container-bird ">
+  <div class="coins w-full">
 
+    <div class="bird-container bird-container--one">
+      <div class="bird bird--one"></div>
+    </div>
 
-  <div class="bird-container bird-container--one">
-    <div class="bird bird--one"></div>
-  </div>
+    <div class="bird-container bird-container--two">
+      <div class="bird bird--two"></div>
+    </div>
 
-  <div class="bird-container bird-container--two">
-    <div class="bird bird--two"></div>
-  </div>
+    <div class="bird-container bird-container--three">
+      <div class="bird bird--three"></div>
+    </div>
 
-  <div class="bird-container bird-container--three">
-    <div class="bird bird--three"></div>
-  </div>
+    <div class="bird-container bird-container--four">
+      <div class="bird bird--four"></div>
+    </div>
+    <div class="flex flex-col items-center  ">
 
-  <div class="bird-container bird-container--four">
-    <div class="bird bird--four"></div>
-  </div>
-  <div class="flex flex-col items-center">
-
-    <div class="max-w-lg md:p-12 my-10 shadow-2xl gradient-resolved rounded-md">
-        <div class="font-bold uppercase text-center p-1 text-3xl">FÉLICITATIONS VOUS AVEZ TROUVÉ LE TRÉSOR DE <%= @guild.quest.title %> 🎉
-        </div>
+      <div class="max-w-lg md:p-12 my-14 shadow-2xl rounded-md gradient-resolved">
+          <div class="font-bold text-center p-1 text-2xl">Félicitations vous avez trouvé le trésor : <%= @guild.quest.title %> 🎉
+      </div>
         <h1 class="text-md text-center ">Laisser une trace de votre découverte finale</h1>
-
       <div class="container font-bold pt-8">
         <%= simple_form_for [@guild, @post_new] do |f| %>
             <%= f.hidden_field :category, value: 'avancee' %>
@@ -35,3 +34,5 @@
     </div>
   </div>
 </div>
+
+
