@@ -25,7 +25,7 @@
 
       <% @pistes.each do |piste| %>
         <% if piste.guild == @guild %>
-        <div class="min-w-0 p-4 m-4 bg-white rounded-xl h-auto">
+        <div class="min-w-0 p-4 m-4 bg-white rounded-xl h-auto shadow-sm">
           <% i += 1 %>
             <div class="p-3 rounded-xl bg-gray-50 mb-4" id= "<%= piste.id %>">
               <div class="flex items-center pb-1">
@@ -78,12 +78,9 @@
 
 
 <!-- FIN DE BOUCLE -->
-
-    <!-- BUTTONS RETOUR
-    <div class= "autre">
-      <%= link_to "Retour au tableau de bord", guild_path(@guild), class: "btn btn-primary mt-10 mb-10" %>
+    <div class= "mx-40 mt-20 text-center">
+      <%= link_to "Tableau de bord", guild_path(@guild), class: "btn-back mx-auto lg:mx-0 font-extrabold rounded mt-20 md:my-6 py-2 px-4 w-48n no-underline" %>
     </div>
-    -->
 
 </div>
 </div>
