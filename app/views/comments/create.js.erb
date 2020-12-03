@@ -12,22 +12,3 @@ document.getElementById(post_id).querySelector('#comment_content').value=''
 // si ça marche pas, rendre le formulaire avec une erreur (content is needed -> pas obligatoire)
 
 // le j ça échappe le contenu bc c'est du js
-
-
-const listMessage = () => {
-  cleanMessagesList();
-  fetch(`${baseUrl}/481/messages`)
-    .then(response => response.json())
-    .then((data) => {
-      document.getElementById(post_id).querySelector('#comment_content').value=''
-
-      for (let i = 0; i <= 12; i += 1) {
-        const index = data.messages.length - 1 - i;
-        document.getElementById(post_id).querySelector(".comments").insertAdjacentHTML('beforeend', html)
-      }
-    });
-};
-
-btnRefresh.addEventListener(("click"), (event) => {
-  listMessage();
-});
