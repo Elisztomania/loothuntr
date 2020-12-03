@@ -34,7 +34,7 @@
             <div class="flex item-center" >
               <% quest.guild.members.each do |member| %>
                 <% if member.accepted? %>
-                <div class="flex item-center px-1"><%= image_tag member.user.photo, class: "avatar-mini"%></div>
+                <div class="flex item-center px-1"><%= cl_image_tag member.user.photo.key, class: "avatar-mini"%></div>
                 <% end %>
               <% end %>
 

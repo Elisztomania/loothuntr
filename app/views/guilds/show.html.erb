@@ -24,7 +24,7 @@
         <% if post.category == "orga" %>
         <div class="p-3 rounded-xl bg-gray-50 my-2" id= "<%= post.id %>">
           <div class="flex items-center">
-            <%= image_tag post.user.photo, class: "avatar-mini"%>
+            <%= cl_image_tag post.user.photo.key, class: "avatar-mini"%>
             <h3 class="flex text-lg pl-2 items-center"><%= post.title %>
             <p class="flex text-xxs italic text-gray-600 pl-2 pt-1"> <%= post.created_at.strftime("%d %b. %y") %></p></h3>
           </div>
@@ -106,7 +106,7 @@
           <div class="pb-4">
             <% if member.accepted == true %>
             <div class="flex items-center justify-center pb-1">
-              <p class="pr-2"><%= image_tag member.user.photo, class: "avatar-mid"%></p>
+              <p class="pr-2"><%= cl_image_tag member.user.photo.key, class: "avatar-mid"%></p>
               <p class="font-semibold"><%= member.user.username %></p>
             </div>
               <p class="text-center italic text-sm"><%= member.user.bio %></p>
@@ -130,7 +130,7 @@
       <% @guild.members.waiting.each do |member| %>
         <div class="px-4 py-2 rounded-xl bg-gray-50">
           <div class="flex items-center justify-center">
-            <%= image_tag member.user.photo, class: "avatar-mid"%>
+            <%= cl_image_tag member.user.photo.key, class: "avatar-mid"%>
             <strong><h3 class="text-lg pl-2"><%= member.user.username %></h3></strong>
           </div>
           <p class="py-1 text-justify text-center italic"><%= member.cover_letter %></p>
