@@ -48,6 +48,8 @@
                                 label: "Confirmez votre meilleur mot de passe" %>
                 </div>
 
+                <div class="champ-form"><%= f.input :photo, as: :file, required: true %></div>
+
                 <div class="flex flex-col items-center mt-4 px-12">
                   <%= f.button :submit, "Rejoindre l'aventure", class: 'button-create-quest' %>
                 </div>
