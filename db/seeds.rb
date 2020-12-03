@@ -66,7 +66,7 @@ puts 'Creating quests...'
       tresor_chouette_or.photo.attach(io: source, filename: 'chouette-or.jpg', content_type: 'image/jpg')
         tresor_chouette_or.save!
   tresor_crypto_buse = Quest.create!(title: "Le cryptogramme de la Buse", description: "Le cryptogramme de La Buse est un document crypté que l'on attribue à Olivier Levasseur, pirate connu sous le nom de La Buse. Ce document permet de localiser son fabuleux trésor. D'après la légende orale, retranscrite par de nombreux auteurs, le pirate aurait jeté son cryptogramme dans la foule juste avant de mourir pendu le 7 juillet 1730. Tout en lançant son cryptogramme vers la foule venue assister à sa pendaison, il se serait écrié « Mon trésor à qui saura le prendre… ».", location:"Chemin Cremont", resolved: false, creator: ella )
-      tresor_crypto_buse.update(latitude: 55.313052, longitude: -20.955623)
+      tresor_crypto_buse.update(latitude: -20.955623, longitude: 55.313052)
       source = File.open("app/assets/images/crypto_de_la_buse.jpg")
       tresor_crypto_buse.photo.attach(io: source, filename: 'crypto_de_la_buse.jpg', content_type: 'image/jpg')
         tresor_crypto_buse.save!
