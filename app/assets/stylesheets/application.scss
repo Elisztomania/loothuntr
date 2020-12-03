@@ -71,7 +71,17 @@ span {
   }
 
 .gradient-resolved {
-  background-image: linear-gradient(-225deg, #f3dfca 0%, #f3dfca 100%);
+  background-color: #f3dfca;
+  opacity: 0.93;
+  color: black;
+}
+
+.coins {
+  background-image: url('https://media0.giphy.com/media/Pn6bH7vXjF9ysXmzxP/giphy.gif');
+}
+
+.color-quest {
+  color: #e58457;
 }
 
 
