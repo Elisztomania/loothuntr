@@ -33,10 +33,10 @@
           <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg h-full">
             <h2 class="w-full font-bold text-xl text-gray-900 px-6 mt-4 mb-4 ">🤩 Informations clés</h2>
               <div class="text-gray-800 font-serif text-base px-13 justify-self-center">
-                 <p class="mb-1"> 📍 <%= @quest.location %> </p>
-                 <p class="mb-1"> ➡️ <%= @quest.resolved ? "Quête terminée" : "Quête en cours" %> </p>
-                 <p class="mb-1"> 👑 Créée par <%= @quest.creator.username %> </p>
-                 <p class="mb-1"> ⏰ Le <%= @quest.created_at.strftime("%d %b. %Y") %></p>
+                 <p class="mb-1"> 📍   <%= @quest.location %> </p>
+                 <p class="mb-1"> ➡️   <%= @quest.resolved ? "Quête terminée" : "Quête en cours" %> </p>
+                 <p class="mb-1"> 👑   Créée par <%= @quest.creator.username %> </p>
+                 <p class="mb-1"> ⏰   Le <%= @quest.created_at.strftime("%d %b. %Y") %></p>
               </div>
 
 

@@ -25,7 +25,7 @@
 
       <% @pistes.each do |piste| %>
         <% if piste.guild == @guild %>
-        <div class="min-w-0 p-4 m-4 bg-white rounded-xl h-auto">
+        <div class="min-w-0 p-4 m-4 bg-white rounded-xl h-auto shadow-sm">
           <% i += 1 %>
             <div class="p-3 rounded-xl bg-gray-50 mb-4" id= "<%= piste.id %>">
               <div class="flex items-center pb-1">
