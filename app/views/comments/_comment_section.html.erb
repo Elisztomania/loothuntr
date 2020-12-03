@@ -1,5 +1,5 @@
 <div class="bg-gray-100 my-1 rounded-xl p-2 flex items-center">
-  <%= image_tag comment.user.photo, class: "avatar-mini"%>
+  <%= cl_image_tag comment.user.photo.key, class: "avatar-mini"%>
   <p class="pl-2 text-sm"><%= comment.content %></p>
   <p class="flex text-xxs italic text-gray-600 pl-1"> <%= comment.created_at.strftime("%H:%M") %></p>
 </div>

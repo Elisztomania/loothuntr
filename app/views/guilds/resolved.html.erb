@@ -1,10 +1,5 @@
-
-
-
-
 <div class="container-bird ">
   <div class="coins w-full">
-
 
     <div class="bird-container bird-container--one">
       <div class="bird bird--one"></div>
@@ -26,17 +21,15 @@
       <div class="max-w-lg md:p-12 my-14 shadow-2xl rounded-md gradient-resolved">
           <div class="font-bold text-center p-1 text-2xl">Félicitations vous avez trouvé le trésor : <%= @guild.quest.title %> 🎉
       </div>
-
-        <div class="container font-bold pt-8">
-          <%= simple_form_for [@guild, @post_new] do |f| %>
-              <%= f.hidden_field :category, value: 'avancee' %>
-              <%= f.input :title, label: 'Titre' %>
-              <%= f.input :description, label: 'Description'  %>
-              <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-              <%= f.button :submit, 'Publier cette fin de quête', class: 'button-resolved'  %>
-          <% end %>
-        </div>
-
+        <h1 class="text-md text-center ">Laisser une trace de votre découverte finale</h1>
+      <div class="container font-bold pt-8">
+        <%= simple_form_for [@guild, @post_new] do |f| %>
+            <%= f.hidden_field :category, value: 'avancee' %>
+            <%= f.input :title, label: 'Titre'  %>
+            <%= f.input :description, label: 'Description'  %>
+            <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+            <div class="flex flex-col items-center mt-4 px-12"><%= f.button :submit, 'Publier cette fin de quête', class: 'button-resolved center'  %></div>
+        <% end %>
       </div>
     </div>
   </div>

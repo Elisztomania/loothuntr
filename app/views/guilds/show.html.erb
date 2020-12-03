@@ -10,7 +10,7 @@
         <% end %>
       <% end %>
     </h1>
-    <h1 class="text-center italic text-xl font-light text-gray-500"><%= @guild.quest.title %></h1>
+    <h1 class="text-center italic text-xl font-light text-t-purple"><%= @guild.quest.title %></h1>
 
 <!-- GRID -->
 <div class="mx-10 py-8">
@@ -18,13 +18,13 @@
 
 
 <!-- AFFICHAGE POSTS ORGA -->
-  <div class="min-w-0 p-4 bg-white rounded-xl h-96 overflow-auto">
-    <h2 class="text-xl text-center pb-1">Les dernières publications</h2>
+  <div class="min-w-0 p-4 bg-white rounded-xl h-96 overflow-auto shadow-sm">
+    <h2 class="text-xl text-center pb-1">Les dernières publications 📩</h2>
       <% @guild.posts.reverse_each do |post| %>
         <% if post.category == "orga" %>
         <div class="p-3 rounded-xl bg-gray-50 my-2" id= "<%= post.id %>">
           <div class="flex items-center">
-            <%= image_tag post.user.photo, class: "avatar-mini"%>
+            <%= cl_image_tag post.user.photo.key, class: "avatar-mini"%>
             <h3 class="flex text-lg pl-2 items-center"><%= post.title %>
             <p class="flex text-xxs italic text-gray-600 pl-2 pt-1"> <%= post.created_at.strftime("%d %b. %y") %></p></h3>
           </div>
@@ -43,7 +43,6 @@
                   <i class="fas fa-paper-plane"></i>
                 <% end %>
               </div>
-              <div class="btn-refresh">🔄</div>
               <% end %>
             </p>
 
@@ -73,7 +72,7 @@
 <!-- CARD QUEST-->
   <%= link_to quest_path(@guild.quest) do %>
     <div class="block min-w-0 p-4 bg-white rounded-xl h-44 flex items-center justify-center"
-      style="background-image:url('https://cdn.dribbble.com/users/59947/screenshots/12002099/media/35047050a52b5a57b806004e537b293b.jpg'); background-position: center; background-size: 100%; box-shadow: inset 0 0 0 100vw rgba(7, 25, 43, 0.4)">
+      style="background-image:url('https://cdn.dribbble.com/users/4654202/screenshots/9805620/media/264de0f72e19e892b1f069dd5ab11f7a.png'); background-position: center; background-size: 100%; box-shadow: inset 0 0 0 100vw rgba(7, 25, 43, 0.5)">
       <h2 class="text-xl text-white">Voir les avancées de la quête 🔥</h2>
     </div>
   <% end %>
@@ -83,8 +82,8 @@
 
 
 <!-- FORMULAIRE POSTS ORGA -->
-    <div class="min-w-0 px-4 py-4 bg-white rounded-xl h-96 champ-form">
-      <h2 class="text-xl text-center pb-3">Ajouter une publication</h2>
+    <div class="min-w-0 px-4 py-4 bg-white rounded-xl h-96 champ-form shadow-sm">
+      <h2 class="text-xl text-center pb-3">Ajouter une publication 🖍</h2>
 
       <div class="pt-1"><%= simple_form_for [@guild, @post_new] do |f| %>
         <%= f.hidden_field :category, value: 'orga' %>
@@ -101,13 +100,13 @@
     </div>
 
 <!-- DEBUT LISTE MEMBRES DE LA GUIDE -->
-  <div class="min-w-0 px-5 py-4 bg-white rounded-xl h-80 overflow-auto">
-    <h2 class="text-xl text-center pb-3">La guilde - <%= @guild.members.accepted.count %> <i class="fas fa-user-alt text-lg"></i></h2>
+  <div class="min-w-0 px-5 py-4 bg-white rounded-xl h-80 overflow-auto shadow-sm">
+    <h2 class="text-xl text-center pb-3">La guilde - <%= @guild.members.accepted.count %> 👫 </h2>
         <% @guild.members.each do |member| %>
           <div class="pb-4">
             <% if member.accepted == true %>
             <div class="flex items-center justify-center pb-1">
-              <p class="pr-2"><%= image_tag member.user.photo, class: "avatar-mid"%></p>
+              <p class="pr-2"><%= cl_image_tag member.user.photo.key, class: "avatar-mid"%></p>
               <p class="font-semibold"><%= member.user.username %></p>
             </div>
               <p class="text-center italic text-sm"><%= member.user.bio %></p>
@@ -121,7 +120,7 @@
 
 <!-- DEBUT CANDIDATURES POUR REJOINDRE VISIBLE QUE PAR CREATOR -->
     <% if @guild.creator == current_user && @guild.members.waiting.present? %>
-    <div class="min-w-0 p-4 -mt-12 bg-white rounded-xl h-auto overflow-auto col-end-3 col-span-1">
+    <div class="min-w-0 p-4 -mt-13 bg-white rounded-xl h-auto overflow-auto col-end-3 col-span-1 shadow-sm">
       <% if @guild.members.waiting.count > 1 %>
         <h2 class="text-xl text-center">Ils veulent rejoindre votre guilde</h2>
       <% else %>
@@ -131,7 +130,7 @@
       <% @guild.members.waiting.each do |member| %>
         <div class="px-4 py-2 rounded-xl bg-gray-50">
           <div class="flex items-center justify-center">
-            <%= image_tag member.user.photo, class: "avatar-mid"%>
+            <%= cl_image_tag member.user.photo.key, class: "avatar-mid"%>
             <strong><h3 class="text-lg pl-2"><%= member.user.username %></h3></strong>
           </div>
           <p class="py-1 text-justify text-center italic"><%= member.cover_letter %></p>
@@ -154,7 +153,7 @@
 <% if @guild.quest.resolved == false %>
 <div class="mx-40 text-center transform hover:scale-110 motion-reduce:transform-none hover:opacity-100">
   <% if current_user == @guild.creator %>
-    <%= link_to 'Le trésor a été trouvé', quest_resolved_path(@guild), class: "btn-find mx-auto lg:mx-0 font-extrabold rounded mt-20 md:my-6 py-2 px-4 w-48n no-underline hover:text-white" %>
+    <%= link_to 'Le trésor a été trouvé', quest_resolved_path(@guild), class: "btn-find text-xl mx-auto lg:mx-0 font-medium rounded mt-20 md:my-6 py-2 px-4 w-48n no-underline hover:text-white hover:bg-yellow-400" %>
   <% end %>
 </div>
 <% end %>
