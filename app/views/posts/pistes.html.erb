@@ -11,6 +11,18 @@
     </div>
 
     <% i = 0 %>
+    <% c = 0 %>
+
+    <% @pistes.each do |piste| %>
+      <% if piste.guild == @guild %>
+      <% c += 1 %>
+      <% end %>
+    <% end %>
+    <% if c == 0 %>
+        <center class= "mb-10"><%= image_tag "no_piste.png", width: 500, crop: :fill %></center>
+    <% else %>
+
+
       <% @pistes.each do |piste| %>
         <% if piste.guild == @guild %>
         <div class="min-w-0 p-4 m-4 bg-white rounded-xl h-auto">
@@ -62,6 +74,8 @@
 
         <% end %>
       <% end %>
+    <% end %>
+
 
 <!-- FIN DE BOUCLE -->
 
