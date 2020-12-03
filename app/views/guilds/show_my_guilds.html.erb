@@ -11,7 +11,7 @@
     <% if current_user.is_member_of?(quest.guild) %>
 
     <li class="group transition-transform duration-200 transform sm:hover:-translate-y-1 inline-grid item-center">
-      <div class="relative flex-shrink-0">
+      <div class="relative">
 
         <%= link_to guild_path(quest.guild) do %>
         <% if quest.photo.attached? %>
