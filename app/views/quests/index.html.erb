@@ -2,11 +2,11 @@
 <div class="gradient leading-relaxed tracking-wide flex flex-col space-y-0">
     <div class="container mt-8">
       <div class="text-center px-3 lg:px-0">
-        <h1 class="my-4 text-2xl md:text-3xl lg:text-5xl font-black leading-tight"> Retrouvez toutes nos dernières quêtes</h1>
-        <p class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-16"> Vous avez une quête en tête ? N'attendez plus, ajoutez la sur LootHuntr !</p>
+        <h1 class="mt-4 mb-8 text-2xl md:text-3xl lg:text-5xl font-black leading-tight"> Retrouvez toutes les quêtes</h1>
+        <p class="leading-normal text-gray-800 text-base md:text-xl lg:text-xl mb-10"> Vous avez une quête en tête ? N'attendez plus !</p>
 
         <button>
-         <%= link_to 'Créer une super quête', new_quest_path(@quest), class:"mx-auto lg:mx-0 text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48 no-underline hover:text-white hover-button" %>
+         <%= link_to 'Créer une super quête', new_quest_path(@quest), class:"mx-auto lg:mx-0 text-gray-900 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48 no-underline hover:text-white hover-button" %>
         </button>
 
          <div class="mt-4 place-self-center items-center img-banner-index-quest flex items-center">
@@ -22,7 +22,7 @@
 <!-- CARDS DEBUT -->
 <div class="container mb-40 mt-20">
   <div class="max-w-4xl mx-auto">
-    <h2 class="text-center text-3xl sm:text-4xl mt-8 sm:mt-16 text-gray-800 mb-4 leading-tight">Choisissez la quête qui vous excitera le plus !</h2>
+    <h2 class="text-center text-3xl sm:text-4xl mt-8 sm:mt-16 text-black mb-4 leading-tight">Choisissez la quête qui vous excitera le plus !</h2>
   </div>
 
   <ul class="my-8 sm:my-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="text_decoration_card_quest">

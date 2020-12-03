@@ -120,7 +120,7 @@
 
 <!-- DEBUT CANDIDATURES POUR REJOINDRE VISIBLE QUE PAR CREATOR -->
     <% if @guild.creator == current_user && @guild.members.waiting.present? %>
-    <div class="min-w-0 p-4 -mt-12 bg-white rounded-xl h-auto overflow-auto col-end-3 col-span-1 shadow-sm">
+    <div class="min-w-0 p-4 -mt-13 bg-white rounded-xl h-auto overflow-auto col-end-3 col-span-1 shadow-sm">
       <% if @guild.members.waiting.count > 1 %>
         <h2 class="text-xl text-center">Ils veulent rejoindre votre guilde</h2>
       <% else %>
@@ -153,7 +153,7 @@
 <% if @guild.quest.resolved == false %>
 <div class="mx-40 text-center transform hover:scale-110 motion-reduce:transform-none hover:opacity-100">
   <% if current_user == @guild.creator %>
-    <%= link_to 'Le trésor a été trouvé', quest_resolved_path(@guild), class: "btn-find mx-auto lg:mx-0 font-extrabold rounded mt-20 md:my-6 py-2 px-4 w-48n no-underline hover:text-white" %>
+    <%= link_to 'Le trésor a été trouvé', quest_resolved_path(@guild), class: "btn-find text-xl mx-auto lg:mx-0 font-medium rounded mt-20 md:my-6 py-2 px-4 w-48n no-underline hover:text-white hover:bg-yellow-400" %>
   <% end %>
 </div>
 <% end %>
