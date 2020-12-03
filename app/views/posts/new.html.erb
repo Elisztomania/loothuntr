@@ -8,11 +8,11 @@
               <h3 class="font-bold text-3xl mt-4">Créer une nouvelle piste</h3>
           </div>
 
-      <div class="flex my-4 mx-4 items-center justify-center">
+      <div class="flex my-2 mx-2 items-center justify-center">
 
 
   <%= simple_form_for [@guild, @post] do |f| %>
-  <form class="flex flex-col" method="POST" action="#">
+  <form class="flex flex-col w-3/4" method="POST" action="#">
     <div class=" border-black-100 rounded w-full text-black-900 focus:outline-none focus:border-purple-600 transition duration-500 p-1 mb-1 champ-form">
         <%= f.hidden_field :category, value: 'piste' %>
     </div>
@@ -29,7 +29,7 @@
 
 
       <!--     <% if @post.new_record? %> -->
-        <%= f.button :submit, 'Créer', class: 'button-create-quest'   %>
+        <%= f.button :submit, 'Publier', class: 'button-create-quest'   %>
       <!--    <% end %> -->
     </div>
   <% end %>
