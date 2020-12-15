@@ -6,4 +6,5 @@ class Member < ApplicationRecord
 
   scope :accepted, -> { where(accepted: true) }
   scope :waiting, -> { where(accepted: false) }
+
 end
