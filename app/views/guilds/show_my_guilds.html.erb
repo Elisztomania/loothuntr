@@ -32,19 +32,16 @@
         </span></div>
             <p class=" text-gray-900 text-sm leading-tight my-1"><strong><%= quest.guild.name %></strong><em> - <%= quest.title %></em></p>
             <div class="flex item-center" >
-              <% candidats = 0 %>
               <% quest.guild.members.each do |member| %>
                 <% if member.accepted? %>
                 <div class="flex item-center px-1"><%= cl_image_tag member.user.photo.key, class: "avatar-mini"%></div>
-                <% elsif !member.accepted? %>
-                  <% candidats += 1 %>
                 <% end %>
               <% end %>
             </div>
-            <% if candidats == 0 %>
+            <% if quest.guild.candidats == 0 %>
               <%= '' %>
             <% elsif current_user == quest.creator %>
-              <%= candidats %>
+              <%= quest.guild.candidats %>
             <% end %>
         <% end %>
         </div>

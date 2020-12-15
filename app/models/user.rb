@@ -22,4 +22,13 @@ class User < ApplicationRecord
   def has_apply_to?(guild)
     guilds_applier.include?(guild)
   end
+
+  def notifs
+    guilds = Guild.all
+    sum = 0
+    guilds.each do |guild|
+      self == guild.creator ? sum += guild.candidats : sum
+    end
+    sum
+  end
 end

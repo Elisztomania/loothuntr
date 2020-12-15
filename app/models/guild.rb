@@ -14,4 +14,8 @@ class Guild < ApplicationRecord
   def create_membership_for_creator
     Member.create(guild: self, user: creator, accepted: true, cover_letter: "c'est moi qui l'ait fait")
   end
+
+  def candidats
+    Member.where(guild: self, accepted: false).count
+  end
 end
