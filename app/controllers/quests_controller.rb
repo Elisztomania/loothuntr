@@ -3,7 +3,18 @@ class QuestsController < ApplicationController
   before_action :set_quest, only: [:show, :edit, :update]
 
   def index
-    @quests = Quest.all
+    @guilds = Guild.all
+    @quests = Quest.joins(:guild).where(guilds: { id: @guilds.pluck(:id) })
+    if params[:query].present?
+      sql_query = " \
+        quests.title ILIKE :query \
+        OR guilds.name ILIKE :query \
+        OR quests.location ILIKE :query \
+      "
+      @quests = Quest.joins(:guild).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @quests = Quest.all
+    end
   end
 
   def new

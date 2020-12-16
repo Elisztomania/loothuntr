@@ -19,11 +19,25 @@
 
 <!-- BANNER FIN -->
 
-<!-- CARDS DEBUT -->
+
 <div class="container mb-40 mt-20">
-  <div class="max-w-4xl mx-auto">
+
+  <!--  <div class="max-w-4xl mx-auto">
     <h2 class="text-center text-3xl sm:text-4xl mt-8 sm:mt-16 text-black mb-4 leading-tight">Découvrez votre prochaine quête !</h2>
-  </div>
+  </div> -->
+
+<!-- SEARCH BAR -->
+    <%= form_tag quests_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Nom de quête, de guilde ou de ville"
+      %>
+      <%= submit_tag "Chercher", class: "btn btn-dash" %>
+    <% end %>
+
+
+<!-- CARDS DEBUT -->
 
   <ul class="my-8 sm:my-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="text_decoration_card_quest">
 
@@ -47,12 +61,22 @@
 
       <div class="relative px-4 -mt-12 text-left">
         <div class="bg-white rounded-lg px-4 py-3 transition duration-200 sm:group-hover:shadow-2xl shadow-md">
-          <div class="text-xs text-gray-600 font-semibold"><span class="uppercase"><% if quest.resolved %>
+          <div class="text-xs text-gray-600 font-semibold"><% if quest.resolved %>
             <p><i class="far fa-check-circle"></i> TERMINEE</p>
           <% else %>
             <p class="text-yellow-400"><i class="far fa-clock"></i> EN COURS</p>
           <% end %>
-            <h1 class="truncate text-gray-900 font-bold text-lg leading-tight my-1"><%= quest.title %></h1>
+            <h1 class="truncate text-gray-900 font-bold text-lg leading-tight my-1 uppercase"><%= quest.title %></h1>
+            <p class="text-gray-900 text-sm leading-tight my-1 italic">
+              <% if quest.guild != nil %>
+                <%= quest.guild.name %>
+              <% else %>
+                <%= "Aucune guilde" %>
+              <% end %>
+            </p>
+
+
+
             <div class="m-3" >
               <button class="text-white-800 font-bold rounded border-b-2 border-white-500 hover:border-white-600 hover:bg-white-500 hover:text-black shadow-md py-2 px-6 inline-flex items-center" id="button_card_quest">
                 <span class="mr-2">Découvrir</span>
