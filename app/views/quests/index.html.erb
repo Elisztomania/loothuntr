@@ -22,21 +22,22 @@
 
 <div class="container mb-40 mt-20">
 
+  <!--  <div class="max-w-4xl mx-auto">
+    <h2 class="text-center text-3xl sm:text-4xl mt-8 sm:mt-16 text-black mb-4 leading-tight">Découvrez votre prochaine quête !</h2>
+  </div> -->
+
 <!-- SEARCH BAR -->
     <%= form_tag quests_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",
-        placeholder: "Nom de quête, de guilde ou ville"
+        placeholder: "Nom de quête, de guilde ou de ville"
       %>
       <%= submit_tag "Chercher", class: "btn btn-dash" %>
     <% end %>
 
 
 <!-- CARDS DEBUT -->
-  <div class="max-w-4xl mx-auto">
-    <h2 class="text-center text-3xl sm:text-4xl mt-8 sm:mt-16 text-black mb-4 leading-tight">Découvrez votre prochaine quête !</h2>
-  </div>
 
   <ul class="my-8 sm:my-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="text_decoration_card_quest">
 
