@@ -1,31 +1,16 @@
 .card-info-marker {
   display: flex;
   justify-content: space-around;
-  padding-top: 8px;
-  color: gray;
-
-  .fas {
-    color: #F2A918;
-  }
+  padding-top: 10px;
+//   color: gray;
 }
 
 .mapboxgl-popup-content {
-  border-radius: 15px;
-  padding: 0px;
-  background-color: rgb(46,46,46);
+//   border-radius: 15px;
+//   padding: 0px;
   box-shadow: 7px 9px 23px 5px rgba(255,255,255,0.11);
+  text-align: center;
+//   font-family: 'Open Sans', sans-serif;
 }
 
-.mapboxgl-popup-tip {
-  // background-color: rgb(46,46,46);
-  border-bottom-color: rgb(46,46,46) !important;
-}
 
-// .mapboxgl-marker {
-//   background-image: url('map-point.png');
-//   background-size: cover;
-//   width: 50px;
-//   height: 50px;
-//   border-radius: 50%;
-//   cursor: pointer;
-// }
