@@ -1,14 +1,14 @@
 <p><%= link_to quest_path(quest) do %>
-  <% if quest.photo.attached? %>
-  <div class="">
-      <%= cl_image_tag quest.photo.key%>
+  <div class="container p-0">
+    <div class="picture-map">
+    <% if quest.photo.attached? %>
+        <%= cl_image_tag quest.photo.key, height: 250, width: 350, crop: :fill%>
+    <% else %>
+
+        <%= image_tag "coins_map.jpg", height: 250, width: 350, crop: :fill %>
+    <% end %>
+    </div>
   </div>
-  <% else %>
-    <div class="">
-      <%= image_tag "coins.jpg" %>
-    </div>
-  <% end %>
-    </div>
   <div class="card-info-marker">
     <p><%= quest.title %></p>
   </div>
