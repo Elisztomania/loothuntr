@@ -15,10 +15,19 @@
           <li class="nav-item active">
             <%= link_to "Quêtes", quests_path, class: "nav-link inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" %>
           </li>
-          <li class="nav-item active">
-            <%= link_to "Mes guildes", myguilds_path, class: "nav-link inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" %>
-            <%= current_user.notifs %>
+          <li class="nav-item active flex">
+            <%= link_to "Mes guildes", myguilds_path, class: "nav-link inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 pl-4" %>
+
+            <!-- notifs -->
+            <div class="h-4 w-4 bg-base-orange rounded-full text-xxs font-bold text-center text-white -ml-2 mr-4">
+              <% if current_user.notifs == 0 %>
+                <%= " " %>
+              <% else %>
+                <%= current_user.notifs %>
+              <% end %>
+            </div>
           </li>
+
           <li class="nav-item">
             <%= link_to current_user.username, "#", class: "nav-link" %>
           </li>

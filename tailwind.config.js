@@ -8,7 +8,8 @@ module.exports = {
       },
       colors: {
         'beige-la': '#f3dfca',
-        't-purple': '#4A0B2E', 
+        't-purple': '#4A0B2E',
+        'base-orange': '#de6c52', 
       },
       spacing: {
         '18': '4.5rem',
