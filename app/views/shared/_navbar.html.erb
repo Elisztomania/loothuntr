@@ -17,6 +17,7 @@
           </li>
           <li class="nav-item active">
             <%= link_to "Mes guildes", myguilds_path, class: "nav-link inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" %>
+            <%= current_user.notifs %>
           </li>
           <li class="nav-item">
             <%= link_to current_user.username, "#", class: "nav-link" %>

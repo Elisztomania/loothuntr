@@ -37,8 +37,12 @@
                 <div class="flex item-center px-1"><%= cl_image_tag member.user.photo.key, class: "avatar-mini"%></div>
                 <% end %>
               <% end %>
-
             </div>
+            <% if quest.guild.candidats == 0 %>
+              <%= '' %>
+            <% elsif current_user == quest.creator %>
+              <%= quest.guild.candidats %>
+            <% end %>
         <% end %>
         </div>
       </div>
