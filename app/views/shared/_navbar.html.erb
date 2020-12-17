@@ -20,7 +20,9 @@
 
             <!-- notifs -->
               <% if current_user.notifs == 0 %>
+              <div class="h-4 w-4 bg-white rounded-full text-white -ml-2 mr-4">
                 <%= " " %>
+              </div>
               <% else %>
               <div class="h-4 w-4 bg-base-orange rounded-full text-xxs font-bold text-center text-white -ml-2 mr-4">
                 <%= current_user.notifs %>
