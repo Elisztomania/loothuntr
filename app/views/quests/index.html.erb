@@ -6,7 +6,7 @@
         <p class="leading-normal text-gray-800 text-base md:text-xl lg:text-xl mb-10"> Vous avez une quête en tête ? N'attendez plus !</p>
 
         <button>
-         <%= link_to 'Créer une super quête', new_quest_path(@quest), class:"mx-auto lg:mx-0 text-gray-900 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48 no-underline hover:text-white hover-button" %>
+         <%= link_to 'Créer une quête', new_quest_path(@quest), class:"mx-auto lg:mx-0 text-gray-900 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48 no-underline hover:text-white hover-button" %>
         </button>
 
          <div class="mt-10 place-self-center items-center img-banner-index-quest flex items-center">
@@ -27,18 +27,21 @@
   </div> -->
 
 <!-- SEARCH BAR -->
-  <div class="ml-20 items-center champ-form">
+  <div class="text-center champ-form">
     <%= form_tag quests_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
-        class: "inline-block form-control w-10/12 py-2.5 text-sm border-gray-300 rounded-md",
+        class: "inline-block form-control w-6/12 py-3.5 text-sm border-gray-300 rounded-md",
         placeholder: "Nom de quête, de guilde ou de ville"
       %>
-      <%= submit_tag "Chercher", class: "inline-block btn btn-dash rounded-sm ml-1" %>
+      <%= button_tag type: 'submit', class: "inline-block ml-1 text-lg text-bright-orange" do %>
+        <i class="fas fa-search"></i>
+      <% end %>
     <% end %>
   </div>
 
-
+<!-- inline-block form-control w-6/12 py-2.5 text-sm border-gray-300 rounded-full -->
+<!--  inline-block btn btn-dash rounded-full ml-2 p-2 text-sm -->
 <!-- CARDS DEBUT -->
 
   <ul class="my-8 sm:my-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="text_decoration_card_quest">
@@ -76,11 +79,11 @@
                 <%= "Aucune guilde" %>
               <% end %>
             </p>
+          </div>
 
 
-
-            <div class="m-3" >
-              <button class="text-white-800 font-bold rounded border-b-2 border-white-500 hover:border-white-600 hover:bg-white-500 hover:text-black shadow-md py-2 px-6 inline-flex items-center" id="button_card_quest">
+            <div class="mx-3 mt-3 mb-1">
+              <button class="text-white-800 font-bold rounded border-white-500 hover:border-white-600 hover:bg-white-500 hover:text-black shadow-md py-2 px-6 inline-flex items-center" id="button_card_quest">
                 <span class="mr-2">Découvrir</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <path fill="currentcolor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
@@ -88,7 +91,7 @@
               </button>
             </div>
 
-        </div>
+
       </div>
     </li>
     <% end %>
