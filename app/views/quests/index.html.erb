@@ -27,14 +27,16 @@
   </div> -->
 
 <!-- SEARCH BAR -->
+  <div class="ml-20 items-center champ-form">
     <%= form_tag quests_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
-        class: "form-control",
+        class: "inline-block form-control w-10/12 py-2.5 text-sm border-gray-300 rounded-md",
         placeholder: "Nom de quête, de guilde ou de ville"
       %>
-      <%= submit_tag "Chercher", class: "btn btn-dash" %>
+      <%= submit_tag "Chercher", class: "inline-block btn btn-dash rounded-sm ml-1" %>
     <% end %>
+  </div>
 
 
 <!-- CARDS DEBUT -->
