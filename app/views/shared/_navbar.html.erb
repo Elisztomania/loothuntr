@@ -24,11 +24,10 @@
                 <%= " " %>
               </div>
               <% else %>
-              <div class="h-4 w-4 bg-base-orange rounded-full text-xxs font-bold text-center text-white -ml-2 mr-4">
+              <div class="animate-bounce h-4 w-4 bg-base-orange rounded-full text-xxs font-bold text-center text-white -ml-2 mr-4">
                 <%= current_user.notifs %>
               </div>
               <% end %>
-          </li>
 
           <li class="nav-item">
             <%= link_to current_user.username, "#", class: "nav-link" %>
