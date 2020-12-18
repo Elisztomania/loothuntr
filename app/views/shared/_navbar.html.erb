@@ -13,20 +13,34 @@
 </div>
 
 <!-- ONGLETS QUAND CONNECTE-->
-<label for="menu-toggle" class="pointer-cursor lg:hidden block"><img class="rounded-full w-10 h-10 border-2 border-transparent" src="https://pbs.twimg.com/profile_images/1128143121475342337/e8tkhRaz_normal.jpg" width="20" height="20" viewBox="0 0 20 20"><title>menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></img></label>
+      <% if user_signed_in? %>
+
+<label for="menu-toggle" class="pointer-cursor lg:hidden block">
+  <img>
+      <%= image_tag "user-default.jpg", class: "avatar rounded-full w-10 h-10 border-2 border-transparent dropdown-toggle" %>
+  <title>menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></img></label>
 <input class="hidden" type="checkbox" id="menu-toggle" />
 
 <div class="hidden lg:flex lg:items-center lg:w-auto w-full" id="menu">
   <nav>
   <ul class="lg:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0 mr-auto">
-    <% if user_signed_in? %>
-        <li class="nav-item active lg:p-4 py-3 px-0 block border-b-2 border-transparent ">
-          <%= link_to "Quêtes", quests_path, class: "nav-link inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" %>
+
+        <li class="nav-item dropdown">
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "user-default.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
+
+  <!-- DROPDOWN CLICK SUR AVATAR-->
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Profil", "#", class: "dropdown-item" %>
+            <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
         </li>
 
-        <li class="nav-item active flex lg:p-4 py-3 px-0 block border-b-2 border-transparent">
-          <%= link_to "Mes guildes", myguilds_path, class: "nav-link inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 pl-4" %>
-          <!-- notifs -->
+        <a class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><%= link_to "Quêtes", quests_path %></a>
+        <a class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><%= link_to "Mes guildes", myguilds_path %>
           <% if current_user.notifs == 0 %>
             <div class="h-4 w-4 bg-white rounded-full text-white -ml-2 mr-4">
               <%= " " %>
@@ -36,22 +50,25 @@
               <%= current_user.notifs %>
             </div>
           <% end %>
-        </li>
-
-        <% end %>
-
-
-        <a class="lg:p-4 py-3 px-2 block border-b-2 border-transparent" href="#">Features</a>
+        </a>
+        <a class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><%= link_to current_user.username, "#" %></a>
 
       </li>
-      <li><a class="lg:p-4 py-3 px-2 block border-b-2 border-transparent" href="#">Pricing</a></li>
-      <li><a class="lg:p-4 py-3 px-2 block border-b-2 border-transparent" href="#">Documentation</a></li>
-      <li><a class="lg:p-4 py-3 px-2 block border-b-2 border-transparent" href="#">Support</a></li>
+
     </ul>
   </nav>
-  <a href="#" class="lg:p-4 py-3 px-0 block border-b-2 border-transparent pointer-cursor">
-    <img class="rounded-full w-10 h-10 border-2 border-transparent" src="https://pbs.twimg.com/profile_images/1128143121475342337/e8tkhRaz_normal.jpg" alt="Andy Leverenz">
-  </a>
+<!--   <a href="#" class="lg:p-4 py-3 px-0 block border-b-2 border-transparent pointer-cursor">
+    <% if current_user.photo.attached? %>
+      <%= cl_image_tag current_user.photo.key, class: "avatar rounded-full w-10 h-10 border-2 border-transparent dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <% else %>
+      <%= image_tag "user-default.jpg", class: "avatar rounded-full w-10 h-10 border-2 border-transparent dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <% end %>
+  </a> -->
 
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Se connecter", new_user_session_path, class: "nav-link mx-auto lg:mx-0 text-gray-800 font-extrabold rounded lg:mt-0 py-4 px-8 shadow opacity-75" %>
+        </li>
+      <% end %>
 </div>
 
