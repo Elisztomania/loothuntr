@@ -1,10 +1,13 @@
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-    <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 lg:bg-transparent text-black p-1 lg:p-0 z-20 bg-gray-100" >
+    <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block lg:mt-0 lg:bg-transparent text-black p-1 lg:p-0 z-20 bg-gray-100" >
     <div class="pl-4 flex items-center"></div>
       <%= link_to root_path, class: "navbar-brand toggleColour no-underline hover:no-underline font-bold text-2xl lg:text-4xl text-black" do %>
         <div class="flex w-auto space-x-2">
 
-          <h1 class="flex align-items-center "><%= image_tag "oui.png", class: "mr-1 ", style: 'height:50px;width:auto;' %></h1>
+          <div class="flex align-items-center ">
+            <%= image_tag "pirate.svg", class: "", style: 'height:50px;width:auto;' %>
+            <%= image_tag "logo.png", class: "mr-1", style: 'height:50px;width:auto;' %>
+          </div>
         </div>
       <% end %>
     </div>
@@ -24,11 +27,10 @@
                 <%= " " %>
               </div>
               <% else %>
-              <div class="h-4 w-4 bg-base-orange rounded-full text-xxs font-bold text-center text-white -ml-2 mr-4">
+              <div class="animate-bounce h-4 w-4 bg-base-orange rounded-full text-xxs font-bold text-center text-white -ml-2 mr-4">
                 <%= current_user.notifs %>
               </div>
               <% end %>
-          </li>
 
           <li class="nav-item">
             <%= link_to current_user.username, "#", class: "nav-link" %>
