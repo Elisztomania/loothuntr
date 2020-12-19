@@ -91,13 +91,13 @@
   <div class="container">
     <% if @quest.avancees.count != 0 %>
 
-      <h2 class="ml-36 mr-40 mt-20 mb-4 pb-3 text-left text-4xl text-t-purple border-b border-gray-300">Les avancées de la quête</h2>
+      <h2 class="lg:ml-36 lg:mr-40 lg:mt-20 pt-10 mb-4 pb-3 text-left text-4xl text-t-purple border-b border-gray-300">Les avancées de la quête</h2>
 
   <!-- POST DES AVANCEES BOUCLE-->
-      <div class="mx-36 border-l border-gray-300">
+      <div class="lg:mx-36 border-l border-gray-300">
 
         <% @quest.avancees.each do |avancee| %>
-        <div class="mb-6 ml-6 px-6 min-w-0 pb-4">
+        <div class="lg:mb-6 lg:ml-6 lg:px-6 lg:min-w-0 lg:pb-4">
 
           <div class="flex item-center px-1 mb-3">
             <%= cl_image_tag avancee.user.photo.key, class: "avatar -ml-18"%>
