@@ -12,7 +12,8 @@
 <!-- ONGLETS QUAND CONNECTE-->
 <% if user_signed_in? %>
 
-  <label for="menu-toggle" class="pointer-cursor block">
+
+  <label for="menu-toggle" class="pointer-cursor block lg:hidden">
     <img>
       <% if current_user.photo.attached? %>
         <%= cl_image_tag current_user.photo.key, class: "avatar rounded-full w-10 h-10 mt-3 border-transparent dropdown-toggle" %>
@@ -26,25 +27,31 @@
 
 
 
+
 <div class="hidden lg:flex lg:items-center lg:w-auto w-full" id="menu">
   <nav>
-  <ul class="lg:flex items-center justify-between text-base text-gray-700 pt-2 lg:pt-0 mr-auto">
+  <ul class="lg:flex items-center justify-between text-base text-gray-700 pt-1 lg:pt-0 mr-auto">
 
         <a class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><%= link_to "Quêtes", quests_path %></a>
         <a class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><%= link_to "Mes guildes", myguilds_path %>
           <% if current_user.notifs == 0 %>
-            <div class="h-4 w-4 bg-white rounded-full text-white -ml-2 mr-4">
-              <%= " " %>
+            <div class="h-4 w-4 bg-white rounded-full text-white ml-1">
+              <%= "" %>
             </div>
           <% else %>
-            <div class="h-4 w-4 bg-base-orange rounded-full text-xxs font-bold text-center text-white -ml-2">
-              <%= current_user.notifs %>
+            <div class="h-4 w-4 bg-base-orange rounded-full text-xxs font-bold text-center text-white mb-2 ml-1">
+              <p class="-mt-0.5"><%= current_user.notifs %></p>
             </div>
           <% end %>
         </a>
-        <a class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><bold><%= link_to current_user.username, "#" %></bold></a>
-        <a class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></a>
+        <a class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><%= link_to current_user.username, "#" %></a>
+        <a class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><em><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></em></a>
 
+        <% if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key, class: "avatar rounded-full w-10 h-10 ml-3 border-transparent dropdown-toggle hidden lg:inline" %>
+        <% else %>
+          <%= image_tag "user-default.jpg", class: "avatar rounded-full w-10 h-10 ml-3 border-transparent dropdown-toggle hidden lg:inline" %>
+        <% end %>
     </ul>
   </nav>
 
