@@ -1,59 +1,68 @@
-  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-    <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block lg:mt-0 lg:bg-transparent text-black p-1 lg:p-0 z-20 bg-gray-100" >
-    <div class="pl-4 flex items-center"></div>
-      <%= link_to root_path, class: "navbar-brand toggleColour no-underline hover:no-underline font-bold text-2xl lg:text-4xl text-black" do %>
-        <div class="flex w-auto space-x-2">
-
+<div class="flex-1 flex items-center">
+  <!-- LOGO -->
+  <a>
+    <%= link_to root_path, class: "navbar-brand toggleColour no-underline hover:no-underline font-bold text-2xl lg:text-4xl text-black" do %>
+      <div class="flex w-auto space-x-2">
           <div class="flex align-items-center ">
             <%= image_tag "pirate.svg", class: "", style: 'height:50px;width:auto;' %>
             <%= image_tag "logo.png", class: "mr-1", style: 'height:50px;width:auto;' %>
           </div>
-        </div>
+      </div>
+    <% end %>
+  </a>
+</div>
+
+<!-- ONGLETS QUAND CONNECTE-->
+<% if user_signed_in? %>
+
+
+  <label for="menu-toggle" class="pointer-cursor block lg:hidden">
+    <img>
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, class: "avatar rounded-full w-10 h-10 mt-3 border-transparent dropdown-toggle" %>
+      <% else %>
+        <%= image_tag "user-default.jpg", class: "avatar rounded-full w-10 h-10 mt-3 border-transparent dropdown-toggle" %>
       <% end %>
-    </div>
+      <title>menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+    </img>
+  </label>
+  <input class="hidden" type="checkbox" id="menu-toggle" />
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Quêtes", quests_path, class: "nav-link inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" %>
-          </li>
-          <li class="nav-item active flex">
-            <%= link_to "Mes guildes", myguilds_path, class: "nav-link inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 pl-4" %>
 
-            <!-- notifs -->
-              <% if current_user.notifs == 0 %>
-              <div class="h-4 w-4 bg-white rounded-full text-white -ml-2 mr-4">
-                <%= " " %>
-              </div>
-              <% else %>
-              <div class="animate-bounce h-4 w-4 bg-base-orange rounded-full text-xxs font-bold text-center text-white -ml-2 mr-4">
-                <%= current_user.notifs %>
-              </div>
-              <% end %>
 
-          <li class="nav-item">
-            <%= link_to current_user.username, "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-            <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% else %>
-              <%= image_tag "user-default.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% end %>
 
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "Profil", "#", class: "dropdown-item" %>
-              <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+<div class="hidden lg:flex lg:items-center lg:w-auto w-full" id="menu">
+  <nav>
+  <ul class="lg:flex items-center justify-between text-base text-gray-700 pt-1 lg:pt-0 mr-auto">
+
+        <a class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><%= link_to "Quêtes", quests_path %></a>
+        <a class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><%= link_to "Mes guildes", myguilds_path %>
+          <% if current_user.notifs == 0 %>
+            <div class="h-4 w-4 bg-white rounded-full text-white ml-1">
+              <%= "" %>
             </div>
-          </li>
+          <% else %>
+            <div class="h-4 w-4 bg-base-orange rounded-full text-xxs font-bold text-center text-white mb-2 ml-1">
+              <p class="-mt-0.5"><%= current_user.notifs %></p>
+              
+            </div>
+          <% end %>
+        </a>
+        <a class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><%= link_to current_user.username, "#" %></a>
+        <a class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><em><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></em></a>
+
+        <% if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key, class: "avatar rounded-full w-10 h-10 ml-3 border-transparent dropdown-toggle hidden lg:inline" %>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Se connecter", new_user_session_path, class: "nav-link mx-auto lg:mx-0 hover:underline text-gray-800 font-extrabold rounded lg:mt-0 py-4 px-8 shadow opacity-75" %>
-          </li>
+          <%= image_tag "user-default.jpg", class: "avatar rounded-full w-10 h-10 ml-3 border-transparent dropdown-toggle hidden lg:inline" %>
         <% end %>
-      </ul>
-    </div>
-  </div>
+    </ul>
+  </nav>
+
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Se connecter", new_user_session_path, class: "nav-link mx-auto lg:mx-0 text-gray-800 font-extrabold rounded lg:mt-0 py-4 px-8 shadow opacity-75" %>
+        </li>
+      <% end %>
 </div>
 

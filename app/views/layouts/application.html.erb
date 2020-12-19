@@ -26,11 +26,17 @@
       <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
       <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= favicon_link_tag asset_path('favicon.png') %>
+
+      <style>
+        #menu-toggle:checked + #menu {
+          display: block;
+        }
+      </style>
   </head>
 
 
-  <body class="flex flex-col min-h-screen">
-    <header>
+  <body class="flex flex-col min-h-screen antialiased bg-gray-200">
+    <header class="lg:px-16 px-6 bg-white flex flex-wrap items-center lg:py-0">
      <%= render 'shared/navbar' %>
     </header>
 
