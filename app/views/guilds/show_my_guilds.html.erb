@@ -27,7 +27,7 @@
           <% if quest.guild.candidats == 0 %>
                 <%= '' %>
               <% elsif current_user == quest.creator %>
-                <div class="absolute -top-1 right-4 h-5 w-5 bg-base-orange rounded-full text-center text-white shadow">
+                <div class="animate-bounce absolute -top-1 right-4 h-5 w-5 bg-base-orange rounded-full text-center text-white shadow">
                 <div class="mt-0.5 text-xs font-bold"><%= quest.guild.candidats %></div>
                 </div>
               <% end %>
