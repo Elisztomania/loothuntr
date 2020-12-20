@@ -1,11 +1,11 @@
 <div class="flex-1 flex items-center">
   <!-- LOGO -->
   <a>
-    <%= link_to root_path, class: "navbar-brand toggleColour no-underline hover:no-underline font-bold text-2xl lg:text-4xl text-black" do %>
+    <%= link_to root_path, class: "navbar-brand toggleColour no-underline hover:no-underline font-bold text-2xl lg:text-4xl text-black lg:ml-3" do %>
       <div class="flex w-auto space-x-2">
           <div class="flex align-items-center ">
-            <%= image_tag "pirate.svg", class: "", style: 'height:50px;width:auto;' %>
-            <%= image_tag "logo.png", class: "mr-1", style: 'height:50px;width:auto;' %>
+            <%= image_tag "pirate.svg", class: "", style: 'height:48px;width:auto;' %>
+            <%= image_tag "logo.png", class: "mr-1", style: 'height:48px;width:auto;' %>
           </div>
       </div>
     <% end %>
@@ -35,34 +35,43 @@
   <nav>
   <ul class="lg:flex items-center justify-between text-base text-gray-700 pt-1 lg:pt-0 mr-auto">
 
-        <a class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><%= link_to "Quêtes", quests_path %></a>
-        <a class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><%= link_to "Mes guildes", myguilds_path %>
+        <p class="lg:p-4 py-3 px-2 block border-b-2 border-transparent hover:text-black"><%= link_to "Quêtes", quests_path, class: "hover:text-black" %></p>
+        <p class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><%= link_to "Mes guildes", myguilds_path, class: "hover:text-black" %>
           <% if current_user.notifs == 0 %>
             <div class="h-4 w-4 bg-white rounded-full text-white ml-1">
               <%= "" %>
             </div>
           <% else %>
-            <div class="h-4 w-4 bg-base-orange rounded-full text-xxs font-bold text-center text-white mb-2 ml-1">
-              <p class="-mt-0.5"><%= current_user.notifs %></p>
-              
+            <div class="h-4 w-4 bg-base-orange rounded-full text-xxs font-bold text-center text-white mb-3 -ml-1 mr-1">
+              <p class="-mt-1"><%= current_user.notifs %></p>
+
             </div>
           <% end %>
-        </a>
-        <a class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><%= link_to current_user.username, "#" %></a>
-        <a class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><em><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></em></a>
+        </p>
+        <p class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><%= link_to current_user.username, "#", class: "hover:text-black" %></p>
+        <div class="lg:hidden pl-2"><a class="py-3 px-2 block border-b-2 border-transparent"><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "hover:text-black" %></a></div>
 
+        <li class="nav-item dropdown hidden lg:inline">
         <% if current_user.photo.attached? %>
-          <%= cl_image_tag current_user.photo.key, class: "avatar rounded-full w-10 h-10 ml-3 border-transparent dropdown-toggle hidden lg:inline" %>
+          <%= cl_image_tag current_user.photo.key, class: "avatar rounded-full w-10 h-10 ml-3 border-transparent dropdown-toggle hidden lg:inline", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% else %>
-          <%= image_tag "user-default.jpg", class: "avatar rounded-full w-10 h-10 ml-3 border-transparent dropdown-toggle hidden lg:inline" %>
+          <%= image_tag "user-default.jpg", class: "avatar rounded-full w-10 h-10 ml-3 border-transparent dropdown-toggle hidden lg:inline", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
+
+  <!-- DROPDOWN CLICK SUR AVATAR EN LG-->
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Profil", "#", class: "dropdown-item" %>
+            <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+
     </ul>
   </nav>
 
       <% else %>
-        <li class="nav-item">
-          <%= link_to "Se connecter", new_user_session_path, class: "nav-link mx-auto lg:mx-0 text-gray-800 font-extrabold rounded lg:mt-0 py-4 px-8 shadow opacity-75" %>
-        </li>
+        <p class="nav-item">
+          <%= link_to "Se connecter", new_user_session_path, class: "nav-link my-2 text-gray-800 font-extrabold rounded lg:mr-4 lg:py-4 lg:px-8 shadow opacity-75 hover:text-black" %>
+        </p>
       <% end %>
 </div>
 

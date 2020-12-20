@@ -20,8 +20,8 @@
       <!--Lead Card-->
       <div class="flex h-full bg-white rounded-md overflow-hidden shadow-lg">
 
-        <div class="w-full md:w-1/2 rounded-t group transition-transform duration-200 transform sm:hover:-translate-y-1">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg h-full">
+        <div class="block lg:w-full md:w-1/2 rounded-t group transition-transform duration-200 transform sm:hover:-translate-y-1">
+          <div class="block flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg h-full">
             <h2 class="w-full font-bold text-xl text-black px-6 mt-4 mb-4">🤔 Description</h2>
             <p class="text-gray-900 font-serif text-base px-13 mb-5 ">
               <%= @quest.description %>
@@ -29,14 +29,14 @@
           </div>
         </div>
 
-        <div class="w-full md:w-1/2 rounded-t group transition-transform duration-200 transform sm:hover:-translate-y-1">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg h-full">
+        <div class="block lg:w-full md:w-1/2 rounded-t group transition-transform duration-200 transform sm:hover:-translate-y-1">
+          <div class="block flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg h-full">
             <h2 class="w-full font-bold text-xl text-black px-6 mt-4 mb-4 ">🤩 Informations clés</h2>
               <div class="text-gray-900 font-serif text-base px-13 justify-self-center">
-                <div class="flex"><p class="mr-2"> 📍 </p><p class="mb-2"> <%= @quest.location %> </p></div>
-                <div class="flex"><p class="mr-2"> ➡️ <p class="mb-2">  <%= @quest.resolved ? "Quête terminée" : "Quête en cours" %> </p></div>
-                <div class="flex"><p class="mr-2"> 👑 <p class="mb-2">  Créée par <%= @quest.creator.username %> </p></div>
-                <div class="flex"><p class="mr-2"> ⏰ <p class="mb-2"> Le <%= @quest.created_at.strftime("%d %b. %Y") %></p></div>
+                <div class="flex"><p class="lg:mr-2"> 📍 </p><p class="mb-2"> <%= @quest.location %> </p></div>
+                <div class="flex"><p class="lg:mr-2"> ➡️ <p class="mb-2">  <%= @quest.resolved ? "Quête terminée" : "Quête en cours" %> </p></div>
+                <div class="flex"><p class="lg:mr-2"> 👑 <p class="mb-2">  Créée par <%= @quest.creator.username %> </p></div>
+                <div class="flex"><p class="lg:mr-2"> ⏰ <p class="mb-2"> Le <%= @quest.created_at.strftime("%d %b. %Y") %></p></div>
               </div>
 
 
@@ -72,6 +72,7 @@
           <p>Pas de guilde active sur la quête</p>
       <% end %>
     </div>
+
     <!--  EDIT QUEST -->
               <div class="text-right mx-8 mb-4 text-base">
                 <% if current_user != nil && current_user == @quest.creator %>
@@ -91,13 +92,13 @@
   <div class="container">
     <% if @quest.avancees.count != 0 %>
 
-      <h2 class="ml-36 mr-40 mt-20 mb-4 pb-3 text-left text-4xl text-t-purple border-b border-gray-300">Les avancées de la quête</h2>
+      <h2 class="lg:ml-36 lg:mr-40 lg:mt-20 pt-10 mb-4 pb-3 text-left text-4xl text-t-purple border-b border-gray-300">Les avancées de la quête</h2>
 
   <!-- POST DES AVANCEES BOUCLE-->
-      <div class="mx-36 border-l border-gray-300">
+      <div class="lg:mx-36 border-l border-gray-300">
 
         <% @quest.avancees.each do |avancee| %>
-        <div class="mb-6 ml-6 px-6 min-w-0 pb-4">
+        <div class="lg:mb-6 lg:ml-6 lg:px-6 lg:min-w-0 lg:pb-4">
 
           <div class="flex item-center px-1 mb-3">
             <%= cl_image_tag avancee.user.photo.key, class: "avatar -ml-18"%>
