@@ -35,8 +35,8 @@
   <nav>
   <ul class="lg:flex items-center justify-between text-base text-gray-700 pt-1 lg:pt-0 mr-auto">
 
-        <p class="lg:p-4 py-3 px-2 block border-b-2 border-transparent hover:text-black"><%= link_to "Quêtes", quests_path %></p>
-        <p class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><%= link_to "Mes guildes", myguilds_path %>
+        <p class="lg:p-4 py-3 px-2 block border-b-2 border-transparent hover:text-black"><%= link_to "Quêtes", quests_path, class: "hover:text-black" %></p>
+        <p class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><%= link_to "Mes guildes", myguilds_path, class: "hover:text-black" %>
           <% if current_user.notifs == 0 %>
             <div class="h-4 w-4 bg-white rounded-full text-white ml-1">
               <%= "" %>
@@ -48,8 +48,8 @@
             </div>
           <% end %>
         </p>
-        <p class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><%= link_to current_user.username, "#" %></p>
-        <div class="lg:hidden"><a class="py-3 px-2 block border-b-2 border-transparent"><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></a></div>
+        <p class="lg:p-4 py-3 px-2 block border-b-2 border-transparent"><%= link_to current_user.username, "#", class: "hover:text-black" %></p>
+        <div class="lg:hidden"><a class="py-3 px-2 block border-b-2 border-transparent"><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "hover:text-black" %></a></div>
 
         <li class="nav-item dropdown hidden lg:inline">
         <% if current_user.photo.attached? %>
