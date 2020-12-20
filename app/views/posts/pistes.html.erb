@@ -6,7 +6,7 @@
 
   <h2 class="text-center pt-16 pb-8 text-2xl">Les pistes pour la quête <em><%= @guild.quest.title %></em></h2>
 
-    <div class="mx-40 text-center py-4">
+    <div class="lg:mx-40 text-center lg:py-4 -mx-16">
       <%= link_to "Explorer une nouvelle piste", new_guild_post_path(@guild), class: "btn-rejoindre font-extrabold rounded mt-10 mb-10 py-2 px-4" %>
     </div>
 
@@ -25,7 +25,7 @@
 
       <% @pistes.each do |piste| %>
         <% if piste.guild == @guild %>
-        <div class="min-w-0 p-4 m-4 bg-white rounded-xl h-auto shadow-sm">
+        <div class="min-w-0 lg:p-4 lg:m-4 mt-4 -mx-16 bg-white rounded-xl h-auto shadow-sm">
           <% i += 1 %>
             <div class="p-3 rounded-xl bg-gray-50 mb-4" id= "<%= piste.id %>">
               <div class="flex items-center pb-1">
@@ -63,7 +63,7 @@
 
           </div>
 
-              <div class="">
+              <div class="pr-3 pb-1">
                 <% if piste.category == 'piste' %>
                   <div class="mt-2 items-right"><%= link_to "Poster l'avancée", new_avancee_from_post_post_path(piste), class: "btn btn-dash"  %></div>
                 <% elsif piste.category == 'piste_publiee' %>
@@ -78,7 +78,7 @@
 
 
 <!-- FIN DE BOUCLE -->
-    <div class= "mx-40 mt-20 text-center">
+    <div class= "lg:mx-40 -mx-6 mt-20 text-center">
       <%= link_to "Tableau de bord", guild_path(@guild), class: "btn-back mx-auto lg:mx-0 font-extrabold rounded mt-20 md:my-6 py-2 px-4 w-48n no-underline" %>
     </div>
 
