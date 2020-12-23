@@ -11,6 +11,7 @@ module.exports = {
         't-purple': '#4A0B2E',
         'base-orange': '#de6c52', 
         'bright-orange': '#ed6449',
+        'cool-yellow': '#F59E0B'
       },
       spacing: {
         '18': '4.5rem',
