@@ -30,8 +30,8 @@
             <div class="p-3 rounded-xl bg-gray-50 mb-4" id= "<%= piste.id %>">
               <div class="flex items-center pb-1">
                 <%= cl_image_tag piste.user.photo.key, class: "avatar-mini"%>
-                <h3 class="flex text-lg pl-2 items-center">Piste n°<%= i %> : <%= piste.title %>
-                <p class="flex text-xxs italic text-gray-600 pl-2 pt-1"> <%= piste.created_at.strftime("%d %b. %y") %></p></h3>
+                <h3 class="md:flex lg:text-lg text-base pl-2 items-center">Piste n°<%= i %> : <%= piste.title %>
+                <p class="md:flex text-xxs italic text-gray-600 md:pl-2 md:pt-1"> <%= piste.created_at.strftime("%d %b. %y") %></p></h3>
               </div>
                 <p class="px-2 text-justify"><%= piste.description %></p>
 
@@ -65,7 +65,7 @@
 
               <div class="pr-3 pb-1">
                 <% if piste.category == 'piste' %>
-                  <div class="mt-2 items-right"><%= link_to "Poster l'avancée", new_avancee_from_post_post_path(piste), class: "btn btn-dash"  %></div>
+                  <div class="my-2 ml-3 items-right"><%= link_to "Poster l'avancée", new_avancee_from_post_post_path(piste), class: "btn btn-dash"  %></div>
                 <% elsif piste.category == 'piste_publiee' %>
                   <p class= "text-lg text-right italic text-t-purple">Avancée déjà publiée 🏴‍☠️</p>
                 <% end %>
