@@ -92,18 +92,18 @@
   <div class="container">
     <% if @quest.avancees.count != 0 %>
 
-      <h2 class="lg:ml-36 lg:mr-40 lg:mt-20 pt-10 mb-4 pb-3 text-left text-4xl text-t-purple border-b border-gray-300">Les avancées de la quête</h2>
+      <h2 class="text-left text-l text-t-purple border-b border-gray-300 pt-10 mb-4 pb-3 lg:ml-36 lg:mr-40 lg:mt-20 lg:text-4xl ">Les avancées de la quête</h2>
 
   <!-- POST DES AVANCEES BOUCLE-->
       <div class="lg:mx-36 border-l border-gray-300">
 
         <% @quest.avancees.each do |avancee| %>
-        <div class="lg:mb-6 lg:ml-6 lg:px-6 lg:min-w-0 lg:pb-4">
+        <div class="mx-4 lg:mb-6 lg:ml-6 lg:px-6 lg:min-w-0 pb-4">
 
-          <div class="flex item-center px-1 mb-3">
-            <%= cl_image_tag avancee.user.photo.key, class: "avatar -ml-18"%>
-            <h3 class="flex pl-7 text-2xl items-center"><%= avancee.title %>
-              <p class="flex text-xs italic text-gray-800 pl-1 pt-1.5"> <%= avancee.created_at.strftime("%d %b. %y") %></p><br>
+          <div class="flex lg-item-center lg-px-1 mb-3">
+            <%= cl_image_tag avancee.user.photo.key, class: "avatar lg:-ml-18 -ml-10"%>
+            <h3 class="flex items-center ml-4 text-l lg:pl-7 lg:text-2xl "><%= avancee.title %>
+              <p class="flex italic text-gray-800 pl-1 pt-1.5 text-xxs lg:text-xs "> <%= avancee.created_at.strftime("%d %b. %y") %></p><br>
             </h3>
           </div>
 
