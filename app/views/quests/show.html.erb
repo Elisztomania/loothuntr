@@ -18,9 +18,9 @@
       <div class="bg-white-200 w-full text-xl md:text-2xl text-gray-900 leading-normal rounded-t">
 
       <!--Lead Card-->
-      <div class="flex h-full bg-white rounded-md overflow-hidden shadow-lg">
+      <div class="md:flex h-full bg-white rounded-md overflow-hidden shadow-lg">
 
-        <div class="block lg:w-full md:w-1/2 rounded-t group transition-transform duration-200 transform sm:hover:-translate-y-1">
+        <div class="block w-full md:w-1/2 rounded-t group transition-transform duration-200 transform sm:hover:-translate-y-1">
           <div class="block flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg h-full">
             <h2 class="w-full font-bold text-xl text-black px-6 mt-4 mb-4">🤔 Description</h2>
             <p class="text-gray-900 font-serif text-base px-13 mb-5 ">
@@ -29,14 +29,14 @@
           </div>
         </div>
 
-        <div class="block lg:w-full md:w-1/2 rounded-t group transition-transform duration-200 transform sm:hover:-translate-y-1">
+        <div class="block w-full md:w-1/2 rounded-t group transition-transform duration-200 transform sm:hover:-translate-y-1">
           <div class="block flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg h-full">
             <h2 class="w-full font-bold text-xl text-black px-6 mt-4 mb-4 ">🤩 Informations clés</h2>
               <div class="text-gray-900 font-serif text-base px-13 justify-self-center">
-                <div class="flex"><p class="lg:mr-2"> 📍 </p><p class="mb-2"> <%= @quest.location %> </p></div>
-                <div class="flex"><p class="lg:mr-2"> ➡️ <p class="mb-2">  <%= @quest.resolved ? "Quête terminée" : "Quête en cours" %> </p></div>
-                <div class="flex"><p class="lg:mr-2"> 👑 <p class="mb-2">  Créée par <%= @quest.creator.username %> </p></div>
-                <div class="flex"><p class="lg:mr-2"> ⏰ <p class="mb-2"> Le <%= @quest.created_at.strftime("%d %b. %Y") %></p></div>
+                <div class="flex"><p class="mr-2"> 📍 </p><p class="mb-2"> <%= @quest.location %> </p></div>
+                <div class="flex"><p class="mr-2"> ➡️ <p class="mb-2">  <%= @quest.resolved ? "Quête terminée" : "Quête en cours" %> </p></div>
+                <div class="flex"><p class="mr-2"> 👑 <p class="mb-2">  Créée par <%= @quest.creator.username %> </p></div>
+                <div class="flex"><p class="mr-2"> ⏰ <p class="mb-2"> Le <%= @quest.created_at.strftime("%d %b. %Y") %></p></div>
               </div>
 
 
@@ -62,7 +62,7 @@
         <% elsif current_user != nil && !current_user.has_apply_to?(@quest.guild) %>
           <p class="text-lg font-semibold mt-8 mb-4"> Guilde active sur la quête : <%= @quest.guild.name %> </p>
           <!-- <p class="italic mb-8"> « <%=@quest.guild.description  %> »</p> -->
-          <%= link_to "Postuler pour les rejoindre", new_guild_member_path(@quest.guild), class: "btn-rejoindre mx-auto lg:mx-0 font-extrabold rounded mt-20 md:my-6 py-2 px-4 w-48n no-underline" %>
+          <%= link_to "Postuler pour les rejoindre", new_guild_member_path(@quest.guild), class: "text-xs text-white bg-t-purple font-extrabold rounded mt-20 md:my-6 py-2 px-4 no-underline hover:text-white hover:bg-pinky" %>
         <% end %>
 
       <% elsif @quest.creator == current_user %>
@@ -92,7 +92,7 @@
   <div class="container">
     <% if @quest.avancees.count != 0 %>
 
-      <h2 class="text-left text-l text-t-purple border-b border-gray-300 pt-10 mb-4 pb-3 lg:ml-36 lg:mr-40 lg:mt-20 lg:text-4xl ">Les avancées de la quête</h2>
+      <h2 class="text-left text-l text-t-purple border-b border-gray-300 pt-10 mb-4 pb-3 lg:ml-36 lg:mr-40 lg:mt-20 md:text-4xl">Les avancées de la quête</h2>
 
   <!-- POST DES AVANCEES BOUCLE-->
       <div class="lg:mx-36 border-l border-gray-300">
@@ -126,12 +126,12 @@
   <!-- Code de la team BACK -->
 
 <% else %>
-  <h2 class="m-5 p-5 text-center text-xl"><%= @quest.title %> n'a pas encore d'avancée, rejoignez sa guilde pour trouver le trésor !</h2>
+  <h2 class=" text-lg m-5 text-center lg:p-5 lg:text-xl"><%= @quest.title %> n'a pas encore d'avancée, rejoignez sa guilde pour trouver le trésor !</h2>
   <center class= "mb-10"><%= image_tag 'no_avancee_background.png', width: 500 %></center>
 <% end %>
 
 <!-- RETOUR TOUTES LES QUESTS -->
-<div class="mx-40 my-20 text-center">
+<div class="my-20 text-center lg:mx-40">
   <%= link_to 'Retour', quests_path, class: "btn-back mx-auto lg:mx-0 font-extrabold rounded mt-20 md:my-6 py-2 px-4 w-48n no-underline" %>
 </div>
 
