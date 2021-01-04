@@ -56,8 +56,8 @@
 
         <% elsif current_user != nil && current_user.is_member_of?(@quest.guild) %>
           <p class="text-lg font-semibold mt-10 mb-4"> Guilde active sur la quête : <%= @quest.guild.name %> </p>
-          <!-- <p class="italic mb-10">« <%=@quest.guild.description  %> »</p> -->
-          <%= link_to "Tableau de bord de guilde", guild_path(@quest.guild), class: "btn-dash mx-auto lg:mx-0 font-extrabold rounded mt-20 md:my-6 py-2 px-4 w-48n no-underline" %>
+          <p class="italic mb-10">« <%=@quest.guild.description  %> »</p>
+          <%= link_to "Tableau de bord de guilde", guild_path(@quest.guild), class: "text-xs text-white bg-t-purple font-extrabold rounded mt-20 md:my-6 py-2 px-4 no-underline hover:text-white hover:bg-pinky" %>
 
         <% elsif current_user != nil && !current_user.has_apply_to?(@quest.guild) %>
           <p class="text-lg font-semibold mt-8 mb-4"> Guilde active sur la quête : <%= @quest.guild.name %> </p>
@@ -101,7 +101,7 @@
         <div class="mx-4 lg:mb-6 lg:ml-6 lg:px-6 lg:min-w-0 pb-4">
 
           <div class="flex lg-item-center lg-px-1 mb-3">
-            <%= cl_image_tag avancee.user.photo.key, class: "avatar lg:-ml-18 -ml-10"%>
+            <%= cl_image_tag avancee.user.photo.key, class: "avatar lg:-ml-17 -ml-10"%>
             <h3 class="flex items-center ml-4 text-l lg:pl-7 lg:text-2xl "><%= avancee.title %>
               <p class="flex italic text-gray-800 pl-1 pt-1.5 text-xxs lg:text-xs "> <%= avancee.created_at.strftime("%d %b. %y") %></p><br>
             </h3>
