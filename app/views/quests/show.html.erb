@@ -57,7 +57,7 @@
         <% elsif current_user != nil && current_user.is_member_of?(@quest.guild) %>
           <p class="text-lg font-semibold mt-10 mb-4"> Guilde active sur la quête : <%= @quest.guild.name %> </p>
           <p class="italic mb-10">« <%=@quest.guild.description  %> »</p>
-          <%= link_to "Tableau de bord de guilde", guild_path(@quest.guild), class: "text-xs text-white bg-t-purple font-extrabold rounded mt-20 md:my-6 py-2 px-4 no-underline hover:text-white hover:bg-pinky" %>
+          <%= link_to "Tableau de bord de guilde", guild_path(@quest.guild), class: "text-xxs md:text-xs text-white bg-t-purple font-extrabold rounded mt-20 md:my-6 py-2 px-4 no-underline hover:text-white hover:bg-pinky" %>
 
         <% elsif current_user != nil && !current_user.has_apply_to?(@quest.guild) %>
           <p class="text-lg font-semibold mt-8 mb-4"> Guilde active sur la quête : <%= @quest.guild.name %> </p>
